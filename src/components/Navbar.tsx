@@ -143,12 +143,12 @@ export default function Navbar() {
           exit={{ opacity: 0, y: -20 }}
           className="absolute top-full left-0 right-0 glass-panel border-t border-white/10 p-6 flex flex-col space-y-4 md:hidden max-h-[80vh] overflow-y-auto"
         >
-          <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium">Home</Link>
+          <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-primary">Home</Link>
           
           <div className="flex flex-col">
             <button 
               onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)} 
-              className="flex items-center justify-between w-full text-lg font-medium"
+              className="flex items-center justify-between w-full text-lg font-medium text-primary"
             >
               Services <ChevronDown size={20} className={cn("transition-transform", isMobileServicesOpen && "rotate-180")} />
             </button>
@@ -160,13 +160,13 @@ export default function Navbar() {
                   exit={{ height: 0, opacity: 0 }}
                   className="overflow-hidden flex flex-col gap-3 pl-4 mt-4 border-l border-white/10"
                 >
-                  <Link to="/services" onClick={() => setIsMobileMenuOpen(false)} className="text-base text-white/90 font-medium">All Services</Link>
+                  <Link to="/services" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-primary">All Services</Link>
                   {servicesList.map(s => (
                     <Link 
                       key={s.id} 
                       to={`/services/${s.id}`} 
                       onClick={() => setIsMobileMenuOpen(false)} 
-                      className="text-base text-white/60 hover:text-white transition-colors"
+                      className="text-base text-primary/80 hover:text-primary transition-colors"
                     >
                       {s.title}
                     </Link>
@@ -176,8 +176,8 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          <Link to="/work" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium">Work</Link>
-          <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium">About</Link>
+          <Link to="/work" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-primary">Work</Link>
+          <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-primary">About</Link>
           <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-primary pt-4 border-t border-white/10">Get Consultation</Link>
         </motion.div>
       )}
