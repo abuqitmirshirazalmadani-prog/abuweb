@@ -54,13 +54,13 @@ export default function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        <Link to="/" className="text-2xl font-heading font-bold tracking-tight text-white dark:text-white light:text-black">
+        <Link to="/" className="text-2xl font-heading font-bold tracking-tight text-[var(--text)]">
           Abu Qitmir
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="text-sm font-medium text-white/70 hover:text-white transition-colors">
+          <Link to="/" className="text-sm font-medium text-[var(--text-muted)] hover:text-primary transition-colors">
             Home
           </Link>
           
@@ -69,7 +69,7 @@ export default function Navbar() {
             onMouseEnter={() => setIsServicesDropdownOpen(true)}
             onMouseLeave={() => setIsServicesDropdownOpen(false)}
           >
-            <Link to="/services" className="flex items-center gap-1 text-sm font-medium text-white/70 hover:text-white transition-colors py-2">
+            <Link to="/services" className="flex items-center gap-1 text-sm font-medium text-[var(--text-muted)] hover:text-primary transition-colors py-2">
               Services <ChevronDown size={14} className={cn("transition-transform duration-300", isServicesDropdownOpen && "rotate-180")} />
             </Link>
             <AnimatePresence>
@@ -79,13 +79,13 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-full left-0 mt-2 w-56 glass-panel rounded-xl p-2 flex flex-col gap-1 shadow-2xl border border-white/10"
+                  className="absolute top-full left-0 mt-2 w-56 bg-[var(--elevated)] rounded-xl p-2 flex flex-col gap-1 shadow-2xl border border-[var(--border)]"
                 >
                   {servicesList.map(s => (
                     <Link 
                       key={s.id} 
                       to={`/services/${s.id}`} 
-                      className="px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+                      className="px-4 py-2 text-sm text-[var(--text-muted)] hover:text-[var(--text)] hover:bg-[var(--glass)] rounded-lg transition-colors"
                       onClick={() => setIsServicesDropdownOpen(false)}
                     >
                       {s.title}
@@ -96,28 +96,28 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          <Link to="/work" className="text-sm font-medium text-white/70 hover:text-white transition-colors">
+          <Link to="/work" className="text-sm font-medium text-[var(--text-muted)] hover:text-primary transition-colors">
             Work
           </Link>
-          <Link to="/about" className="text-sm font-medium text-white/70 hover:text-white transition-colors">
+          <Link to="/about" className="text-sm font-medium text-[var(--text-muted)] hover:text-primary transition-colors">
             About
           </Link>
           
-          <div className="flex items-center space-x-4 pl-4 border-l border-white/10">
-            <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-white/10 transition-colors">
+          <div className="flex items-center space-x-4 pl-4 border-l border-[var(--border)]">
+            <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-[var(--glass)] transition-colors">
               {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
             <a 
               href="https://wa.me/923233260859" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-2 rounded-full hover:bg-white/10 transition-colors text-primary"
+              className="p-2 rounded-full hover:bg-[var(--glass)] transition-colors text-primary"
             >
               <MessageCircle size={18} />
             </a>
             <Link 
               to="/contact" 
-              className="px-6 py-2.5 rounded-full bg-white text-black font-medium text-sm hover:scale-105 transition-transform glow-primary"
+              className="px-6 py-2.5 rounded-full bg-primary text-black font-medium text-sm hover:scale-105 transition-transform glow-primary"
             >
               Get Consultation
             </Link>
@@ -126,7 +126,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <div className="md:hidden flex items-center space-x-4">
-          <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-white/10 transition-colors">
+          <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-[var(--glass)] transition-colors">
             {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
           <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2">
@@ -141,14 +141,14 @@ export default function Navbar() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="absolute top-full left-0 right-0 glass-panel border-t border-white/10 p-6 flex flex-col space-y-4 md:hidden max-h-[80vh] overflow-y-auto"
+          className="absolute top-full left-0 right-0 bg-[var(--bg)] border-t border-[var(--border)] p-6 flex flex-col space-y-4 md:hidden max-h-[80vh] overflow-y-auto shadow-2xl z-50"
         >
-          <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-primary">Home</Link>
+          <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-[var(--text-muted)] hover:text-primary transition-colors">Home</Link>
           
           <div className="flex flex-col">
             <button 
               onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)} 
-              className="flex items-center justify-between w-full text-lg font-medium text-primary"
+              className="flex items-center justify-between w-full text-lg font-medium text-[var(--text-muted)] hover:text-primary transition-colors"
             >
               Services <ChevronDown size={20} className={cn("transition-transform", isMobileServicesOpen && "rotate-180")} />
             </button>
@@ -158,15 +158,15 @@ export default function Navbar() {
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  className="overflow-hidden flex flex-col gap-3 pl-4 mt-4 border-l border-white/10"
+                  className="overflow-hidden flex flex-col gap-3 pl-4 mt-4 border-l border-[var(--border)]"
                 >
-                  <Link to="/services" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-primary">All Services</Link>
+                  <Link to="/services" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-[var(--text-muted)] hover:text-primary transition-colors">All Services</Link>
                   {servicesList.map(s => (
                     <Link 
                       key={s.id} 
                       to={`/services/${s.id}`} 
                       onClick={() => setIsMobileMenuOpen(false)} 
-                      className="text-base text-primary/80 hover:text-primary transition-colors"
+                      className="text-base text-[var(--text-muted)] hover:text-primary transition-colors"
                     >
                       {s.title}
                     </Link>
@@ -176,9 +176,9 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          <Link to="/work" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-primary">Work</Link>
-          <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-primary">About</Link>
-          <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-primary pt-4 border-t border-white/10">Get Consultation</Link>
+          <Link to="/work" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-[var(--text-muted)] hover:text-primary transition-colors">Work</Link>
+          <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-[var(--text-muted)] hover:text-primary transition-colors">About</Link>
+          <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="mt-4 px-6 py-3 rounded-full bg-primary text-black font-medium text-center hover:scale-105 transition-transform glow-primary">Get Consultation</Link>
         </motion.div>
       )}
     </motion.nav>
