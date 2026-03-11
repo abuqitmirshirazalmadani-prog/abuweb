@@ -94,7 +94,7 @@ export default function Home() {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "abuqitmir.tech",
+    "name": "Abuqitmir.tech",
     "image": "https://qitmirtechsolution.com/logo.png",
     "@id": "https://qitmirtechsolution.com",
     "url": "https://qitmirtechsolution.com",
@@ -286,7 +286,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-gradient">Why Choose abuqitmir.tech</h2>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-gradient">Why Choose Abuqitmir.tech</h2>
               <p className="text-lg text-white/60 mb-8 leading-relaxed">
                 We don't just write code; we build scalable digital assets. Our approach combines engineering excellence with strategic business acumen.
               </p>

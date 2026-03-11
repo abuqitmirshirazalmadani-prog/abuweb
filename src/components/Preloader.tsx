@@ -45,7 +45,7 @@ export default function Preloader() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="mb-8 text-2xl font-heading font-bold tracking-widest text-white uppercase"
             >
-              abuqitmir.tech
+              Abuqitmir.tech
             </motion.div>
 
             {/* Progress Line */}

@@ -93,7 +93,7 @@ export default function ServiceDetail() {
   return (
     <>
       <SEO 
-        title={`${service.title} | abuqitmir.tech`}
+        title={`${service.title} | Abuqitmir.tech`}
         description={service.description}
         canonical={`https://qitmirtechsolution.com/services/${id}`}
       />
