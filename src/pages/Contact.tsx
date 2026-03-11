@@ -56,8 +56,8 @@ export default function Contact() {
   return (
     <>
       <SEO 
-        title="Contact Us | Abu Qitmir" 
-        description="Get in touch with Abu Qitmir for scalable, secure tech solutions. We serve clients globally across Pakistan, USA, UK & Europe."
+        title="Contact Us | abuqitmir.tech" 
+        description="Get in touch with abuqitmir.tech for scalable, secure tech solutions. We serve clients globally across Pakistan, USA, UK & Europe."
         canonical="https://qitmirtechsolution.com/contact"
       />
 

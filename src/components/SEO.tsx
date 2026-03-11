@@ -8,7 +8,7 @@ interface SEOProps {
 }
 
 export default function SEO({ title, description, canonical, schema }: SEOProps) {
-  const siteName = "Abu Qitmir";
+  const siteName = "abuqitmir.tech";
   const fullTitle = `${title} | ${siteName}`;
 
   return (

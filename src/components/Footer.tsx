@@ -12,7 +12,7 @@ export default function Footer() {
         {/* About */}
         <div className="space-y-6">
           <Link to="/" className="text-2xl font-heading font-bold tracking-tight text-white">
-            Abu Qitmir
+            abuqitmir.tech
           </Link>
           <p className="text-sm text-white/60 leading-relaxed">
             We design, build, and scale secure high-performance software, websites, mobile apps, and AI systems for ambitious global businesses.
@@ -55,7 +55,7 @@ export default function Footer() {
             <li><Link to="/work" className="text-sm text-white/60 hover:text-white transition-colors">Our Work</Link></li>
             <li><Link to="/process" className="text-sm text-white/60 hover:text-white transition-colors">Our Process</Link></li>
             <li><Link to="/contact" className="text-sm text-white/60 hover:text-white transition-colors">Contact</Link></li>
-            <li><a href="https://www.google.com/search?q=Abu+Qitmir" target="_blank" rel="noopener noreferrer" className="text-sm text-white/60 hover:text-white transition-colors">Google Business Profile</a></li>
+            <li><a href="https://www.google.com/search?q=abuqitmir.tech" target="_blank" rel="noopener noreferrer" className="text-sm text-white/60 hover:text-white transition-colors">Google Business Profile</a></li>
           </ul>
         </div>
 
@@ -81,7 +81,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between">
         <p className="text-xs text-white/40 mb-4 md:mb-0">
-          © {new Date().getFullYear()} Abu Qitmir. All rights reserved.
+          © {new Date().getFullYear()} abuqitmir.tech. All rights reserved.
         </p>
         <div className="flex space-x-6">
           <Link to="/privacy" className="text-xs text-white/40 hover:text-white transition-colors">Privacy Policy</Link>

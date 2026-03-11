@@ -55,7 +55,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         <Link to="/" className="text-2xl font-heading font-bold tracking-tight text-[var(--text)]">
-          Abu Qitmir
+          abuqitmir.tech
         </Link>
 
         {/* Desktop Menu */}
