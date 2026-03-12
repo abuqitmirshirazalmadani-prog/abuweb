@@ -4,7 +4,7 @@ interface SEOProps {
   title: string;
   description: string;
   canonical?: string;
-  schema?: object;
+  schema?: Record<string, any> | Record<string, any>[];
 }
 
 export default function SEO({ title, description, canonical, schema }: SEOProps) {

@@ -53,12 +53,29 @@ export default function Contact() {
     setFormData(prev => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://qitmirtechsolution.com/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Contact",
+      "item": "https://qitmirtechsolution.com/contact"
+    }]
+  };
+
   return (
     <>
       <SEO 
         title="Contact Us | Abuqitmir.tech" 
         description="Get in touch with Abuqitmir.tech for scalable, secure tech solutions. We serve clients globally across Pakistan, USA, UK & Europe."
         canonical="https://qitmirtechsolution.com/contact"
+        schema={breadcrumbSchema}
       />
 
       <section className="pt-40 pb-20 relative overflow-hidden">

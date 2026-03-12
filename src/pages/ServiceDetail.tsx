@@ -90,12 +90,34 @@ export default function ServiceDetail() {
     );
   }
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://qitmirtechsolution.com/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://qitmirtechsolution.com/services"
+    },{
+      "@type": "ListItem",
+      "position": 3,
+      "name": service.title,
+      "item": `https://qitmirtechsolution.com/services/${id}`
+    }]
+  };
+
   return (
     <>
       <SEO 
         title={`${service.title} | Abuqitmir.tech`}
         description={service.description}
         canonical={`https://qitmirtechsolution.com/services/${id}`}
+        schema={breadcrumbSchema}
       />
 
       {/* Hero */}

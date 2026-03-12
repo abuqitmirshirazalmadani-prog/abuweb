@@ -91,6 +91,29 @@ const faqs = [
 ];
 
 export default function Home() {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Abuqitmir.tech",
+    "url": "https://qitmirtechsolution.com",
+    "logo": "https://qitmirtechsolution.com/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+923233260859",
+      "contactType": "customer service",
+      "email": "abuqitmirshirazalmadani@gmail.com",
+      "areaServed": ["PK", "US", "GB", "EU"],
+      "availableLanguage": ["English", "Urdu"]
+    },
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61583768706452",
+      "https://x.com/AbuQitmir",
+      "https://www.instagram.com/abuqitmirshirazalmadani/",
+      "https://www.tiktok.com/@abuqitmirmohammadshiraz",
+      "https://www.linkedin.com/in/abu-qitmir-697423390/"
+    ]
+  };
+
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -104,6 +127,14 @@ export default function Home() {
       "@type": "PostalAddress",
       "addressLocality": "Pakistan",
       "addressCountry": "PK"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+      ],
+      "opens": "00:00",
+      "closes": "23:59"
     },
     "areaServed": ["Pakistan", "USA", "UK", "Europe"],
     "sameAs": [
@@ -128,13 +159,24 @@ export default function Home() {
     }))
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://qitmirtechsolution.com/"
+    }]
+  };
+
   return (
     <>
       <SEO 
         title="Scalable, Secure Tech Solutions" 
         description="We design, build, and scale secure high-performance software, websites, mobile apps, and AI systems for ambitious global businesses."
         canonical="https://qitmirtechsolution.com"
-        schema={[localBusinessSchema, faqSchema]}
+        schema={[organizationSchema, localBusinessSchema, faqSchema, breadcrumbSchema]}
       />
 
       {/* Hero Section */}

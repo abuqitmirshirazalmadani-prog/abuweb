@@ -63,12 +63,29 @@ const services = [
 ];
 
 export default function Services() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://qitmirtechsolution.com/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://qitmirtechsolution.com/services"
+    }]
+  };
+
   return (
     <>
       <SEO 
         title="Our Services | Elite Digital Solutions" 
         description="Explore our comprehensive suite of digital services including custom software, web development, mobile apps, AI solutions, and digital marketing."
         canonical="https://qitmirtechsolution.com/services"
+        schema={breadcrumbSchema}
       />
 
       <section className="pt-40 pb-20 relative overflow-hidden">
