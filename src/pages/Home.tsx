@@ -9,7 +9,6 @@ import { useMotionValue } from 'framer-motion';
 import React, { useState, useEffect } from 'react';
 import { CardPattern, generateRandomString } from '../components/ui/evervault-card';
 import { SparklesCore } from '../components/ui/sparkles';
-import DemoOne from '../components/ui/demo';
 import { CTAButtons } from '../components/ui/cta-buttons';
 
 const services = [
@@ -528,15 +527,6 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Demo Section */}
-      <section className="py-24 flex flex-col items-center gap-12 bg-black border-t border-white/5">
-        <div className="text-center">
-          <h2 className="text-3xl font-heading font-bold mb-4 text-white">Interactive Components</h2>
-          <p className="text-white/60">Experience our modern UI elements.</p>
-        </div>
-        <DemoOne />
       </section>
 
       {/* Final CTA */}
