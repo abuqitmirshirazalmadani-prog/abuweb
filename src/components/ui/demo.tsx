@@ -1,5 +1,5 @@
-import { GlowButton } from "./shiny-button-1";
+import { Accordion05 } from "./accordion-05";
 
 export default function DemoOne() {
-  return <GlowButton>Start Free Trial</GlowButton>;
+  return <Accordion05 />;
 }

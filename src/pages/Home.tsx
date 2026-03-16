@@ -10,6 +10,9 @@ import React, { useState, useEffect } from 'react';
 import { CardPattern, generateRandomString } from '../components/ui/evervault-card';
 import { SparklesCore } from '../components/ui/sparkles';
 import { CTAButtons } from '../components/ui/cta-buttons';
+import { Accordion05, faqItems } from '../components/ui/accordion-05';
+import { Boxes } from '../components/ui/background-boxes';
+import { DottedSurface } from '../components/ui/dotted-surface';
 
 const services = [
   {
@@ -65,33 +68,6 @@ const services = [
     description: "SEO-optimized, persuasive copy that tells your brand story and converts visitors.",
     icon: <Briefcase size={24} />,
     link: "/services/content-writing"
-  }
-];
-
-const faqs = [
-  {
-    question: "What services do you provide?",
-    answer: "We provide custom software, web development, mobile app development, AI solutions, digital marketing, UI/UX design, graphics design, and content writing services."
-  },
-  {
-    question: "Do you work with international clients?",
-    answer: "Yes. We serve clients across Pakistan, USA, UK, and Europe with remote-first collaboration."
-  },
-  {
-    question: "How long does development take?",
-    answer: "Timelines vary by scope. MVP projects typically take 4–8 weeks."
-  },
-  {
-    question: "What technologies do you use?",
-    answer: "We use modern stacks including Next.js, React, Node.js, Python, AI frameworks, and scalable cloud infrastructure."
-  },
-  {
-    question: "Do you offer ongoing support?",
-    answer: "Yes. We provide maintenance, optimization, and growth support."
-  },
-  {
-    question: "How can I start my project?",
-    answer: "Book a consultation call or contact us via WhatsApp to begin."
   }
 ];
 
@@ -255,12 +231,12 @@ export default function Home() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
+    "mainEntity": faqItems.map(faq => ({
       "@type": "Question",
-      "name": faq.question,
+      "name": faq.title,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": faq.answer
+        "text": faq.content
       }
     }))
   };
@@ -391,8 +367,10 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-32 relative overflow-hidden">
-        <div className="absolute top-1/2 left-0 w-full h-[500px] bg-primary/5 blur-[120px] -translate-y-1/2 pointer-events-none" />
+      <section className="py-32 relative overflow-hidden bg-black">
+        <DottedSurface className="size-full opacity-50" />
+        <div className="absolute inset-0 bg-black/50 z-0 pointer-events-none" />
+        <div className="absolute top-1/2 left-0 w-full h-[500px] bg-primary/5 blur-[120px] -translate-y-1/2 pointer-events-none z-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -511,28 +489,15 @@ export default function Home() {
             <p className="text-white/60">Everything you need to know about working with us.</p>
           </div>
           
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <details key={index} className="group glass-panel rounded-xl overflow-hidden [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex items-center justify-between p-6 cursor-pointer font-medium text-white/90 hover:text-primary transition-colors">
-                  {faq.question}
-                  <span className="transition group-open:rotate-180">
-                    <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                  </span>
-                </summary>
-                <div className="p-6 pt-0 text-white/60 leading-relaxed border-t border-white/5 mt-2">
-                  {faq.answer}
-                </div>
-              </details>
-            ))}
-          </div>
+          <Accordion05 />
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary/5" />
-        <div className="max-w-5xl mx-auto px-6 md:px-12 text-center relative z-10">
+      <section className="py-32 relative overflow-hidden bg-slate-900 flex flex-col items-center justify-center">
+        <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+        <Boxes />
+        <div className="max-w-5xl mx-auto px-6 md:px-12 text-center relative z-20">
           <h2 className="text-4xl md:text-6xl font-heading font-bold mb-8 text-white">Ready to scale your business?</h2>
           <p className="text-xl text-white/60 mb-12 max-w-2xl mx-auto">
             Let's discuss how our technology solutions can drive your next phase of growth.
