@@ -1,7 +1,9 @@
-import { motion } from 'framer-motion';
+import { motion, useMotionValue } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, Code, Smartphone, Palette, Brain, LineChart, PenTool, Globe, Briefcase } from 'lucide-react';
 import SEO from '../components/SEO';
+import { CardPattern, generateRandomString } from '../components/ui/evervault-card';
 
 const services = [
   {
@@ -62,6 +64,75 @@ const services = [
   }
 ];
 
+function ServiceCard({ service, index }: { service: any; index: number; key?: React.Key }) {
+  let mouseX = useMotionValue(0);
+  let mouseY = useMotionValue(0);
+
+  const [randomString, setRandomString] = useState("");
+
+  useEffect(() => {
+    let str = generateRandomString(1500);
+    setRandomString(str);
+  }, []);
+
+  function onMouseMove({ currentTarget, clientX, clientY }: any) {
+    let { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+
+    const str = generateRandomString(1500);
+    setRandomString(str);
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      onMouseMove={onMouseMove}
+      className="group/card p-10 rounded-3xl bg-card border border-white/5 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden flex flex-col h-full"
+    >
+      <CardPattern
+        mouseX={mouseX}
+        mouseY={mouseY}
+        randomString={randomString}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+      
+      <div className="relative z-10 flex flex-col h-full">
+        <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-primary mb-8 group-hover/card:scale-110 transition-transform duration-500">
+          {service.icon}
+        </div>
+        
+        <h2 className="text-2xl font-heading font-bold mb-4 text-white group-hover/card:text-primary transition-colors">
+          {service.title}
+        </h2>
+        
+        <p className="text-white/60 leading-relaxed mb-8 flex-grow">
+          {service.description}
+        </p>
+        
+        <ul className="space-y-3 mb-10">
+          {service.features.map((feature: string, i: number) => (
+            <li key={i} className="flex items-center text-sm text-white/50">
+              <div className="w-1.5 h-1.5 rounded-full bg-primary/50 mr-3" />
+              {feature}
+            </li>
+          ))}
+        </ul>
+        
+        <Link 
+          to={`/services/${service.id}`} 
+          className="inline-flex items-center font-medium text-white hover:text-primary transition-colors mt-auto"
+        >
+          View Details <ArrowRight size={18} className="ml-2 group-hover/card:translate-x-2 transition-transform" />
+        </Link>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Services() {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -70,12 +141,12 @@ export default function Services() {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://qitmirtechsolution.com/"
+      "item": "https://abuqitmir.tech/"
     },{
       "@type": "ListItem",
       "position": 2,
       "name": "Services",
-      "item": "https://qitmirtechsolution.com/services"
+      "item": "https://abuqitmir.tech/services"
     }]
   };
 
@@ -84,7 +155,7 @@ export default function Services() {
       <SEO 
         title="Our Services | Elite Digital Solutions" 
         description="Explore our comprehensive suite of digital services including custom software, web development, mobile apps, AI solutions, and digital marketing."
-        canonical="https://qitmirtechsolution.com/services"
+        canonical="https://abuqitmir.tech/services"
         schema={breadcrumbSchema}
       />
 
@@ -114,46 +185,7 @@ export default function Services() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group p-10 rounded-3xl bg-card border border-white/5 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-primary mb-8 group-hover:scale-110 transition-transform duration-500">
-                    {service.icon}
-                  </div>
-                  
-                  <h2 className="text-2xl font-heading font-bold mb-4 text-white group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h2>
-                  
-                  <p className="text-white/60 leading-relaxed mb-8">
-                    {service.description}
-                  </p>
-                  
-                  <ul className="space-y-3 mb-10">
-                    {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-center text-sm text-white/50">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary/50 mr-3" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <Link 
-                    to={`/services/${service.id}`} 
-                    className="inline-flex items-center font-medium text-white hover:text-primary transition-colors"
-                  >
-                    View Details <ArrowRight size={18} className="ml-2 group-hover:translate-x-2 transition-transform" />
-                  </Link>
-                </div>
-              </motion.div>
+              <ServiceCard key={service.id} service={service} index={index} />
             ))}
           </div>
         </div>

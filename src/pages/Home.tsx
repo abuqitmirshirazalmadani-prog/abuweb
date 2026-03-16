@@ -5,6 +5,12 @@ import WebGLHero from '../components/WebGLHero';
 import SEO from '../components/SEO';
 import Marquee from '../components/Marquee';
 import { cn } from '../utils/cn';
+import { useMotionValue } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { CardPattern, generateRandomString } from '../components/ui/evervault-card';
+import { SparklesCore } from '../components/ui/sparkles';
+import DemoOne from '../components/ui/demo';
+import { CTAButtons } from '../components/ui/cta-buttons';
 
 const services = [
   {
@@ -90,13 +96,114 @@ const faqs = [
   }
 ];
 
+function TrustStrip() {
+  let mouseX = useMotionValue(0);
+  let mouseY = useMotionValue(0);
+
+  const [randomString, setRandomString] = useState("");
+
+  useEffect(() => {
+    let str = generateRandomString(1500);
+    setRandomString(str);
+  }, []);
+
+  function onMouseMove({ currentTarget, clientX, clientY }: any) {
+    let { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+
+    const str = generateRandomString(1500);
+    setRandomString(str);
+  }
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 1.2 }}
+      onMouseMove={onMouseMove}
+      className="group/card absolute bottom-0 left-0 right-0 border-t border-white/10 bg-[#050505]/80 backdrop-blur-md py-4 overflow-hidden"
+    >
+      <CardPattern
+        mouseX={mouseX}
+        mouseY={mouseY}
+        randomString={randomString}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+      <div className="max-w-7xl mx-auto flex items-center relative z-10">
+        <p className="text-xs font-mono text-white/40 uppercase tracking-widest px-6 shrink-0 border-r border-white/10 hidden md:block">
+          Trusted Across
+        </p>
+        <Marquee speed="slow" className="flex-1 px-6 [--gap:4rem]">
+          <span className="text-lg font-heading font-bold text-white/50 px-8">Pakistan</span>
+          <span className="text-lg font-heading font-bold text-white/50 px-8">USA</span>
+          <span className="text-lg font-heading font-bold text-white/50 px-8">UK</span>
+          <span className="text-lg font-heading font-bold text-white/50 px-8">Europe</span>
+          <span className="text-lg font-heading font-bold text-white/50 px-8">UAE</span>
+          <span className="text-lg font-heading font-bold text-white/50 px-8">Canada</span>
+          <span className="text-lg font-heading font-bold text-white/50 px-8">Australia</span>
+        </Marquee>
+      </div>
+    </motion.div>
+  );
+}
+
+function ServiceCard({ service, index }: { service: any; index: number; key?: React.Key }) {
+  let mouseX = useMotionValue(0);
+  let mouseY = useMotionValue(0);
+
+  const [randomString, setRandomString] = useState("");
+
+  useEffect(() => {
+    let str = generateRandomString(1500);
+    setRandomString(str);
+  }, []);
+
+  function onMouseMove({ currentTarget, clientX, clientY }: any) {
+    let { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+
+    const str = generateRandomString(1500);
+    setRandomString(str);
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      onMouseMove={onMouseMove}
+      className="group/card relative p-8 rounded-2xl bg-card border border-white/5 hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col h-full"
+    >
+      <CardPattern
+        mouseX={mouseX}
+        mouseY={mouseY}
+        randomString={randomString}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+      <div className="relative z-10 flex flex-col h-full">
+        <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-primary mb-6 group-hover/card:scale-110 transition-transform duration-300">
+          {service.icon}
+        </div>
+        <h3 className="text-xl font-heading font-semibold mb-3 text-white group-hover/card:text-primary transition-colors">{service.title}</h3>
+        <p className="text-sm text-white/50 leading-relaxed mb-6 flex-grow">{service.description}</p>
+        <Link to={service.link} className="inline-flex items-center text-sm font-medium text-white/70 group-hover/card:text-primary transition-colors mt-auto">
+          Explore Service <ArrowRight size={16} className="ml-2 group-hover/card:translate-x-1 transition-transform" />
+        </Link>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Home() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Abuqitmir.tech",
-    "url": "https://qitmirtechsolution.com",
-    "logo": "https://qitmirtechsolution.com/logo.png",
+    "url": "https://abuqitmir.tech",
+    "logo": "https://abuqitmir.tech/logo.png",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+923233260859",
@@ -118,9 +225,9 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Abuqitmir.tech",
-    "image": "https://qitmirtechsolution.com/logo.png",
-    "@id": "https://qitmirtechsolution.com",
-    "url": "https://qitmirtechsolution.com",
+    "image": "https://abuqitmir.tech/logo.png",
+    "@id": "https://abuqitmir.tech",
+    "url": "https://abuqitmir.tech",
     "telephone": "+923233260859",
     "email": "abuqitmirshirazalmadani@gmail.com",
     "address": {
@@ -166,7 +273,7 @@ export default function Home() {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://qitmirtechsolution.com/"
+      "item": "https://abuqitmir.tech/"
     }]
   };
 
@@ -175,7 +282,7 @@ export default function Home() {
       <SEO 
         title="Scalable, Secure Tech Solutions" 
         description="We design, build, and scale secure high-performance software, websites, mobile apps, and AI systems for ambitious global businesses."
-        canonical="https://qitmirtechsolution.com"
+        canonical="https://abuqitmir.tech"
         schema={[organizationSchema, localBusinessSchema, faqSchema, breadcrumbSchema]}
       />
 
@@ -207,63 +314,44 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+            className="relative flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto p-8 rounded-3xl"
           >
-            <Link 
-              to="/contact" 
-              className="w-full sm:w-auto px-8 py-4 rounded-full bg-primary text-black font-semibold text-lg hover:scale-105 transition-transform glow-primary flex items-center justify-center gap-2"
-            >
-              Get Free Consultation
-              <ArrowRight size={20} />
-            </Link>
-            <a 
-              href="tel:+923233260859" 
-              className="w-full sm:w-auto px-8 py-4 rounded-full glass-panel text-white font-medium text-lg hover:bg-white/10 transition-colors flex items-center justify-center"
-            >
-              Book Call
-            </a>
-            <a 
-              href="https://wa.me/923233260859" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto px-8 py-4 rounded-full glass-panel text-white font-medium text-lg hover:bg-white/10 transition-colors flex items-center justify-center gap-2"
-            >
-              <MessageCircle size={20} className="text-primary" />
-              WhatsApp
-            </a>
+            <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-3xl [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]">
+              <SparklesCore
+                background="transparent"
+                minSize={0.4}
+                maxSize={1.5}
+                particleDensity={150}
+                className="w-full h-full"
+                particleColor="#FFFFFF"
+                speed={0.5}
+              />
+            </div>
+            <CTAButtons />
           </motion.div>
         </div>
 
         {/* Trust Strip */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-[#050505]/80 backdrop-blur-md py-4"
-        >
-          <div className="max-w-7xl mx-auto flex items-center">
-            <p className="text-xs font-mono text-white/40 uppercase tracking-widest px-6 shrink-0 border-r border-white/10 hidden md:block">
-              Trusted Across
-            </p>
-            <Marquee speed="slow" className="flex-1 px-6 [--gap:4rem]">
-              <span className="text-lg font-heading font-bold text-white/50 px-8">Pakistan</span>
-              <span className="text-lg font-heading font-bold text-white/50 px-8">USA</span>
-              <span className="text-lg font-heading font-bold text-white/50 px-8">UK</span>
-              <span className="text-lg font-heading font-bold text-white/50 px-8">Europe</span>
-              <span className="text-lg font-heading font-bold text-white/50 px-8">UAE</span>
-              <span className="text-lg font-heading font-bold text-white/50 px-8">Canada</span>
-              <span className="text-lg font-heading font-bold text-white/50 px-8">Australia</span>
-            </Marquee>
-          </div>
-        </motion.div>
+        <TrustStrip />
       </section>
 
       {/* Technology Stack Marquee */}
-      <section className="py-20 border-t border-white/5 overflow-hidden">
-        <div className="text-center mb-12">
+      <section className="py-20 border-t border-white/5 overflow-hidden relative">
+        <div className="absolute inset-0 z-0">
+          <SparklesCore
+            background="transparent"
+            minSize={0.4}
+            maxSize={1}
+            particleDensity={100}
+            className="w-full h-full"
+            particleColor="#FFFFFF"
+            speed={1}
+          />
+        </div>
+        <div className="text-center mb-12 relative z-10">
           <h2 className="text-sm font-mono text-white/40 uppercase tracking-widest">Powered by Modern Technologies</h2>
         </div>
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 relative z-10">
           <Marquee speed="normal" className="[--gap:4rem]">
             <span className="text-2xl font-heading font-bold text-white/20 hover:text-primary transition-colors">Next.js</span>
             <span className="text-2xl font-heading font-bold text-white/20 hover:text-primary transition-colors">React</span>
@@ -297,26 +385,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative p-8 rounded-2xl bg-card border border-white/5 hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-xl font-heading font-semibold mb-3 text-white group-hover:text-primary transition-colors">{service.title}</h3>
-                  <p className="text-sm text-white/50 leading-relaxed mb-6">{service.description}</p>
-                  <Link to={service.link} className="inline-flex items-center text-sm font-medium text-white/70 group-hover:text-primary transition-colors">
-                    Explore Service <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </motion.div>
+              <ServiceCard key={index} service={service} index={index} />
             ))}
           </div>
         </div>
@@ -355,7 +424,18 @@ export default function Home() {
                   transition={{ duration: 0.5 }}
                   className="col-span-2 glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden group"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 z-0">
+                    <SparklesCore
+                      background="transparent"
+                      minSize={0.4}
+                      maxSize={1}
+                      particleDensity={100}
+                      className="w-full h-full"
+                      particleColor="#FFFFFF"
+                      speed={1}
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
                   <div className="relative z-10">
                     <div className="text-5xl font-heading font-bold text-white mb-2">99.9%</div>
                     <div className="text-sm font-mono text-primary uppercase tracking-wider mb-4">Uptime SLA</div>
@@ -370,11 +450,24 @@ export default function Home() {
                   transition={{ duration: 0.5, delay: 0.1 }}
                   className="glass-panel p-6 rounded-3xl border border-white/10 relative overflow-hidden group flex flex-col justify-between"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <Code className="text-white/40 mb-4" size={24} />
-                  <div>
-                    <div className="text-2xl font-heading font-bold text-white mb-1">Clean</div>
-                    <div className="text-xs font-mono text-white/40 uppercase tracking-wider">Architecture</div>
+                  <div className="absolute inset-0 z-0">
+                    <SparklesCore
+                      background="transparent"
+                      minSize={0.4}
+                      maxSize={1}
+                      particleDensity={100}
+                      className="w-full h-full"
+                      particleColor="#FFFFFF"
+                      speed={1}
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+                  <div className="relative z-10">
+                    <Code className="text-white/40 mb-4" size={24} />
+                    <div>
+                      <div className="text-2xl font-heading font-bold text-white mb-1">Clean</div>
+                      <div className="text-xs font-mono text-white/40 uppercase tracking-wider">Architecture</div>
+                    </div>
                   </div>
                 </motion.div>
 
@@ -385,11 +478,24 @@ export default function Home() {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   className="glass-panel p-6 rounded-3xl border border-white/10 relative overflow-hidden group flex flex-col justify-between"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <Smartphone className="text-white/40 mb-4" size={24} />
-                  <div>
-                    <div className="text-2xl font-heading font-bold text-white mb-1">Native</div>
-                    <div className="text-xs font-mono text-white/40 uppercase tracking-wider">Performance</div>
+                  <div className="absolute inset-0 z-0">
+                    <SparklesCore
+                      background="transparent"
+                      minSize={0.4}
+                      maxSize={1}
+                      particleDensity={100}
+                      className="w-full h-full"
+                      particleColor="#FFFFFF"
+                      speed={1}
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+                  <div className="relative z-10">
+                    <Smartphone className="text-white/40 mb-4" size={24} />
+                    <div>
+                      <div className="text-2xl font-heading font-bold text-white mb-1">Native</div>
+                      <div className="text-xs font-mono text-white/40 uppercase tracking-wider">Performance</div>
+                    </div>
                   </div>
                 </motion.div>
               </div>
@@ -424,6 +530,15 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Demo Section */}
+      <section className="py-24 flex flex-col items-center gap-12 bg-black border-t border-white/5">
+        <div className="text-center">
+          <h2 className="text-3xl font-heading font-bold mb-4 text-white">Interactive Components</h2>
+          <p className="text-white/60">Experience our modern UI elements.</p>
+        </div>
+        <DemoOne />
+      </section>
+
       {/* Final CTA */}
       <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-primary/5" />
@@ -435,17 +550,18 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link 
               to="/contact" 
-              className="px-10 py-5 rounded-full bg-primary text-black font-semibold text-lg hover:scale-105 transition-transform glow-primary"
+              className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-green-500 text-black font-semibold text-lg shadow-[0_0_30px_rgba(34,197,94,0.6)] hover:scale-105 transition w-full sm:w-auto"
             >
               Start Your Project
+              <ArrowRight size={20} />
             </Link>
             <a 
               href="https://wa.me/923233260859" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="px-10 py-5 rounded-full glass-panel text-white font-medium text-lg hover:bg-white/10 transition-colors flex items-center gap-2"
+              className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-black/60 border border-white/10 text-white text-lg hover:bg-black/80 transition w-full sm:w-auto"
             >
-              <MessageCircle size={20} className="text-primary" />
+              <MessageCircle size={18} className="text-green-400" />
               Chat on WhatsApp
             </a>
           </div>

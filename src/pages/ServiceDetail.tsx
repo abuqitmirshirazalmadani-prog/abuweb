@@ -97,17 +97,17 @@ export default function ServiceDetail() {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://qitmirtechsolution.com/"
+      "item": "https://abuqitmir.tech/"
     },{
       "@type": "ListItem",
       "position": 2,
       "name": "Services",
-      "item": "https://qitmirtechsolution.com/services"
+      "item": "https://abuqitmir.tech/services"
     },{
       "@type": "ListItem",
       "position": 3,
       "name": service.title,
-      "item": `https://qitmirtechsolution.com/services/${id}`
+      "item": `https://abuqitmir.tech/services/${id}`
     }]
   };
 
@@ -116,7 +116,7 @@ export default function ServiceDetail() {
       <SEO 
         title={`${service.title} | Abuqitmir.tech`}
         description={service.description}
-        canonical={`https://qitmirtechsolution.com/services/${id}`}
+        canonical={`https://abuqitmir.tech/services/${id}`}
         schema={breadcrumbSchema}
       />
 
