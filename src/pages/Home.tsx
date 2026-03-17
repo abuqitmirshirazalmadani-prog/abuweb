@@ -13,6 +13,10 @@ import { CTAButtons } from '../components/ui/cta-buttons';
 import { Accordion05, faqItems } from '../components/ui/accordion-05';
 import { Boxes } from '../components/ui/background-boxes';
 import { DottedSurface } from '../components/ui/dotted-surface';
+import AbuQitmirTestimonials from '../components/ui/abu-qitmir-testimonials';
+import { GradualSpacing } from '../components/ui/gradual-spacing';
+import { AnimatedText } from '../components/ui/animated-underline-text-one';
+import { GradientMeshBackground } from '../components/ui/gradient-mesh-background';
 
 const services = [
   {
@@ -266,15 +270,17 @@ export default function Home() {
         <WebGLHero />
         
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 text-center flex flex-col items-center">
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-5xl md:text-7xl lg:text-[80px] font-heading font-bold tracking-tight leading-[1.1] mb-6 max-w-5xl text-gradient"
-          >
-            Build Future-Ready <br className="hidden md:block" />
-            Digital Solutions
-          </motion.h1>
+          <div className="mb-6 max-w-5xl">
+            <GradualSpacing
+              className="text-5xl md:text-7xl lg:text-[80px] font-heading font-bold tracking-tight leading-[1.1] text-gradient"
+              text="Build Future-Ready"
+            />
+            <GradualSpacing
+              className="text-5xl md:text-7xl lg:text-[80px] font-heading font-bold tracking-tight leading-[1.1] text-gradient"
+              text="Digital Solutions"
+              initialDelay={0.04 * 18}
+            />
+          </div>
           
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -351,27 +357,33 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-32 relative bg-elevated border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-gradient">Elite Digital Services</h2>
-            <p className="text-lg text-white/60 max-w-2xl mx-auto">Comprehensive technology solutions designed to accelerate your business growth and dominate your market.</p>
-          </div>
+      <section className="relative border-t border-white/5">
+        <GradientMeshBackground className="py-32">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <div className="text-center mb-20 flex flex-col items-center">
+              <AnimatedText 
+                text="Elite Digital Services"
+                textClassName="text-4xl md:text-5xl font-heading font-bold mb-6 text-gradient"
+                underlineClassName="text-primary"
+              />
+              <p className="text-lg text-white/60 max-w-2xl mx-auto mt-6">Comprehensive technology solutions designed to accelerate your business growth and dominate your market.</p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, index) => (
-              <ServiceCard key={index} service={service} index={index} />
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {services.map((service, index) => (
+                <ServiceCard key={index} service={service} index={index} />
+              ))}
+            </div>
           </div>
-        </div>
+        </GradientMeshBackground>
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-32 relative overflow-hidden bg-black">
-        <DottedSurface className="size-full opacity-50" />
-        <div className="absolute inset-0 bg-black/50 z-0 pointer-events-none" />
-        <div className="absolute top-1/2 left-0 w-full h-[500px] bg-primary/5 blur-[120px] -translate-y-1/2 pointer-events-none z-0" />
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <section className="py-32 relative overflow-hidden bg-black z-0">
+        <DottedSurface className="size-full opacity-50 z-0" />
+        <div className="absolute inset-0 bg-black/50 z-10 pointer-events-none" />
+        <div className="absolute top-1/2 left-0 w-full h-[500px] bg-primary/5 blur-[120px] -translate-y-1/2 pointer-events-none z-10" />
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-gradient">Why Choose Abuqitmir.tech</h2>
@@ -478,6 +490,17 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-32 relative overflow-hidden bg-background border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-gradient">Client Success Stories</h2>
+            <p className="text-white/60">Don't just take our word for it. Here's what our clients have to say.</p>
+          </div>
+          <AbuQitmirTestimonials />
         </div>
       </section>
 
