@@ -76,7 +76,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
     <div
       onClick={() => handleMove(position)}
       className={cn(
-        "absolute left-1/2 top-1/2 cursor-pointer border p-8 transition-all duration-500 ease-in-out rounded-2xl",
+        "absolute left-1/2 top-1/2 flex flex-col cursor-pointer border p-6 sm:p-8 transition-all duration-500 ease-in-out rounded-2xl",
         isCenter 
           ? "z-10 bg-primary text-black border-primary" 
           : "z-0 bg-card text-white border-white/10 hover:border-primary/50"
@@ -109,19 +109,19 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       <img
         src={testimonial.imgSrc}
         alt={`${testimonial.by.split(',')[0]}`}
-        className="mb-6 w-[140px] h-[160px] bg-white/5 object-cover object-top rounded-lg"
+        className="mb-4 sm:mb-6 w-[100px] sm:w-[140px] h-[100px] sm:h-[160px] bg-white/5 object-cover object-top rounded-lg shrink-0"
         style={{
           boxShadow: "4px 4px 0px rgba(0,0,0,0.5)"
         }}
       />
       <h3 className={cn(
-        "text-base sm:text-xl font-heading font-medium leading-snug",
+        "text-sm sm:text-lg font-heading font-medium leading-snug line-clamp-4",
         isCenter ? "text-black" : "text-white"
       )}>
         "{testimonial.testimonial}"
       </h3>
       <p className={cn(
-        "absolute bottom-8 left-8 right-8 mt-2 text-sm font-medium",
+        "mt-auto pt-4 text-xs sm:text-sm font-medium",
         isCenter ? "text-black/70" : "text-white/50"
       )}>
         - {testimonial.by}
@@ -131,7 +131,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 };
 
 export const StaggerTestimonials: React.FC = () => {
-  const [cardSize, setCardSize] = useState(365);
+  const [cardSize, setCardSize] = useState(380);
   const [testimonialsList, setTestimonialsList] = useState(testimonials);
 
   const handleMove = React.useCallback((steps: number) => {
@@ -167,7 +167,7 @@ export const StaggerTestimonials: React.FC = () => {
   useEffect(() => {
     const updateSize = () => {
       const { matches } = window.matchMedia("(min-width: 640px)");
-      setCardSize(matches ? 365 : 290);
+      setCardSize(matches ? 380 : 320);
     };
 
     updateSize();
@@ -177,10 +177,6 @@ export const StaggerTestimonials: React.FC = () => {
 
   return (
     <div className="w-full max-w-7xl mx-auto px-6 md:px-12">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-gradient">Client Success Stories</h2>
-        <p className="text-lg text-white/60">Don't just take our word for it. Here's what our clients have to say.</p>
-      </div>
       <div
         className="relative w-full overflow-hidden bg-transparent"
         style={{ height: 600 }}

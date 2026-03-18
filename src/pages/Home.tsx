@@ -13,7 +13,6 @@ import { CTAButtons } from '../components/ui/cta-buttons';
 import { Accordion05, faqItems } from '../components/ui/accordion-05';
 import { Boxes } from '../components/ui/background-boxes';
 import { DottedSurface } from '../components/ui/dotted-surface';
-import { GradualSpacing } from '../components/ui/gradual-spacing';
 import { AnimatedText } from '../components/ui/animated-underline-text-one';
 import { GradientMeshBackground } from '../components/ui/gradient-mesh-background';
 import { StaggerTestimonials } from '../components/ui/stagger-testimonials';
@@ -266,10 +265,10 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className="relative h-screen min-h-[900px] flex items-center justify-center overflow-hidden pt-20 pb-20">
+      <section className="relative min-h-[100dvh] flex flex-col items-center justify-start overflow-hidden pt-32 pb-32">
         <WebGLHero />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 text-center flex flex-col items-center mt-10">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 text-center flex flex-col items-center my-auto w-full">
           
           {/* Trust Bar */}
           <motion.div 
@@ -287,15 +286,22 @@ export default function Home() {
 
           {/* Headline */}
           <div className="mb-6 max-w-5xl">
-            <GradualSpacing
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-heading font-bold tracking-tight leading-[1.1] text-white"
-              text="Next-generation software."
-            />
-            <GradualSpacing
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-heading font-bold tracking-tight leading-[1.1] text-gradient"
-              text="Engineered for scale."
-              initialDelay={0.04 * 25}
-            />
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] font-heading font-bold tracking-tight leading-[1.1] text-white mb-6"
+            >
+              Scalable, Secure Tech Solutions
+            </motion.h1>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="text-base sm:text-lg md:text-xl lg:text-2xl font-heading font-medium text-gradient"
+            >
+              N e x t - g e n e r a t i o n s o f t w a r e . E n g i n e e r e d f o r s c a l e .
+            </motion.h2>
           </div>
           
           {/* Subheadline */}

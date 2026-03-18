@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation, Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Preloader from './Preloader';
@@ -31,7 +31,7 @@ export default function Layout() {
       {/* Mobile Sticky CTA */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 glass-panel border-t border-white/10 p-4 flex gap-4 safe-area-pb">
         <a 
-          href="tel:+923233260859" 
+          href="https://abuqitmir.tech/contact" 
           className="flex-1 py-3 rounded-xl bg-white/10 text-white font-medium text-sm text-center active:scale-95 transition-transform"
         >
           Consultation

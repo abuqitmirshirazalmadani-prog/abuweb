@@ -24,21 +24,47 @@ function GradualSpacing({
   },
   className,
 }: GradualSpacingProps) {
+  let charIndex = 0;
   return (
     <div className="flex justify-center flex-wrap">
       <AnimatePresence>
-        {text.split("").map((char, i) => (
-          <motion.h1
-            key={i}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={framerProps}
-            transition={{ duration, delay: initialDelay + i * delayMultiple }}
-            className={cn("drop-shadow-sm", className)}
-          >
-            {char === " " ? <span className="w-[0.3em] inline-block">&nbsp;</span> : char}
-          </motion.h1>
+        {text.split(" ").map((word, i, words) => (
+          <div key={i} className="inline-flex whitespace-nowrap">
+            {word.split("").map((char) => {
+              const currentDelay = initialDelay + charIndex * delayMultiple;
+              charIndex++;
+              return (
+                <motion.h1
+                  key={charIndex}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  variants={framerProps}
+                  transition={{ duration, delay: currentDelay }}
+                  className={cn("drop-shadow-sm", className)}
+                >
+                  {char}
+                </motion.h1>
+              );
+            })}
+            {i < words.length - 1 && (() => {
+              const currentDelay = initialDelay + charIndex * delayMultiple;
+              charIndex++;
+              return (
+                <motion.h1
+                  key={`space-${i}`}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  variants={framerProps}
+                  transition={{ duration, delay: currentDelay }}
+                  className={cn("drop-shadow-sm", className)}
+                >
+                  <span className="w-[0.3em] inline-block">&nbsp;</span>
+                </motion.h1>
+              );
+            })()}
+          </div>
         ))}
       </AnimatePresence>
     </div>

@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CheckCircle2, ArrowRight, MessageCircle } from 'lucide-react';
 import SEO from '../components/SEO';
+import { AccordionCustomSoftware } from '../components/ui/accordion-custom-software';
 
 const serviceData = {
   "custom-software": {
@@ -222,12 +223,35 @@ export default function ServiceDetail() {
         </div>
       </section>
 
+      {/* FAQ Section (Custom Software Only) */}
+      {id === 'custom-software' && (
+        <section className="py-24 relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 text-white">Frequently Asked Questions</h2>
+              <p className="text-lg text-white/60 max-w-2xl mx-auto">
+                Everything you need to know about our custom software development process.
+              </p>
+            </div>
+            <AccordionCustomSoftware />
+          </div>
+        </section>
+      )}
+
       {/* Final CTA */}
       <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-primary/5" />
         <div className="max-w-5xl mx-auto px-6 md:px-12 text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-8 text-white">Ready to start your {service.title.toLowerCase()} project?</h2>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+          {id === 'custom-software' ? (
+            <>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">Ready to build custom software that transforms your business?</h2>
+              <p className="text-xl text-white/60 mb-8">Contact Qitmir Tech Solutions today for a free consultation.</p>
+            </>
+          ) : (
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-8 text-white">Ready to start your {service.title.toLowerCase()} project?</h2>
+          )}
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
             <Link 
               to="/contact" 
               className="px-10 py-5 rounded-full bg-primary text-black font-semibold text-lg hover:scale-105 transition-transform glow-primary"
@@ -244,6 +268,12 @@ export default function ServiceDetail() {
               WhatsApp Us
             </a>
           </div>
+
+          {id === 'custom-software' && (
+            <p className="text-sm text-white/40">
+              Serving: Karachi, Lahore, Islamabad (Pakistan) | New York (USA) | London (UK) | Berlin (Germany) | Warsaw (Poland)
+            </p>
+          )}
         </div>
       </section>
     </>
