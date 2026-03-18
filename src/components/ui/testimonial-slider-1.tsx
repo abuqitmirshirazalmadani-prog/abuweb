@@ -109,7 +109,7 @@ export const TestimonialSlider = ({
           </div>
 
           {/* Thumbnail Navigation */}
-          <div className="flex space-x-2 mt-8 md:mt-0">
+          <div className="flex space-x-3 mt-8 md:mt-0">
             {thumbnailReviews.map((review) => {
               // Find the original index to navigate to
               const originalIndex = reviews.findIndex(
@@ -119,7 +119,7 @@ export const TestimonialSlider = ({
                 <button
                   key={review.id}
                   onClick={() => handleThumbnailClick(originalIndex)}
-                  className="overflow-hidden rounded-md w-16 h-20 md:w-20 md:h-24 opacity-70 hover:opacity-100 transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                  className="relative overflow-hidden rounded-xl w-16 h-16 md:w-20 md:h-20 opacity-50 hover:opacity-100 transition-all duration-300 border border-white/10 hover:border-primary/50 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
                   aria-label={`View review from ${review.name}`}
                 >
                   <img
@@ -134,7 +134,8 @@ export const TestimonialSlider = ({
         </div>
 
         {/* === Center Column: Main Image === */}
-        <div className="md:col-span-4 relative h-80 min-h-[400px] md:min-h-[500px] order-1 md:order-2">
+        <div className="md:col-span-4 relative aspect-[4/5] md:aspect-[3/4] max-h-[500px] order-1 md:order-2 mx-auto w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10 group">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10 pointer-events-none" />
           <AnimatePresence initial={false} custom={direction}>
             <motion.img
               key={currentIndex}
@@ -146,7 +147,7 @@ export const TestimonialSlider = ({
               animate="center"
               exit="exit"
               transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }} // Cubic bezier for smooth ease
-              className="absolute inset-0 w-full h-full object-cover rounded-lg"
+              className="absolute inset-0 w-full h-full object-cover"
             />
           </AnimatePresence>
         </div>

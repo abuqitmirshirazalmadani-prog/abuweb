@@ -111,16 +111,16 @@ function TrustStrip() {
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
       <div className="max-w-7xl mx-auto flex items-center relative z-10">
         <p className="text-xs font-mono text-white/40 uppercase tracking-widest px-6 shrink-0 border-r border-white/10 hidden md:block">
-          Trusted Across
+          Powering industry leaders across
         </p>
         <Marquee speed="slow" className="flex-1 px-6 [--gap:4rem]">
-          <span className="text-lg font-heading font-bold text-white/50 px-8">Pakistan</span>
-          <span className="text-lg font-heading font-bold text-white/50 px-8">USA</span>
-          <span className="text-lg font-heading font-bold text-white/50 px-8">UK</span>
-          <span className="text-lg font-heading font-bold text-white/50 px-8">Europe</span>
-          <span className="text-lg font-heading font-bold text-white/50 px-8">UAE</span>
-          <span className="text-lg font-heading font-bold text-white/50 px-8">Canada</span>
-          <span className="text-lg font-heading font-bold text-white/50 px-8">Australia</span>
+          <span className="text-lg font-heading font-bold text-white/50 px-8">🇵🇰 Pakistan</span>
+          <span className="text-lg font-heading font-bold text-white/50 px-8">🇺🇸 USA</span>
+          <span className="text-lg font-heading font-bold text-white/50 px-8">🇬🇧 UK</span>
+          <span className="text-lg font-heading font-bold text-white/50 px-8">🇪🇺 Europe</span>
+          <span className="text-lg font-heading font-bold text-white/50 px-8">🇦🇪 UAE</span>
+          <span className="text-lg font-heading font-bold text-white/50 px-8">🇨🇦 Canada</span>
+          <span className="text-lg font-heading font-bold text-white/50 px-8">🇦🇺 Australia</span>
         </Marquee>
       </div>
     </motion.div>
@@ -266,36 +266,77 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden pt-20">
+      <section className="relative h-screen min-h-[900px] flex items-center justify-center overflow-hidden pt-20 pb-20">
         <WebGLHero />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 text-center flex flex-col items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 text-center flex flex-col items-center mt-10">
+          
+          {/* Trust Bar */}
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="flex items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-medium text-white/80 mb-8 bg-white/5 border border-white/10 px-4 sm:px-6 py-2 rounded-full backdrop-blur-md"
+          >
+            <span className="flex items-center gap-1"><Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" /> 4.9/5 Client Rating</span>
+            <span className="text-white/30 hidden sm:inline">•</span>
+            <span className="hidden sm:inline">410+ Products Shipped</span>
+            <span className="text-white/30 hidden md:inline">•</span>
+            <span className="hidden md:inline">350+ Scaling Businesses</span>
+          </motion.div>
+
+          {/* Headline */}
           <div className="mb-6 max-w-5xl">
             <GradualSpacing
-              className="text-5xl md:text-7xl lg:text-[80px] font-heading font-bold tracking-tight leading-[1.1] text-gradient"
-              text="Build Future-Ready"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-heading font-bold tracking-tight leading-[1.1] text-white"
+              text="End-to-end digital infrastructure."
             />
             <GradualSpacing
-              className="text-5xl md:text-7xl lg:text-[80px] font-heading font-bold tracking-tight leading-[1.1] text-gradient"
-              text="Digital Solutions"
-              initialDelay={0.04 * 18}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-heading font-bold tracking-tight leading-[1.1] text-gradient"
+              text="Engineered for revenue growth."
+              initialDelay={0.04 * 34}
             />
           </div>
           
+          {/* Subheadline */}
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="text-lg md:text-xl text-white/70 max-w-3xl mb-10 leading-relaxed font-light"
+            className="text-base sm:text-lg md:text-xl text-white/70 max-w-3xl mb-10 leading-relaxed font-light"
           >
-            We design, build, and scale secure high-performance software, websites, mobile apps, and AI systems for ambitious global businesses.
+            Replace fragmented agencies with a single, elite engineering partner. We design, build, and scale custom software, web platforms, and automated workflows that drive measurable ROI.
           </motion.p>
           
+          {/* Benefits Grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-5xl mb-10 text-left"
+          >
+            {[
+              { title: "Proven execution", desc: "410+ scalable products shipped" },
+              { title: "Unified workflow", desc: "Zero friction across design & engineering" },
+              { title: "Enterprise reliability", desc: "24/7 dedicated infrastructure support" },
+              { title: "Global standards", desc: "Powering teams across US, UK, EU & PK" }
+            ].map((benefit, i) => (
+              <div key={i} className="flex items-start gap-3 p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors">
+                <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                <div>
+                  <div className="text-white font-medium text-sm">{benefit.title}</div>
+                  <div className="text-white/50 text-xs mt-1">{benefit.desc}</div>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* CTA Buttons */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto p-8 rounded-3xl"
+            className="relative flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto p-4 sm:p-8 rounded-3xl"
           >
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-3xl [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]">
               <SparklesCore

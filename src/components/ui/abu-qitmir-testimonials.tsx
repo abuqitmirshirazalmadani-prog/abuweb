@@ -10,9 +10,9 @@ const reviews = [
     quote:
       "Abu Qitmir developed custom inventory management software that streamlined our entire operation. Saved us thousands monthly!",
     imageSrc:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop&q=80",
+      "C:\Users\AL KHAIR COMPUTER\Downloads\Untitled design (58).jpg",
     thumbnailSrc:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=120&fit=crop&q=80",
+      "C:\Users\AL KHAIR COMPUTER\Downloads\Untitled design (67).jpg",
   },
   {
     id: 2,
@@ -21,9 +21,9 @@ const reviews = [
     quote:
       "Abu Qitmir built our iOS and Android apps in 8 weeks. Already at 4.8 stars with 10K+ downloads!",
     imageSrc:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=600&fit=crop&q=80",
+      "C:\Users\AL KHAIR COMPUTER\Downloads\Untitled design (61).jpg",
     thumbnailSrc:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=120&fit=crop&q=80",
+      "C:\Users\AL KHAIR COMPUTER\Downloads\Untitled design (71).jpg",
   },
   {
     id: 3,
@@ -32,9 +32,9 @@ const reviews = [
     quote:
       "Best rates in Karachi without compromising on quality. Abu Qitmir made my dream project affordable!",
     imageSrc:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=600&fit=crop&q=80",
+      "C:\Users\AL KHAIR COMPUTER\Downloads\Untitled design (60).jpg",
     thumbnailSrc:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=120&fit=crop&q=80",
+      "C:\Users\AL KHAIR COMPUTER\Downloads\Untitled design (72).jpg""C:\Users\AL KHAIR COMPUTER\Downloads\Untitled design (72).jpg""C:\Users\AL KHAIR COMPUTER\Downloads\Untitled design (72).jpg",
   },
   {
     id: 4,
