@@ -13,63 +13,63 @@ import { CTAButtons } from '../components/ui/cta-buttons';
 import { Accordion05, faqItems } from '../components/ui/accordion-05';
 import { Boxes } from '../components/ui/background-boxes';
 import { DottedSurface } from '../components/ui/dotted-surface';
-import AbuQitmirTestimonials from '../components/ui/abu-qitmir-testimonials';
 import { GradualSpacing } from '../components/ui/gradual-spacing';
 import { AnimatedText } from '../components/ui/animated-underline-text-one';
 import { GradientMeshBackground } from '../components/ui/gradient-mesh-background';
+import { StaggerTestimonials } from '../components/ui/stagger-testimonials';
 
 const services = [
   {
-    title: "Custom Software Development",
-    description: "Scalable, secure, and high-performance enterprise solutions tailored to your complex business needs.",
+    title: "Enterprise Architecture",
+    description: "Bespoke, high-availability software systems built to scale infinitely without technical debt.",
     icon: <Code size={24} />,
     link: "/services/custom-software"
   },
   {
-    title: "Web Development",
-    description: "Modern, responsive, and SEO-optimized web applications built with Next.js and React.",
+    title: "Modern Web Platforms",
+    description: "Lightning-fast, SEO-optimized web applications engineered with Next.js and React.",
     icon: <Globe size={24} />,
     link: "/services/web-development"
   },
   {
-    title: "Mobile App Development",
-    description: "Native and cross-platform mobile experiences that engage users and drive growth.",
+    title: "Native Mobile Apps",
+    description: "Award-winning iOS and Android experiences that engage users and drive retention.",
     icon: <Smartphone size={24} />,
     link: "/services/mobile-app"
   },
   {
-    title: "UI/UX Design",
-    description: "Intuitive, user-centric interfaces designed to maximize conversion and brand loyalty.",
+    title: "Conversion-Led UI/UX",
+    description: "Data-backed interface design focused on cognitive ease and maximizing user conversion.",
     icon: <Palette size={24} />,
     link: "/services/ui-ux"
   },
   {
-    title: "Technology Solutions & AI",
-    description: "Intelligent automation and AI integrations to future-proof your business operations.",
+    title: "AI & Automation",
+    description: "Custom LLM integrations and intelligent workflows to multiply your workforce's output.",
     icon: <Brain size={24} />,
     link: "/services/ai-solutions"
   },
   {
-    title: "Digital Marketing",
-    description: "Data-driven strategies to increase visibility, traffic, and revenue across digital channels.",
+    title: "Growth Marketing",
+    description: "Precision-targeted digital campaigns that lower CAC and drive measurable ROI.",
     icon: <LineChart size={24} />,
     link: "/services/digital-marketing"
   },
   {
-    title: "SEO & Local SEO",
-    description: "Dominate search rankings and attract high-intent local and global customers to your business.",
+    title: "Search Dominance",
+    description: "Technical and content-driven SEO strategies to capture high-intent organic traffic.",
     icon: <Search size={24} />,
     link: "/services/seo"
   },
   {
-    title: "Graphics Design",
-    description: "Compelling visual identities and marketing materials that resonate with your target audience.",
+    title: "Brand Identity",
+    description: "Striking visual systems and marketing materials that command attention and build trust.",
     icon: <PenTool size={24} />,
     link: "/services/graphics-design"
   },
   {
-    title: "Content Writing",
-    description: "SEO-optimized, persuasive copy that tells your brand story and converts visitors.",
+    title: "Strategic Copywriting",
+    description: "Persuasive, authoritative content that tells your story and converts visitors into buyers.",
     icon: <Briefcase size={24} />,
     link: "/services/content-writing"
   }
@@ -101,7 +101,7 @@ function TrustStrip() {
       animate={{ opacity: 1 }}
       transition={{ duration: 1, delay: 1.2 }}
       onMouseMove={onMouseMove}
-      className="group/card absolute bottom-0 left-0 right-0 border-t border-white/10 bg-[#050505]/80 backdrop-blur-md py-4 overflow-hidden"
+      className="group/card absolute bottom-0 left-0 right-0 border-t border-white/10 bg-background/80 backdrop-blur-md py-4 overflow-hidden"
     >
       <CardPattern
         mouseX={mouseX}
@@ -289,12 +289,12 @@ export default function Home() {
           <div className="mb-6 max-w-5xl">
             <GradualSpacing
               className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-heading font-bold tracking-tight leading-[1.1] text-white"
-              text="End-to-end digital infrastructure."
+              text="Next-generation software."
             />
             <GradualSpacing
               className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-heading font-bold tracking-tight leading-[1.1] text-gradient"
-              text="Engineered for revenue growth."
-              initialDelay={0.04 * 34}
+              text="Engineered for scale."
+              initialDelay={0.04 * 25}
             />
           </div>
           
@@ -305,7 +305,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="text-base sm:text-lg md:text-xl text-white/70 max-w-3xl mb-10 leading-relaxed font-light"
           >
-            Replace fragmented agencies with a single, elite engineering partner. We design, build, and scale custom software, web platforms, and automated workflows that drive measurable ROI.
+            We transform complex business challenges into elegant, high-performance digital products. No bloat, no friction—just pure execution.
           </motion.p>
           
           {/* Benefits Grid */}
@@ -316,13 +316,13 @@ export default function Home() {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-5xl mb-10 text-left"
           >
             {[
-              { title: "Proven execution", desc: "410+ scalable products shipped" },
-              { title: "Unified workflow", desc: "Zero friction across design & engineering" },
-              { title: "Enterprise reliability", desc: "24/7 dedicated infrastructure support" },
+              { title: "Rapid execution", desc: "MVPs shipped in weeks, not months" },
+              { title: "Unified workflow", desc: "Seamless design-to-code pipeline" },
+              { title: "Zero technical debt", desc: "Clean architecture from day one" },
               { title: "Global standards", desc: "Powering teams across US, UK, EU & PK" }
             ].map((benefit, i) => (
               <div key={i} className="flex items-start gap-3 p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors">
-                <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                 <div>
                   <div className="text-white font-medium text-sm">{benefit.title}</div>
                   <div className="text-white/50 text-xs mt-1">{benefit.desc}</div>
@@ -371,7 +371,7 @@ export default function Home() {
           />
         </div>
         <div className="text-center mb-12 relative z-10">
-          <h2 className="text-sm font-mono text-white/40 uppercase tracking-widest">Powered by Modern Technologies</h2>
+          <h2 className="text-sm font-mono text-white/40 uppercase tracking-widest">Powered by Modern Architecture</h2>
         </div>
         <div className="flex flex-col gap-8 relative z-10">
           <Marquee speed="normal" className="[--gap:4rem]">
@@ -407,7 +407,7 @@ export default function Home() {
                 textClassName="text-4xl md:text-5xl font-heading font-bold mb-6 text-gradient"
                 underlineClassName="text-primary"
               />
-              <p className="text-lg text-white/60 max-w-2xl mx-auto mt-6">Comprehensive technology solutions designed to accelerate your business growth and dominate your market.</p>
+              <p className="text-lg text-white/60 max-w-2xl mx-auto mt-6">We build the infrastructure that ambitious companies use to dominate their markets.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -420,23 +420,23 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-32 relative overflow-hidden bg-black z-0">
+      <section className="py-32 relative overflow-hidden bg-background z-0">
         <DottedSurface className="size-full opacity-50 z-0" />
-        <div className="absolute inset-0 bg-black/50 z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-background/50 z-10 pointer-events-none" />
         <div className="absolute top-1/2 left-0 w-full h-[500px] bg-primary/5 blur-[120px] -translate-y-1/2 pointer-events-none z-10" />
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-gradient">Why Choose Abuqitmir.tech</h2>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-gradient">The Engineering Partner You've Been Looking For</h2>
               <p className="text-lg text-white/60 mb-8 leading-relaxed">
-                We don't just write code; we build scalable digital assets. Our approach combines engineering excellence with strategic business acumen.
+                We don't just write code. We build scalable digital assets that solve real business problems. Our approach combines elite engineering with strategic product vision.
               </p>
               <ul className="space-y-6">
                 {[
-                  "Enterprise-grade security and performance",
+                  "Enterprise-grade security & architecture",
                   "AI-forward development methodologies",
-                  "Transparent communication and agile delivery",
-                  "Global standard UI/UX design principles"
+                  "Transparent, agile delivery cycles",
+                  "Conversion-optimized UI/UX design"
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-4">
                     <CheckCircle2 className="text-primary shrink-0 mt-1" size={20} />
@@ -491,7 +491,7 @@ export default function Home() {
                       speed={1}
                     />
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
                   <div className="relative z-10">
                     <Code className="text-white/40 mb-4" size={24} />
                     <div>
@@ -519,7 +519,7 @@ export default function Home() {
                       speed={1}
                     />
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
                   <div className="relative z-10">
                     <Smartphone className="text-white/40 mb-4" size={24} />
                     <div>
@@ -536,13 +536,7 @@ export default function Home() {
 
       {/* Testimonials */}
       <section className="py-32 relative overflow-hidden bg-background border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-gradient">Client Success Stories</h2>
-            <p className="text-white/60">Don't just take our word for it. Here's what our clients have to say.</p>
-          </div>
-          <AbuQitmirTestimonials />
-        </div>
+        <StaggerTestimonials />
       </section>
 
       {/* AI-Optimized FAQ */}
@@ -550,7 +544,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-gradient">Frequently Asked Questions</h2>
-            <p className="text-white/60">Everything you need to know about working with us.</p>
+            <p className="text-lg text-white/60">Everything you need to know about working with us.</p>
           </div>
           
           <Accordion05 />
@@ -558,29 +552,29 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-32 relative overflow-hidden bg-slate-900 flex flex-col items-center justify-center">
-        <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+      <section className="py-32 relative overflow-hidden bg-background flex flex-col items-center justify-center">
+        <div className="absolute inset-0 w-full h-full bg-background z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
         <Boxes />
         <div className="max-w-5xl mx-auto px-6 md:px-12 text-center relative z-20">
-          <h2 className="text-4xl md:text-6xl font-heading font-bold mb-8 text-white">Ready to scale your business?</h2>
+          <h2 className="text-4xl md:text-6xl font-heading font-bold mb-8 text-white">Ready to outpace the competition?</h2>
           <p className="text-xl text-white/60 mb-12 max-w-2xl mx-auto">
-            Let's discuss how our technology solutions can drive your next phase of growth.
+            Stop settling for average. Let's build something exceptional together.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link 
               to="/contact" 
-              className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-green-500 text-black font-semibold text-lg shadow-[0_0_30px_rgba(34,197,94,0.6)] hover:scale-105 transition w-full sm:w-auto"
+              className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary text-black font-semibold text-lg shadow-[0_0_30px_rgba(92,230,92,0.4)] hover:scale-105 transition w-full sm:w-auto"
             >
-              Start Your Project
+              Book a Discovery Call
               <ArrowRight size={20} />
             </Link>
             <a 
               href="https://wa.me/923233260859" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-black/60 border border-white/10 text-white text-lg hover:bg-black/80 transition w-full sm:w-auto"
+              className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white text-lg hover:bg-white/10 transition w-full sm:w-auto"
             >
-              <MessageCircle size={18} className="text-green-400" />
+              <MessageCircle size={18} className="text-primary" />
               Chat on WhatsApp
             </a>
           </div>

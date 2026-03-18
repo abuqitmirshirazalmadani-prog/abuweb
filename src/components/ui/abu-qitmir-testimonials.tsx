@@ -34,7 +34,7 @@ const reviews = [
     imageSrc:
       "C:\Users\AL KHAIR COMPUTER\Downloads\Untitled design (60).jpg",
     thumbnailSrc:
-      "C:\Users\AL KHAIR COMPUTER\Downloads\Untitled design (72).jpg""C:\Users\AL KHAIR COMPUTER\Downloads\Untitled design (72).jpg""C:\Users\AL KHAIR COMPUTER\Downloads\Untitled design (72).jpg",
+      "C:\\Users\\AL KHAIR COMPUTER\\Downloads\\Untitled design (72).jpg",
   },
   {
     id: 4,

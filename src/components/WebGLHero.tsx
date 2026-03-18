@@ -55,12 +55,12 @@ export default function WebGLHero() {
   }, []);
 
   return (
-    <div className="absolute inset-0 z-0 bg-[#050505] pointer-events-none">
+    <div className="absolute inset-0 z-0 bg-background pointer-events-none">
       <Canvas camera={{ position: [0, 0, 5], fov: 60 }} dpr={[1, 2]}>
         <ParticleField count={isMobile ? 2000 : 8000} />
       </Canvas>
       {/* Fallback gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/50 to-[#050505] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background pointer-events-none" />
     </div>
   );
 }

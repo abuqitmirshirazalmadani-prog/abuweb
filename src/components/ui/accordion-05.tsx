@@ -10,51 +10,51 @@ import { cn } from "../../utils/cn";
 export const faqItems = [
   {
     id: "1",
-    title: "What services does ABUQITMIR.TECH offer?",
+    title: "How fast can you ship?",
     content:
-      "ABUQITMIR.TECH provides custom software development, modern web development, mobile app development, UI/UX design, SEO optimization, automation solutions, and scalable digital platforms for startups and businesses.",
+      "We move fast. We typically deliver MVPs in 4-6 weeks and full enterprise rollouts in 3-4 months, depending on complexity. Our agile methodology ensures you see progress weekly.",
   },
   {
     id: "2",
-    title: "Which technologies do you use?",
+    title: "What is your core technology stack?",
     content:
-      "We work with modern technologies including Next.js, React, Tailwind CSS, Node.js, WordPress, and cloud platforms.",
+      "We build for scale. Our primary stack includes React, Next.js, Node.js, Python, and cloud infrastructure (AWS/GCP). We choose the right tool for the job, favoring modern, high-performance ecosystems.",
   },
   {
     id: "3",
-    title: "Do you build custom websites?",
+    title: "Do you handle legacy code modernization?",
     content:
-      "Yes. Every website we build is tailored to the business goals, ensuring performance, scalability, and modern user experience.",
+      "Yes. We audit, refactor, and migrate legacy systems to modern architectures with zero downtime. We eliminate technical debt while preserving your core business logic.",
   },
   {
     id: "4",
-    title: "Do you provide SEO services?",
+    title: "How do you approach UI/UX design?",
     content:
-      "Yes. We provide technical SEO, AI search optimization (AEO and GEO), on-page SEO, and performance improvements.",
+      "Our design process is data-backed and conversion-led. We don't just make things look good; we design intuitive interfaces that reduce cognitive friction and drive user action.",
   },
   {
     id: "5",
-    title: "Can you redesign an existing website?",
+    title: "Can you integrate custom AI into our existing workflows?",
     content:
-      "Yes. We redesign outdated websites with modern UI/UX, improved speed, and better conversion-focused layouts.",
+      "Absolutely. We specialize in custom LLM integrations, automated data pipelines, and intelligent agents that multiply your workforce's output and reduce operational costs.",
   },
   {
     id: "6",
     title: "Do you work with international clients?",
     content:
-      "Yes. ABUQITMIR.TECH works with clients across Pakistan, the USA, the UK, and Europe.",
+      "Yes. We are a global engineering partner, currently powering forward-thinking teams across the US, UK, EU, and Pakistan.",
   },
   {
     id: "7",
-    title: "How long does a project usually take?",
+    title: "What does your engagement model look like?",
     content:
-      "Most website projects are completed within 2 to 6 weeks depending on complexity and required features.",
+      "We offer flexible models: dedicated engineering teams for long-term partnerships, or fixed-scope contracts for specific deliverables. We adapt to your operational needs.",
   },
   {
     id: "8",
-    title: "How can I contact ABUQITMIR.TECH?",
+    title: "How do we get started?",
     content:
-      "You can contact us through the website contact form or via email for project inquiries and collaborations.",
+      "Book a discovery call. We'll discuss your business objectives, technical challenges, and outline a strategic roadmap to execute your vision.",
   },
 ];
 

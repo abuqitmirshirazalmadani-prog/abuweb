@@ -12,7 +12,7 @@ interface GradientMeshBackgroundProps {
 
 export const GradientMeshBackground = ({ className, children }: GradientMeshBackgroundProps) => {
   return (
-    <div className={cn("relative overflow-hidden bg-[#0f172a]", className)}>
+    <div className={cn("relative overflow-hidden bg-background", className)}>
       {/* Grid Overlay */}
       <div 
         className="absolute inset-0 z-0 opacity-20 pointer-events-none"
@@ -35,7 +35,7 @@ export const GradientMeshBackground = ({ className, children }: GradientMeshBack
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] rounded-full bg-[#3b82f6] blur-[60px] opacity-70"
+          className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] rounded-full bg-primary blur-[100px] opacity-20"
         />
         <motion.div
           animate={{
@@ -48,7 +48,7 @@ export const GradientMeshBackground = ({ className, children }: GradientMeshBack
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute top-1/3 right-1/4 w-[35vw] h-[35vw] rounded-full bg-[#06b6d4] blur-[60px] opacity-70"
+          className="absolute top-1/3 right-1/4 w-[35vw] h-[35vw] rounded-full bg-emerald-500 blur-[100px] opacity-20"
         />
         <motion.div
           animate={{
@@ -61,7 +61,7 @@ export const GradientMeshBackground = ({ className, children }: GradientMeshBack
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute bottom-1/4 left-1/3 w-[45vw] h-[45vw] rounded-full bg-[#8b5cf6] blur-[60px] opacity-70"
+          className="absolute bottom-1/4 left-1/3 w-[45vw] h-[45vw] rounded-full bg-teal-500 blur-[100px] opacity-20"
         />
         <motion.div
           animate={{
@@ -74,7 +74,7 @@ export const GradientMeshBackground = ({ className, children }: GradientMeshBack
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute bottom-1/3 right-1/3 w-[30vw] h-[30vw] rounded-full bg-[#ec4899] blur-[60px] opacity-70"
+          className="absolute bottom-1/3 right-1/3 w-[30vw] h-[30vw] rounded-full bg-green-400 blur-[100px] opacity-20"
         />
       </div>
 
