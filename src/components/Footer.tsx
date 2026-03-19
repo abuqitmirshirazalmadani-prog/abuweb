@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, Phone, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Logo } from './Logo';
 
 export default function Footer() {
   return (
@@ -11,8 +12,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
         {/* About */}
         <div className="space-y-6">
-          <Link to="/" className="text-2xl font-heading font-bold tracking-tight text-white">
-            Abuqitmir.tech
+          <Link to="/" className="flex items-center gap-2">
+            <Logo />
           </Link>
           <p className="text-sm text-white/60 leading-relaxed">
             We design, build, and scale secure high-performance software, websites, mobile apps, and AI systems for ambitious global businesses.

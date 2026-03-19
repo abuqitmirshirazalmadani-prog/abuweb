@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { CheckCircle2, ArrowRight, MessageCircle } from 'lucide-react';
 import SEO from '../components/SEO';
 import { AccordionCustomSoftware } from '../components/ui/accordion-custom-software';
+import { AccordionWebDevelopment } from '../components/ui/accordion-web-development';
+import { AccordionMobileApp } from '../components/ui/accordion-mobile-app';
 
 const serviceData = {
   "custom-software": {
@@ -223,17 +225,23 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      {/* FAQ Section (Custom Software Only) */}
-      {id === 'custom-software' && (
+      {/* FAQ Section */}
+      {(id === 'custom-software' || id === 'web-development' || id === 'mobile-app') && (
         <section className="py-24 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 text-white">Frequently Asked Questions</h2>
               <p className="text-lg text-white/60 max-w-2xl mx-auto">
-                Everything you need to know about our custom software development process.
+                {id === 'custom-software' 
+                  ? "Everything you need to know about our custom software development process."
+                  : id === 'web-development'
+                  ? "Everything you need to know about our web development process."
+                  : "Everything you need to know about our mobile app development process."}
               </p>
             </div>
-            <AccordionCustomSoftware />
+            {id === 'custom-software' && <AccordionCustomSoftware />}
+            {id === 'web-development' && <AccordionWebDevelopment />}
+            {id === 'mobile-app' && <AccordionMobileApp />}
           </div>
         </section>
       )}
@@ -247,6 +255,13 @@ export default function ServiceDetail() {
               <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">Ready to build custom software that transforms your business?</h2>
               <p className="text-xl text-white/60 mb-8">Contact Qitmir Tech Solutions today for a free consultation.</p>
             </>
+          ) : id === 'web-development' ? (
+            <>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">Ready to build a powerful web platform?</h2>
+              <p className="text-xl text-white/60 mb-8">Contact Qitmir Tech Solutions for a free consultation.</p>
+            </>
+          ) : id === 'mobile-app' ? (
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-12 text-white">Ready to start your mobile app development project?</h2>
           ) : (
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-8 text-white">Ready to start your {service.title.toLowerCase()} project?</h2>
           )}
@@ -269,7 +284,7 @@ export default function ServiceDetail() {
             </a>
           </div>
 
-          {id === 'custom-software' && (
+          {(id === 'custom-software' || id === 'web-development' || id === 'mobile-app') && (
             <p className="text-sm text-white/40">
               Serving: Karachi, Lahore, Islamabad (Pakistan) | New York (USA) | London (UK) | Berlin (Germany) | Warsaw (Poland)
             </p>

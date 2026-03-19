@@ -3,6 +3,7 @@ import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-
 import { Link } from 'react-router-dom';
 import { Moon, Sun, MessageCircle, Menu, X, ChevronDown } from 'lucide-react';
 import { cn } from '../utils/cn';
+import { Logo } from './Logo';
 
 const servicesList = [
   { id: "custom-software", title: "Custom Software" },
@@ -54,8 +55,8 @@ export default function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        <Link to="/" className="text-2xl font-heading font-bold tracking-tight text-[var(--text)]">
-          Abuqitmir.tech
+        <Link to="/" className="flex items-center gap-2">
+          <Logo />
         </Link>
 
         {/* Desktop Menu */}
