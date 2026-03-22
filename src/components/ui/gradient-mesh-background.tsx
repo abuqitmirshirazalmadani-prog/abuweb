@@ -12,7 +12,7 @@ interface GradientMeshBackgroundProps {
 
 export const GradientMeshBackground = ({ className, children }: GradientMeshBackgroundProps) => {
   return (
-    <div className={cn("relative overflow-hidden bg-background", className)}>
+    <div className={cn("relative overflow-hidden", className)}>
       {/* Grid Overlay */}
       <div 
         className="absolute inset-0 z-0 opacity-20 pointer-events-none"

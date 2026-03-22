@@ -4,7 +4,7 @@ import { Logo } from './Logo';
 
 export default function Footer() {
   return (
-    <footer className="relative z-10 bg-[#0B0B0B] border-t border-white/10 pt-24 pb-12 overflow-hidden">
+    <footer className="relative z-10 bg-transparent border-t border-white/10 pt-24 pb-12 overflow-hidden">
       {/* Soft Glow Accent */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-md h-32 bg-primary/5 blur-[100px] pointer-events-none" />

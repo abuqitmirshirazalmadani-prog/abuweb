@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Code, Smartphone, Palette, Brain, LineChart, PenTool, Globe, Briefcase, CheckCircle2, Star, MessageCircle, Search } from 'lucide-react';
-import WebGLHero from '../components/WebGLHero';
+import RainingLetters from '../components/ui/modern-animated-hero-section';
 import SEO from '../components/SEO';
 import Marquee from '../components/Marquee';
 import { cn } from '../utils/cn';
@@ -100,7 +100,7 @@ function TrustStrip() {
       animate={{ opacity: 1 }}
       transition={{ duration: 1, delay: 1.2 }}
       onMouseMove={onMouseMove}
-      className="group/card absolute bottom-0 left-0 right-0 border-t border-white/10 bg-background/80 backdrop-blur-md py-4 overflow-hidden"
+      className="group/card absolute bottom-0 left-0 right-0 border-t border-white/10 bg-bg/80 backdrop-blur-md py-4 overflow-hidden"
     >
       <CardPattern
         mouseX={mouseX}
@@ -263,10 +263,10 @@ export default function Home() {
         canonical="https://abuqitmir.tech"
         schema={[organizationSchema, localBusinessSchema, faqSchema, breadcrumbSchema]}
       />
+      <RainingLetters />
 
       {/* Hero Section */}
-      <section className="relative min-h-[100dvh] flex flex-col items-center justify-start overflow-hidden pt-32 pb-32">
-        <WebGLHero />
+      <section className="relative z-10 min-h-[100dvh] flex flex-col items-center justify-start overflow-hidden pt-32 pb-32">
         
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 text-center flex flex-col items-center my-auto w-full">
           
@@ -364,7 +364,7 @@ export default function Home() {
       </section>
 
       {/* Technology Stack Marquee */}
-      <section className="py-20 border-t border-white/5 overflow-hidden relative">
+      <section className="py-20 border-t border-white/5 overflow-hidden relative z-10">
         <div className="absolute inset-0 z-0">
           <SparklesCore
             background="transparent"
@@ -404,7 +404,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="relative border-t border-white/5">
+      <section className="relative z-10 border-t border-white/5">
         <GradientMeshBackground className="py-32">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <div className="text-center mb-20 flex flex-col items-center">
@@ -426,9 +426,9 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-32 relative overflow-hidden bg-background z-0">
+      <section className="py-32 relative overflow-hidden z-10">
         <DottedSurface className="size-full opacity-50 z-0" />
-        <div className="absolute inset-0 bg-background/50 z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-bg/50 z-10 pointer-events-none" />
         <div className="absolute top-1/2 left-0 w-full h-[500px] bg-primary/5 blur-[120px] -translate-y-1/2 pointer-events-none z-10" />
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -541,12 +541,12 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-32 relative overflow-hidden bg-background border-t border-white/5">
+      <section className="py-32 relative z-10 overflow-hidden border-t border-white/5">
         <StaggerTestimonials />
       </section>
 
       {/* AI-Optimized FAQ */}
-      <section className="py-32 bg-elevated border-t border-white/5">
+      <section className="py-32 relative z-10 border-t border-white/5">
         <div className="max-w-4xl mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-gradient">Frequently Asked Questions</h2>
@@ -558,8 +558,8 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-32 relative overflow-hidden bg-background flex flex-col items-center justify-center">
-        <div className="absolute inset-0 w-full h-full bg-background z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+      <section className="py-32 relative z-10 overflow-hidden flex flex-col items-center justify-center">
+        <div className="absolute inset-0 w-full h-full z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
         <Boxes />
         <div className="max-w-5xl mx-auto px-6 md:px-12 text-center relative z-20">
           <h2 className="text-4xl md:text-6xl font-heading font-bold mb-8 text-white">Ready to outpace the competition?</h2>
