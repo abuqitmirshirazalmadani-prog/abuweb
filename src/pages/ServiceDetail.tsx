@@ -5,7 +5,6 @@ import SEO from '../components/SEO';
 import { AccordionCustomSoftware } from '../components/ui/accordion-custom-software';
 import { AccordionWebDevelopment } from '../components/ui/accordion-web-development';
 import { AccordionMobileApp } from '../components/ui/accordion-mobile-app';
-import RainingLetters from '../components/ui/modern-animated-hero-section';
 
 const serviceData = {
   "custom-software": {
@@ -124,8 +123,6 @@ export default function ServiceDetail() {
         schema={breadcrumbSchema}
       />
 
-      {id === 'custom-software' && <RainingLetters />}
-
       {/* Hero */}
       <section className="pt-40 pb-20 relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-primary/10 blur-[120px] pointer-events-none" />
@@ -189,7 +186,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* Process & Tech */}
-      <section className={`py-20 ${id === 'custom-software' ? 'bg-transparent' : 'bg-elevated'} border-y border-white/5`}>
+      <section className="py-20 bg-elevated border-y border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -200,7 +197,7 @@ export default function ServiceDetail() {
             <div className="space-y-8 relative before:absolute before:inset-0 before:ml-6 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
               {service.process.map((step, i) => (
                 <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                  <div className={`flex items-center justify-center w-12 h-12 rounded-full border border-white/20 ${id === 'custom-software' ? 'bg-black/50 backdrop-blur-sm shadow-[0_0_0_8px_rgba(5,5,5,0.5)]' : 'bg-card shadow-[0_0_0_8px_#050505]'} text-white/50 group-hover:text-primary group-hover:border-primary/50 transition-colors shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2`}>
+                  <div className="flex items-center justify-center w-12 h-12 rounded-full border border-white/20 bg-card text-white/50 group-hover:text-primary group-hover:border-primary/50 transition-colors shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-[0_0_0_8px_#050505]">
                     {i + 1}
                   </div>
                   <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 rounded-2xl glass-panel border border-white/5 group-hover:border-primary/20 transition-colors">
