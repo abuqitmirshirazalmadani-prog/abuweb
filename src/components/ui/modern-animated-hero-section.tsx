@@ -132,7 +132,7 @@ const ScrambledTitle: React.FC = () => {
   )
 }
 
-const RainingLetters: React.FC<{ className?: string, children?: React.ReactNode, showTitle?: boolean }> = ({ className = "relative w-full h-screen bg-black overflow-hidden", children, showTitle = true }) => {
+const RainingLetters: React.FC<{ className?: string, children?: React.ReactNode }> = ({ className = "relative w-full h-screen bg-black overflow-hidden", children }) => {
   const [characters, setCharacters] = useState<Character[]>([])
   const [activeIndices, setActiveIndices] = useState<Set<number>>(new Set())
 
@@ -197,11 +197,6 @@ const RainingLetters: React.FC<{ className?: string, children?: React.ReactNode,
 
   return (
     <div className={className}>
-      {showTitle && (
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-          <ScrambledTitle />
-        </div>
-      )}
       {children}
       {/* Raining Characters */}
       {characters.map((char, index) => (

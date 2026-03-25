@@ -263,12 +263,14 @@ export default function Home() {
         canonical="https://abuqitmir.tech"
         schema={[organizationSchema, localBusinessSchema, faqSchema, breadcrumbSchema]}
       />
-      <RainingLetters />
-
-      {/* Hero Section */}
-      <section className="relative z-10 min-h-[100dvh] flex flex-col items-center justify-start overflow-hidden pt-32 pb-32">
+      <div className="relative min-h-screen">
+        <div className="fixed inset-0 z-0 pointer-events-none">
+          <RainingLetters className="w-full h-full bg-black overflow-hidden" />
+        </div>
+        {/* Hero Section */}
+        <section className="relative z-10 flex flex-col items-center justify-start overflow-hidden pt-32 pb-32">
         
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 text-center flex flex-col items-center my-auto w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 text-center flex flex-col items-center w-full">
           
           {/* Trust Bar */}
           <motion.div 
@@ -362,6 +364,7 @@ export default function Home() {
         {/* Trust Strip */}
         <TrustStrip />
       </section>
+      </div>
 
       {/* Technology Stack Marquee */}
       <section className="py-20 border-t border-white/5 overflow-hidden relative z-10">

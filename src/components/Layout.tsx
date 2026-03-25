@@ -4,14 +4,12 @@ import Footer from './Footer';
 import Preloader from './Preloader';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
-import RainingLetters from './ui/modern-animated-hero-section';
 
 export default function Layout() {
   const location = useLocation();
 
   return (
     <div className="min-h-screen flex flex-col bg-bg text-text font-sans selection:bg-primary/30 selection:text-white relative">
-      <RainingLetters />
       <Preloader />
       <Navbar />
       
