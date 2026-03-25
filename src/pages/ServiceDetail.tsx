@@ -5,7 +5,6 @@ import SEO from '../components/SEO';
 import { AccordionCustomSoftware } from '../components/ui/accordion-custom-software';
 import { AccordionWebDevelopment } from '../components/ui/accordion-web-development';
 import { AccordionMobileApp } from '../components/ui/accordion-mobile-app';
-import RainingLetters from '../components/ui/modern-animated-hero-section';
 
 const serviceData = {
   "custom-software": {
@@ -123,8 +122,6 @@ export default function ServiceDetail() {
         canonical={`https://abuqitmir.tech/services/${id}`}
         schema={breadcrumbSchema}
       />
-
-      {id === 'custom-software' && <RainingLetters />}
 
       {/* Hero */}
       <section className="pt-40 pb-20 relative overflow-hidden">
