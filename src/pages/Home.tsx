@@ -16,6 +16,46 @@ import { DottedSurface } from '../components/ui/dotted-surface';
 import { AnimatedText } from '../components/ui/animated-underline-text-one';
 import { GradientMeshBackground } from '../components/ui/gradient-mesh-background';
 import { StaggerTestimonials } from '../components/ui/stagger-testimonials';
+import { VideoThumbnailPlayer } from '../components/ui/video-thumbnail-player';
+
+const recentProjects = [
+  {
+    title: "Construction Materials Management System",
+    thumbnailUrl: "https://img.youtube.com/vi/v25Fo6O3iy4/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/v25Fo6O3iy4?autoplay=1",
+    link: "https://www.youtube.com/watch?v=v25Fo6O3iy4"
+  },
+  {
+    title: "Pizza House App",
+    thumbnailUrl: "https://img.youtube.com/vi/HgPP7c9fftw/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/HgPP7c9fftw?autoplay=1",
+    link: "https://www.youtube.com/watch?v=HgPP7c9fftw"
+  },
+  {
+    title: "Mental Health Practice Manager",
+    thumbnailUrl: "https://img.youtube.com/vi/M4m1rplTxDk/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/M4m1rplTxDk?autoplay=1",
+    link: "https://www.youtube.com/watch?v=M4m1rplTxDk"
+  },
+  {
+    title: "Veterinary Clinic Dashboard",
+    thumbnailUrl: "https://img.youtube.com/vi/oePtwfOSBfo/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/oePtwfOSBfo?autoplay=1",
+    link: "https://www.youtube.com/watch?v=oePtwfOSBfo"
+  },
+  {
+    title: "Full-Stack Website",
+    thumbnailUrl: "https://img.youtube.com/vi/110zeH-eEEk/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/110zeH-eEEk?autoplay=1",
+    link: "https://www.youtube.com/watch?v=110zeH-eEEk"
+  },
+  {
+    title: "Inventory and Record Management System",
+    thumbnailUrl: "https://img.youtube.com/vi/L3P57XVX9E0/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/L3P57XVX9E0?autoplay=1",
+    link: "https://www.youtube.com/watch?v=L3P57XVX9E0"
+  }
+];
 
 const services = [
   {
@@ -539,6 +579,47 @@ export default function Home() {
                 </motion.div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Recent Projects */}
+      <section className="py-32 relative z-10 overflow-hidden border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="text-center mb-16">
+            <AnimatedText 
+              text="My Recent Projects"
+              textClassName="text-4xl md:text-5xl font-heading font-bold mb-6 text-gradient"
+              underlineClassName="text-primary"
+            />
+            <p className="text-lg text-white/60 max-w-2xl mx-auto mt-6">
+              A showcase of our latest work and digital experiences.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {recentProjects.map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="flex flex-col gap-4"
+              >
+                <VideoThumbnailPlayer 
+                  thumbnailUrl={project.thumbnailUrl} 
+                  videoUrl={project.videoUrl} 
+                  title={project.title} 
+                />
+                <div className="text-center">
+                  <h3 className="text-xl font-heading font-semibold text-white">{project.title}</h3>
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline mt-2 inline-block">
+                    View Project Details
+                  </a>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

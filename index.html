@@ -13,6 +13,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="odMWdUx3wCwrsZuL6CRlTpsZj4c1VTYjY-MFI9TXq6M" />
+    <script>
+      // Suppress harmless HTML5 video play() interruption errors from triggering Vite's error overlay
+      window.addEventListener('unhandledrejection', function(e) {
+        if (e.reason && e.reason.message && e.reason.message.includes('interrupted by a call to pause')) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+        }
+      });
+      window.addEventListener('error', function(e) {
+        if (e.message && e.message.includes('interrupted by a call to pause')) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+        }
+      });
+    </script>
     
     <title>Abu Qitmir | Custom Software & Mobile App Developer | Pakistan, USA, UK & Europe</title>
     <meta name="description" content="410+ successful projects in custom software, mobile apps & web solutions. Serving Pakistan, USA, UK & Europe. Get started today!">
