@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { Moon, Sun, MessageCircle, Menu, X, ChevronDown } from 'lucide-react';
 import { cn } from '../utils/cn';
 import { Logo } from './Logo';

@@ -1,5 +1,5 @@
 import { motion, useMotionValue } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Code, Smartphone, Palette, Brain, LineChart, PenTool, Globe, Briefcase } from 'lucide-react';
 import SEO from '../components/SEO';
@@ -153,9 +153,9 @@ export default function Services() {
   return (
     <>
       <SEO 
-        title="Our Services | Elite Digital Solutions" 
-        description="Explore our comprehensive suite of digital services including custom software, web development, mobile apps, AI solutions, and digital marketing."
-        canonical="https://abuqitmir.tech/services"
+        title="Our Services in Pakistan | Abu Qitmir" 
+        description="Comprehensive technology solutions designed to accelerate your business growth. Serving clients in Pakistan, USA, and UK."
+        canonical="https://abuqitmir.tech/services/"
         schema={breadcrumbSchema}
       />
 

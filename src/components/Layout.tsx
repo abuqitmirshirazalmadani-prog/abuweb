@@ -1,4 +1,4 @@
-import { Outlet, useLocation, Link } from 'react-router-dom';
+import { Outlet, useLocation, Link } from 'react-router';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Preloader from './Preloader';

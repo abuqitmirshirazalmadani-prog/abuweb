@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { ArrowRight, Code, Smartphone, Palette, Brain, LineChart, PenTool, Globe, Briefcase, CheckCircle2, Star, MessageCircle, Search } from 'lucide-react';
 import RainingLetters from '../components/ui/modern-animated-hero-section';
 import SEO from '../components/SEO';
@@ -295,13 +295,110 @@ export default function Home() {
     }]
   };
 
+  const professionalServiceSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Abu Qitmir",
+    "url": "https://abuqitmir.tech",
+    "description": "Custom software and mobile app development in Pakistan, USA, UK and Europe",
+    "areaServed": ["Pakistan", "USA", "UK", "Europe"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Karachi",
+      "addressCountry": "PK"
+    }
+  };
+
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Abu Qitmir Custom Software & Mobile App Development Services",
+    "description": "Professional digital solutions for businesses worldwide - 410+ projects completed",
+    "brand": {"@type": "Brand", "name": "Abu Qitmir"},
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "47",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Salman Raza"},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+        "reviewBody": "Abu Qitmir developed custom inventory management software that streamlined our entire operation. Saved us thousands monthly!",
+        "publisher": {"@type": "Organization", "name": "Manufacturing Company"},
+        "datePublished": "2025-01-15"
+      },
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Hamza Yousaf"},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+        "reviewBody": "Abu Qitmir built our iOS and Android apps in 8 weeks. Already at 4.8 stars with 10K+ downloads!",
+        "publisher": {"@type": "Organization", "name": "Food Delivery Service"},
+        "datePublished": "2025-02-10"
+      },
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Hassan Raza"},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+        "reviewBody": "Best rates in Karachi without compromising on quality. Abu Qitmir made my dream project affordable!",
+        "datePublished": "2025-01-28"
+      }
+    ]
+  };
+
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Abu Qitmir",
+    "jobTitle": "Custom Software Developer & Mobile App Developer",
+    "url": "https://abuqitmir.tech",
+    "email": "abuqitmirshirazalmadani@gmail.com",
+    "telephone": "+92-323-3260859",
+    "knowsAbout": [
+      "Custom Software Development",
+      "Mobile App Development",
+      "Web Design",
+      "UI/UX Design",
+      "SEO Optimization"
+    ]
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Abu Qitmir - Custom Software & Mobile App Development",
+    "url": "https://abuqitmir.tech",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Abu Qitmir",
+      "logo": {"@type": "ImageObject", "url": "https://abuqitmir.tech/logo.png"}
+    }
+  };
+
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Digital Services Offered by Abu Qitmir",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Custom Software Development"},
+      {"@type": "ListItem", "position": 2, "name": "Mobile App Development"},
+      {"@type": "ListItem", "position": 3, "name": "Web Design & Development"},
+      {"@type": "ListItem", "position": 4, "name": "UI/UX Design"},
+      {"@type": "ListItem", "position": 5, "name": "SEO & Voice Search Optimization"},
+      {"@type": "ListItem", "position": 6, "name": "Content Writing"}
+    ]
+  };
+
   return (
     <>
       <SEO 
-        title="Scalable, Secure Tech Solutions" 
-        description="We design, build, and scale secure high-performance software, websites, mobile apps, and AI systems for ambitious global businesses."
-        canonical="https://abuqitmir.tech"
-        schema={[organizationSchema, localBusinessSchema, faqSchema, breadcrumbSchema]}
+        title="Abu Qitmir | Custom Software & Mobile App Developer | Pakistan, USA & UK" 
+        description="Affordable custom software and mobile app development for startups and businesses in Pakistan, USA, UK and Europe. Get a free quote today."
+        canonical="https://abuqitmir.tech/"
+        schema={[organizationSchema, localBusinessSchema, faqSchema, breadcrumbSchema, professionalServiceSchema, productSchema, personSchema, websiteSchema, itemListSchema]}
       />
       <div className="relative min-h-screen">
         <div className="fixed inset-0 z-0 pointer-events-none">
@@ -334,7 +431,7 @@ export default function Home() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] font-heading font-bold tracking-tight leading-[1.1] text-white mb-6"
             >
-              Scalable, Secure Tech Solutions
+              Custom Software & Mobile App Developer in Pakistan, USA & UK
             </motion.h1>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}

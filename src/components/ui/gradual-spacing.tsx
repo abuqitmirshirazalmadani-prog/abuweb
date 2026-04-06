@@ -34,7 +34,7 @@ function GradualSpacing({
               const currentDelay = initialDelay + charIndex * delayMultiple;
               charIndex++;
               return (
-                <motion.h1
+                <motion.span
                   key={charIndex}
                   initial="hidden"
                   animate="visible"
@@ -44,14 +44,14 @@ function GradualSpacing({
                   className={cn("drop-shadow-sm", className)}
                 >
                   {char}
-                </motion.h1>
+                </motion.span>
               );
             })}
             {i < words.length - 1 && (() => {
               const currentDelay = initialDelay + charIndex * delayMultiple;
               charIndex++;
               return (
-                <motion.h1
+                <motion.span
                   key={`space-${i}`}
                   initial="hidden"
                   animate="visible"
@@ -61,7 +61,7 @@ function GradualSpacing({
                   className={cn("drop-shadow-sm", className)}
                 >
                   <span className="w-[0.3em] inline-block">&nbsp;</span>
-                </motion.h1>
+                </motion.span>
               );
             })()}
           </div>

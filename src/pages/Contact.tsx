@@ -72,9 +72,9 @@ export default function Contact() {
   return (
     <>
       <SEO 
-        title="Contact Us | Abuqitmir.tech" 
-        description="Get in touch with Abuqitmir.tech for scalable, secure tech solutions. We serve clients globally across Pakistan, USA, UK & Europe."
-        canonical="https://abuqitmir.tech/contact"
+        title="Contact Abu Qitmir | Get a Free Development Quote" 
+        description="Get in touch with Abu Qitmir for custom software, mobile app, and web development projects. Based in Pakistan, serving USA, UK and Europe."
+        canonical="https://abuqitmir.tech/contact/"
         schema={breadcrumbSchema}
       />
 
@@ -87,7 +87,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-7xl font-heading font-bold mb-6 text-gradient"
           >
-            Let's Build Together
+            Get In Touch
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}

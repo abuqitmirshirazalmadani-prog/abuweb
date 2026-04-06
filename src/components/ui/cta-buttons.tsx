@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef } from "react"
-import { Link } from "react-router-dom"
+import { Link } from "react-router"
 import { ArrowRight, Phone, MessageCircle } from "lucide-react"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"

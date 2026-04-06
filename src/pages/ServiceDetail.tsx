@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router';
 import { motion } from 'framer-motion';
 import { CheckCircle2, ArrowRight, MessageCircle } from 'lucide-react';
 import SEO from '../components/SEO';
@@ -117,9 +117,9 @@ export default function ServiceDetail() {
   return (
     <>
       <SEO 
-        title={`${service.title} | Abuqitmir.tech`}
-        description={service.description}
-        canonical={`https://abuqitmir.tech/services/${id}`}
+        title={`${service.title} Services in Pakistan | Abu Qitmir`}
+        description={`${service.description} Serving clients in Pakistan, USA, and UK.`}
+        canonical={`https://abuqitmir.tech/services/${id}/`}
         schema={breadcrumbSchema}
       />
 
