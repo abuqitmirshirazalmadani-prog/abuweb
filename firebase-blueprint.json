@@ -1,0 +1,48 @@
+{
+  "entities": {
+    "BlogPost": {
+      "title": "Blog Post",
+      "description": "A blog post article.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "The title of the post" },
+        "slug": { "type": "string", "description": "The URL-friendly slug" },
+        "content": { "type": "string", "description": "Markdown content" },
+        "excerpt": { "type": "string", "description": "Short summary" },
+        "featuredImage": { "type": "string", "description": "URL to the featured image" },
+        "authorName": { "type": "string", "description": "Name of the author" },
+        "authorId": { "type": "string", "description": "UID of the author" },
+        "category": { "type": "string", "description": "Category of the post" },
+        "tags": { "type": "array", "items": { "type": "string" }, "description": "Tags for the post" },
+        "status": { "type": "string", "enum": ["draft", "published"], "description": "Post status" },
+        "createdAt": { "type": "timestamp", "description": "Creation time" },
+        "updatedAt": { "type": "timestamp", "description": "Last update time" },
+        "publishedAt": { "type": "timestamp", "description": "Publish time" },
+        "views": { "type": "number", "description": "Number of views" },
+        "readingTime": { "type": "number", "description": "Estimated reading time in minutes" }
+      },
+      "required": ["title", "slug", "content", "authorName", "authorId", "status", "createdAt"]
+    },
+    "User": {
+      "title": "User",
+      "description": "A user profile, primarily for admin access.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "role": { "type": "string", "enum": ["admin", "user"] },
+        "createdAt": { "type": "timestamp" }
+      },
+      "required": ["email", "role"]
+    }
+  },
+  "firestore": {
+    "/posts/{postId}": {
+      "schema": { "$ref": "BlogPost" },
+      "description": "Stores blog posts"
+    },
+    "/users/{userId}": {
+      "schema": { "$ref": "User" },
+      "description": "Stores user roles and profiles"
+    }
+  }
+}

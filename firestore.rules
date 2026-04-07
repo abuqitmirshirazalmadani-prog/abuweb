@@ -1,0 +1,138 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: posts
+    // Document ID: auto-generated
+    // Fields:
+    //   - title: string (required)
+    //   - slug: string (required)
+    //   - content: string (required)
+    //   - excerpt: string (optional)
+    //   - featuredImage: string (optional)
+    //   - authorName: string (required)
+    //   - authorId: string (required, immutable)
+    //   - category: string (optional)
+    //   - tags: list of strings (optional)
+    //   - status: string (required, 'draft' or 'published')
+    //   - createdAt: timestamp (required, immutable)
+    //   - updatedAt: timestamp (optional)
+    //   - publishedAt: timestamp (optional)
+    //   - views: number (optional)
+    //   - readingTime: number (optional)
+    //
+    // Collection: users
+    // Document ID: user uid
+    // Fields:
+    //   - email: string (required)
+    //   - role: string (required, 'admin' or 'user')
+    //   - createdAt: timestamp (optional)
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && (
+        (exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin') ||
+        ('email' in request.auth.token && request.auth.token.email.matches("(?i)abuqitmirshirazalmadani@gmail.com"))
+      );
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function hasRequiredFields(fields) {
+      return request.resource.data.keys().hasAll(fields);
+    }
+
+    function hasOnlyAllowedFields(fields) {
+      return request.resource.data.keys().hasOnly(fields);
+    }
+
+    function areImmutableFieldsUnchanged(fields) {
+      return !request.resource.data.diff(resource.data).affectedKeys().hasAny(fields);
+    }
+
+    function isValidString(field, minLen, maxLen) {
+      return request.resource.data[field] is string &&
+             request.resource.data[field].size() >= minLen &&
+             request.resource.data[field].size() <= maxLen;
+    }
+
+    function isValidOptionalString(field, minLen, maxLen) {
+      return !(field in request.resource.data) ||
+             (request.resource.data[field] is string &&
+              request.resource.data[field].size() >= minLen &&
+              request.resource.data[field].size() <= maxLen);
+    }
+
+    // ===============================================================
+    // Domain Validators
+    // ===============================================================
+
+    function isValidPost(data) {
+      return hasRequiredFields(['title', 'slug', 'content', 'authorName', 'authorId', 'status', 'createdAt']) &&
+             hasOnlyAllowedFields(['title', 'slug', 'content', 'excerpt', 'featuredImage', 'authorName', 'authorId', 'category', 'tags', 'status', 'createdAt', 'updatedAt', 'publishedAt', 'views', 'readingTime']) &&
+             isValidString('title', 1, 200) &&
+             isValidString('slug', 1, 250) &&
+             isValidString('content', 1, 500000) &&
+             isValidString('authorName', 1, 100) &&
+             data.status in ['draft', 'published'] &&
+             data.createdAt is timestamp &&
+             isValidOptionalString('excerpt', 0, 1000) &&
+             isValidOptionalString('featuredImage', 0, 1000) &&
+             isValidOptionalString('category', 0, 100) &&
+             (!( 'tags' in data ) || (data.tags is list && data.tags.size() <= 20)) &&
+             (!( 'updatedAt' in data ) || data.updatedAt is timestamp) &&
+             (!( 'publishedAt' in data ) || data.publishedAt is timestamp) &&
+             (!( 'views' in data ) || data.views is number) &&
+             (!( 'readingTime' in data ) || data.readingTime is number);
+    }
+
+    function isValidUser(data) {
+      return hasRequiredFields(['email', 'role']) &&
+             hasOnlyAllowedFields(['email', 'role', 'createdAt']) &&
+             isValidString('email', 5, 150) &&
+             data.role in ['admin', 'user'] &&
+             (!( 'createdAt' in data ) || data.createdAt is timestamp);
+    }
+
+    // ===============================================================
+    // Rules
+    // ===============================================================
+
+    match /posts/{postId} {
+      // Anyone can read published posts
+      allow read: if resource.data.status == 'published' || isAdmin();
+      
+      // Only admins can create/update/delete posts
+      allow create: if isAdmin();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    match /users/{userId} {
+      // Users can read their own profile, admins can read all
+      allow read: if isOwner(userId) || isAdmin();
+      
+      // Only admins can create or update roles
+      allow create: if isAdmin() && isValidUser(request.resource.data);
+      allow update: if isAdmin() && isValidUser(request.resource.data) && areImmutableFieldsUnchanged(['email', 'createdAt']);
+      allow delete: if isAdmin();
+    }
+  }
+}

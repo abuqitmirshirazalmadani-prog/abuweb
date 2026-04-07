@@ -97,11 +97,11 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          <Link to="/work" className="text-sm font-medium text-[var(--text-muted)] hover:text-primary transition-colors">
-            Work
-          </Link>
           <Link to="/about" className="text-sm font-medium text-[var(--text-muted)] hover:text-primary transition-colors">
             About
+          </Link>
+          <Link to="/blog" className="text-sm font-medium text-[var(--text-muted)] hover:text-primary transition-colors">
+            Blog
           </Link>
           
           <div className="flex items-center space-x-4 pl-4 border-l border-[var(--border)]">
@@ -177,8 +177,8 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          <Link to="/work" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-[var(--text-muted)] hover:text-primary transition-colors">Work</Link>
           <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-[var(--text-muted)] hover:text-primary transition-colors">About</Link>
+          <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-[var(--text-muted)] hover:text-primary transition-colors">Blog</Link>
           <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="mt-4 px-6 py-3 rounded-full bg-primary text-black font-medium text-center hover:scale-105 transition-transform glow-primary">Get Consultation</Link>
         </motion.div>
       )}

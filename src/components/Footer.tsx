@@ -85,6 +85,7 @@ export default function Footer() {
           © {new Date().getFullYear()} Abuqitmir.tech. All rights reserved.
         </p>
         <div className="flex space-x-6">
+          <Link to="/admin/login" className="text-xs text-white/40 hover:text-white transition-colors">Admin</Link>
           <Link to="/privacy" className="text-xs text-white/40 hover:text-white transition-colors">Privacy Policy</Link>
           <Link to="/terms" className="text-xs text-white/40 hover:text-white transition-colors">Terms of Service</Link>
         </div>

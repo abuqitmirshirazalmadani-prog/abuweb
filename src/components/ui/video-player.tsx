@@ -47,7 +47,7 @@ const CustomSlider = ({
 };
 
 const VideoPlayer = ({ src }: { src: string }) => {
-  const playerRef = useRef<ReactPlayer>(null);
+  const playerRef = useRef<any>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(1);
   const [progress, setProgress] = useState(0);

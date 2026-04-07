@@ -33,6 +33,7 @@ async function startServer() {
         render = (await vite.ssrLoadModule('/src/entry-server.tsx')).render;
       } else {
         template = fs.readFileSync(path.resolve(__dirname, 'dist/client/index.html'), 'utf-8');
+        // @ts-ignore
         render = (await import('./dist/server/entry-server.js')).render;
       }
 
