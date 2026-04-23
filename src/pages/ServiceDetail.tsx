@@ -1,16 +1,117 @@
 import { useParams, Link } from 'react-router';
 import { motion } from 'framer-motion';
-import { CheckCircle2, ArrowRight, MessageCircle } from 'lucide-react';
+import { CheckCircle2, ArrowRight, MessageCircle, Briefcase, Cloud, Bot, Network, Settings, TrendingUp, Zap, Trophy } from 'lucide-react';
 import SEO from '../components/SEO';
 import { AccordionCustomSoftware } from '../components/ui/accordion-custom-software';
 import { AccordionWebDevelopment } from '../components/ui/accordion-web-development';
 import { AccordionMobileApp } from '../components/ui/accordion-mobile-app';
 import BackgroundScene from '../components/ui/aurora-section-hero';
+import { CategoryList } from '../components/ui/category-list';
+import { ProcessSection } from '../components/ui/how-we-do-it-process-overview';
+import { ProcessTimeline } from '../components/ui/process-timeline';
+import { TextRoll } from '../components/ui/text-roll';
+import { ParallaxText } from '../components/ui/parallax-text-scroll';
+import CornerFrameScrambleText from '../components/ui/corner-frame-scramble-text';
+import { AnimatedText } from '../components/ui/animated-text';
+import { GlitchText } from '../components/ui/animated-glitch-text';
+import { GooeyMarquee } from '../components/ui/gooey-marquee';
+import { MinimalistTextEffect } from '../components/ui/reveal-text';
+
+const whyChooseAbuQitmirTech = [
+  "Affordable pricing",
+  "Tailored solutions",
+  "Fast delivery",
+  "Scalable architecture",
+  "Long-term support"
+];
+
+const customSoftwareTargets = [
+  "Startups",
+  "SMEs",
+  "Enterprises"
+];
+
+const ourDevelopmentProcess = [
+  {
+    id: 1,
+    title: "Discovery & Planning",
+    description: ""
+  },
+  {
+    id: 2,
+    title: "Architecture Design",
+    description: ""
+  },
+  {
+    id: 3,
+    title: "Agile Development",
+    description: ""
+  },
+  {
+    id: 4,
+    title: "Testing & Deployment",
+    description: ""
+  }
+];
+
+const whyCustomSoftwareItems = [
+  {
+    icon: Settings,
+    title: "Full Control",
+    description: "You decide features, design, and functionality."
+  },
+  {
+    icon: TrendingUp,
+    title: "Scalability",
+    description: "Your software grows with your business."
+  },
+  {
+    icon: Zap,
+    title: "Efficiency",
+    description: "Automate repetitive tasks and save time."
+  },
+  {
+    icon: Trophy,
+    title: "Competitive Advantage",
+    description: "Stand out with unique solutions."
+  }
+];
+
+const customSoftwareSolutions = [
+  {
+    id: "business-management",
+    title: "Business Management Systems",
+    description: "ERP systems • CRM software • Inventory management systems • HR management tools",
+    icon: <Briefcase size={24} />,
+    href: "/contact"
+  },
+  {
+    id: "saas-product",
+    title: "SaaS Product Development",
+    description: "Turn your idea into a scalable software product. Multi-tenant architecture • Subscription systems • Admin dashboards • API integrations",
+    icon: <Cloud size={24} />,
+    href: "/contact"
+  },
+  {
+    id: "automation",
+    title: "Automation Software",
+    description: "Reduce manual work and increase efficiency. Workflow automation • Data processing tools • Reporting dashboards",
+    icon: <Bot size={24} />,
+    href: "/contact"
+  },
+  {
+    id: "api-integrations",
+    title: "API & System Integrations",
+    description: "Connect all your tools into one seamless system. Payment gateways • Third-party APIs • Cloud integrations",
+    icon: <Network size={24} />,
+    href: "/contact"
+  }
+];
 
 const serviceData = {
   "custom-software": {
-    title: "Custom Software Development",
-    description: "Scalable, secure, and high-performance enterprise solutions tailored to your complex business needs.",
+    title: "Custom Software Development Services in Pakistan",
+    description: "Build Scalable, Tailored Software Solutions for Your Business. Off-the-shelf software can only take you so far. If your business needs flexibility, scalability, and a competitive edge, custom software development is the solution. At Abuqitmir Tech, we provide professional custom software development services in Pakistan to help businesses streamline operations, automate processes, and build powerful digital systems tailored to their exact needs.",
     overview: "We build robust, scalable, and secure custom software solutions that streamline your operations and drive growth. Our engineering team leverages modern architectures and best practices to deliver enterprise-grade applications.",
     benefits: ["Increased operational efficiency", "Enhanced data security", "Scalable architecture for future growth", "Seamless integration with existing systems"],
     process: ["Discovery & Planning", "Architecture Design", "Agile Development", "Testing & QA", "Deployment", "Maintenance & Support"],
@@ -129,21 +230,31 @@ export default function ServiceDetail() {
         <section className="pt-48 pb-40 lg:pt-56 lg:pb-48 relative overflow-hidden flex flex-col items-center justify-center min-h-[75vh] md:min-h-[85vh]">
           <BackgroundScene beamCount={60} />
           <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
-            <motion.h1 
+            <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 text-white"
+              className="mb-6 flex flex-col items-center justify-center gap-4"
             >
-              Custom Software <br className="hidden md:block" /> Development
-            </motion.h1>
-            <motion.p 
+              <GlitchText 
+                text="Custom Software Development" 
+                textClassName="text-[clamp(2.5rem,6vw,4.5rem)] font-heading font-bold text-center leading-tight"
+                className="min-h-0 p-0"
+              />
+              <span className="text-3xl md:text-5xl lg:text-6xl text-gradient font-heading font-bold">Services in Pakistan</span>
+            </motion.div>
+            <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed mb-10"
+              className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-10 space-y-6"
             >
-              {service.description}
-            </motion.p>
+              <p className="font-semibold text-white text-xl md:text-2xl">
+                Build Scalable, Tailored Software Solutions for Your Business
+              </p>
+              <p>Off-the-shelf software can only take you so far.</p>
+              <p>If your business needs flexibility, scalability, and a competitive edge, custom software development is the solution.</p>
+              <p>At Abuqitmir Tech, we provide professional custom software development services in Pakistan to help businesses streamline operations, automate processes, and build powerful digital systems tailored to their exact needs.</p>
+            </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -178,6 +289,159 @@ export default function ServiceDetail() {
             >
               {service.description}
             </motion.p>
+          </div>
+        </section>
+      )}
+
+      {id === 'custom-software' && (
+        <section className="relative w-full flex min-h-[50vh] py-24 flex-col items-center justify-center overflow-hidden border-t border-white/5 bg-transparent z-10">
+          <div className="w-full relative h-[150px] md:h-[250px] mb-8 mt-[-40px]">
+            <MinimalistTextEffect 
+              text="What is Custom Software Development?"
+              viewBox="0 0 350 50"
+              fontSize={18}
+            />
+          </div>
+
+          <div className="max-w-3xl text-center md:text-left text-lg md:text-xl text-white/70 leading-relaxed font-medium space-y-6 px-6 relative z-10">
+            <p className="text-white/90">
+              Custom software is built specifically for your business — not a generic solution.
+            </p>
+            <p>
+              Unlike ready-made tools, custom software:
+            </p>
+            <ul className="list-disc text-left list-inside space-y-3 font-semibold text-white/80 max-w-xl mx-auto md:mx-0 pl-4">
+              <li>Matches your workflow</li>
+              <li>Scales with your business</li>
+              <li>Offers better performance and security</li>
+            </ul>
+          </div>
+        </section>
+      )}
+
+      {id === 'custom-software' && (
+        <section className="py-24 relative z-10 overflow-hidden border-t border-white/5 bg-transparent">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 max-w-4xl h-64 bg-primary/5 blur-[120px] pointer-events-none" />
+          
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-heading font-bold text-white">
+                Our Custom Software Solutions
+              </h2>
+              <p className="text-lg text-white/60 max-w-2xl mx-auto mt-6">
+                We partner with forward-thinking businesses to deliver unparalleled digital growth with speed, precision, and strategic foresight.
+              </p>
+            </div>
+            
+            <CategoryList items={customSoftwareSolutions} />
+          </div>
+        </section>
+      )}
+
+      {id === 'custom-software' && (
+        <section className="py-24 relative z-10 px-6 md:px-12 border-t border-white/5 bg-transparent">
+          <div className="max-w-7xl mx-auto">
+            <ProcessSection
+              subtitle="Advantages"
+              title="Why Choose Custom Software?"
+              description="Pre-packaged software forces you to adapt your business to the tool. Custom software adapts to your business, scaling and integrating exactly as you need."
+              buttonText="Discuss Your Needs"
+              buttonLink="https://wa.me/923233260859"
+              items={whyCustomSoftwareItems}
+            />
+          </div>
+        </section>
+      )}
+
+      {id === 'custom-software' && (
+        <section className="relative z-10 border-t border-white/5 bg-transparent overflow-hidden">
+          <ProcessTimeline 
+            title="Our Process" 
+            items={ourDevelopmentProcess} 
+          />
+        </section>
+      )}
+
+      {id === 'custom-software' && (
+        <section className="py-24 relative z-10 border-t border-white/5 bg-black/40">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-10">
+              Custom Software for Businesses in Pakistan
+            </h2>
+            <p className="text-xl text-white/50 mb-12">We work with:</p>
+            
+            <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 mb-16">
+              {customSoftwareTargets.map((item, index) => (
+                <div key={index} className="relative flex cursor-pointer flex-col items-center overflow-visible group">
+                  <TextRoll
+                    center
+                    className="text-4xl md:text-5xl leading-[0.8] font-extrabold tracking-[-0.03em] uppercase text-white/80 group-hover:text-primary transition-colors duration-500"
+                  >
+                    {item}
+                  </TextRoll>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium">
+              Providing affordable custom software development in Pakistan without compromising quality.
+            </p>
+          </div>
+        </section>
+      )}
+
+      {id === 'custom-software' && (
+        <section className="py-24 relative overflow-hidden bg-black border-t border-white/5">
+          <div className="absolute inset-0 pointer-events-none opacity-20">
+             <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/20 blur-[100px]" />
+             <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-primary/10 blur-[120px]" />
+          </div>
+          
+          <div className="max-w-4xl mx-auto px-6 text-center relative z-10 mb-20">
+            <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
+              Industries We Serve
+            </h2>
+            <p className="text-lg text-white/50 max-w-2xl mx-auto">
+              We deliver cutting-edge digital solutions tailored to the unique goals and compliance needs of various sectors.
+            </p>
+          </div>
+
+          <div className="relative z-10 flex flex-col gap-6 -mx-8">
+            <ParallaxText baseVelocity={-2}>E-COMMERCE • HEALTHCARE • EDUCATION • FINANCE • LOGISTICS • </ParallaxText>
+            <ParallaxText baseVelocity={2}>HEALTHCARE • EDUCATION • FINANCE • LOGISTICS • E-COMMERCE • </ParallaxText>
+            <ParallaxText baseVelocity={-2}>FINANCE • LOGISTICS • E-COMMERCE • HEALTHCARE • EDUCATION • </ParallaxText>
+          </div>
+        </section>
+      )}
+
+      {id === 'custom-software' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="mb-20">
+              <AnimatedText 
+                text="Why Choose Abuqitmir Tech?" 
+                fontSize="clamp(2rem, 5vw, 4.5rem)"
+                className="font-heading font-bold"
+              />
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {whyChooseAbuQitmirTech.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="glass-panel p-6 rounded-2xl flex items-center gap-5 group hover:border-primary/50 transition-colors"
+                >
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                    <CheckCircle2 className="text-primary w-6 h-6" />
+                  </div>
+                  <span className="text-xl font-medium text-white/90 group-hover:text-white transition-colors">{item}</span>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
       )}
@@ -222,44 +486,46 @@ export default function ServiceDetail() {
       </section>
 
       {/* Process & Tech */}
-      <section className={`py-20 ${id === 'custom-software' ? 'bg-transparent' : 'bg-elevated'} border-y border-white/5`}>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-3xl font-heading font-bold mb-10 text-white">Our Process</h3>
-            <div className="space-y-8 relative before:absolute before:inset-0 before:ml-6 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
-              {service.process.map((step, i) => (
-                <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                  <div className={`flex items-center justify-center w-12 h-12 rounded-full border border-white/20 ${id === 'custom-software' ? 'bg-black/50 backdrop-blur-sm shadow-[0_0_0_8px_rgba(5,5,5,0.5)]' : 'bg-card shadow-[0_0_0_8px_#050505]'} text-white/50 group-hover:text-primary group-hover:border-primary/50 transition-colors shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2`}>
-                    {i + 1}
+      {id !== 'custom-software' && (
+        <section className="py-20 bg-elevated border-y border-white/5">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-3xl font-heading font-bold mb-10 text-white">Our Process</h3>
+              <div className="space-y-8 relative before:absolute before:inset-0 before:ml-6 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
+                {service.process.map((step, i) => (
+                  <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full border border-white/20 bg-card shadow-[0_0_0_8px_#050505] text-white/50 group-hover:text-primary group-hover:border-primary/50 transition-colors shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                      {i + 1}
+                    </div>
+                    <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 rounded-2xl glass-panel border border-white/5 group-hover:border-primary/20 transition-colors">
+                      <h4 className="text-lg font-heading font-semibold text-white">{step}</h4>
+                    </div>
                   </div>
-                  <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 rounded-2xl glass-panel border border-white/5 group-hover:border-primary/20 transition-colors">
-                    <h4 className="text-lg font-heading font-semibold text-white">{step}</h4>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+                ))}
+              </div>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-3xl font-heading font-bold mb-10 text-white">Technology Stack</h3>
-            <div className="flex flex-wrap gap-4">
-              {service.tech.map((tech, i) => (
-                <span key={i} className="px-6 py-3 rounded-full glass-panel border border-white/10 text-white/80 font-medium hover:border-primary/50 hover:text-primary transition-colors cursor-default">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-3xl font-heading font-bold mb-10 text-white">Technology Stack</h3>
+              <div className="flex flex-wrap gap-4">
+                {service.tech.map((tech, i) => (
+                  <span key={i} className="px-6 py-3 rounded-full glass-panel border border-white/10 text-white/80 font-medium hover:border-primary/50 hover:text-primary transition-colors cursor-default">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      )}
 
       {/* FAQ Section */}
       {(id === 'custom-software' || id === 'web-development' || id === 'mobile-app') && (
