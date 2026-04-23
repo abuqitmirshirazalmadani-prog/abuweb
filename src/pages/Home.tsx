@@ -18,6 +18,18 @@ import { GradientMeshBackground } from '../components/ui/gradient-mesh-backgroun
 import { StaggerTestimonials } from '../components/ui/stagger-testimonials';
 import { VideoThumbnailPlayer } from '../components/ui/video-thumbnail-player';
 
+import { CategoryList } from '../components/ui/category-list';
+import { ProcessSection } from '../components/ui/how-we-do-it-process-overview';
+import { IlluminatedHero } from '../components/ui/illuminated-hero';
+import { ParallaxText } from '../components/ui/parallax-text-scroll';
+import {
+  SpotlightCTA,
+  SpotlightCTAContent,
+  SpotlightCTAText,
+  SpotlightCTAButton
+} from '../components/ui/spotlight-cta';
+import { BrainCircuit, Target, Code, ShieldCheck, Megaphone } from 'lucide-react';
+
 const recentProjects = [
   {
     title: "Construction Materials Management System",
@@ -433,25 +445,26 @@ export default function Home() {
             >
               Custom Software & Mobile App Developer in Pakistan, USA & UK
             </motion.h1>
-            <motion.h2 
+            <motion.h3 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="text-base sm:text-lg md:text-xl lg:text-2xl font-heading font-medium text-gradient"
             >
-              N e x t - g e n e r a t i o n s o f t w a r e . E n g i n e e r e d f o r s c a l e .
-            </motion.h2>
+              Looking for reliable AI development, web development, or mobile app solutions in Pakistan?
+            </motion.h3>
           </div>
           
           {/* Subheadline */}
-          <motion.p 
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="text-base sm:text-lg md:text-xl text-white/70 max-w-3xl mb-10 leading-relaxed font-light"
+            className="text-base sm:text-lg md:text-xl text-white/70 max-w-3xl mb-10 leading-relaxed font-light space-y-4 flex flex-col items-center"
           >
-            We transform complex business challenges into elegant, high-performance digital products. No bloat, no friction—just pure execution.
-          </motion.p>
+            <p>At Abuqitmir Tech, we help startups, businesses, and entrepreneurs turn ideas into powerful digital products — fast, scalable, and cost-effective.</p>
+            <p>From AI-powered apps to modern websites, we build solutions that grow your business and give you a competitive edge.</p>
+          </motion.div>
           
           {/* Benefits Grid */}
           <motion.div
@@ -719,6 +732,150 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Feature Categories */}
+      <section className="py-32 relative z-10 overflow-hidden border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-gradient">
+              Why Choose Abuqitmir Tech?
+            </h2>
+            <p className="text-lg text-white/60 max-w-2xl mx-auto mt-6">
+              We partner with forward-thinking businesses to deliver unparalleled digital growth with speed, precision, and strategic foresight.
+            </p>
+          </div>
+          <CategoryList 
+            items={[
+              {
+                id: "affordable-solutions",
+                title: "Affordable solutions for startups",
+                description: "Budget-friendly solutions built for fast-growing startups",
+                icon: <LineChart size={32} />,
+                href: "/contact"
+              },
+              {
+                id: "ai-first",
+                title: "AI-first development approach",
+                description: "Smart AI-driven development for future-ready products",
+                icon: <Brain size={32} />,
+                href: "/services/ai-solutions"
+              },
+              {
+                id: "scalable-fast",
+                title: "Fast delivery & scalable architecture",
+                description: "Quick delivery with systems built to scale effortlessly",
+                icon: <Code size={32} />,
+                href: "/services/custom-software"
+              },
+              {
+                id: "seo-optimized",
+                title: "SEO-optimized builds from day one",
+                description: "SEO-focused development designed to rank from the start",
+                icon: <Search size={32} />,
+                href: "/services/seo"
+              },
+              {
+                id: "dedicated-support",
+                title: "Dedicated support & long-term partnership",
+                description: "Reliable support with a focus on long-term growth",
+                icon: <Briefcase size={32} />,
+                href: "/contact"
+              }
+            ]} 
+          />
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-32 relative z-10 overflow-hidden border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <ProcessSection
+            subtitle="Methodology"
+            title="Our Process"
+            description="We follow a streamlined, agile methodology to ensure your project is delivered on time, within budget, and to the highest quality standards."
+            buttonText="Chat on WhatsApp"
+            buttonLink="https://wa.me/923233260859"
+            items={[
+              {
+                icon: BrainCircuit,
+                title: 'Discovery & Strategy',
+                description: 'We understand your idea, goals, and business model.',
+              },
+              {
+                icon: Palette,
+                title: 'Design & Planning',
+                description: 'We create modern UI/UX and technical architecture.',
+              },
+              {
+                icon: Code,
+                title: 'Development',
+                description: 'We build fast, scalable, and secure systems.',
+              },
+              {
+                icon: Megaphone,
+                title: 'Launch & Optimization',
+                description: 'We deploy, test, and optimize for performance & SEO.',
+              },
+            ]}
+          />
+        </div>
+      </section>
+
+      {/* Global Audience Section */}
+      <IlluminatedHero />
+
+      {/* Industries We Serve */}
+      <section className="py-24 relative z-10 overflow-hidden border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 mb-16">
+          <div className="text-center flex flex-col items-center">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-gradient">
+              Industries We Serve
+            </h2>
+            <p className="text-lg text-white/60 max-w-2xl mx-auto mt-6">
+              We deliver cutting-edge digital solutions tailored to the unique goals and compliance needs of various sectors.
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-8 w-full pb-16 relative z-10 group">
+          <section className="relative">
+            <ParallaxText baseVelocity={-3}>Startups • E-commerce</ParallaxText>
+          </section>
+
+          <section className="relative">
+            <ParallaxText baseVelocity={4}>Healthcare • Education</ParallaxText>
+          </section>
+
+          <section className="relative">
+            <ParallaxText baseVelocity={-2}>Fintech • Local businesses</ParallaxText>
+          </section>
+        </div>
+      </section>
+
+      {/* CTA Spotlight Section */}
+      <section className="py-32 relative z-10 px-6 md:px-12 border-t border-white/5 bg-black/40">
+        <SpotlightCTA>
+          <SpotlightCTAContent>
+            <SpotlightCTAText 
+                title="Ready to Build Your Next Big Idea?"
+                description={
+                  <>
+                    <p>Let’s turn your vision into reality.</p>
+                    <p className="flex items-center justify-center lg:justify-start gap-2">
+                      <span>👉</span> Get a high-performing website, AI system, or mobile app built by experts.
+                    </p>
+                    <p>Start your project with Abuqitmir Tech and scale your business with cutting-edge technology.</p>
+                  </>
+                }
+            />
+            <a href="https://wa.me/923233260859" target="_blank" rel="noopener noreferrer">
+              <SpotlightCTAButton>
+                📩 Contact Us Today
+              </SpotlightCTAButton>
+            </a>
+          </SpotlightCTAContent>
+        </SpotlightCTA>
       </section>
 
       {/* Testimonials */}

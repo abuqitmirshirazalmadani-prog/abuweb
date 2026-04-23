@@ -5,6 +5,7 @@ import SEO from '../components/SEO';
 import { AccordionCustomSoftware } from '../components/ui/accordion-custom-software';
 import { AccordionWebDevelopment } from '../components/ui/accordion-web-development';
 import { AccordionMobileApp } from '../components/ui/accordion-mobile-app';
+import BackgroundScene from '../components/ui/aurora-section-hero';
 
 const serviceData = {
   "custom-software": {
@@ -124,27 +125,62 @@ export default function ServiceDetail() {
       />
 
       {/* Hero */}
-      <section className="pt-40 pb-20 relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-primary/10 blur-[120px] pointer-events-none" />
-        
-        <div className="max-w-4xl mx-auto px-6 md:px-12 relative z-10 text-center">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-heading font-bold mb-6 text-gradient"
-          >
-            {service.title}
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-xl text-white/60 leading-relaxed"
-          >
-            {service.description}
-          </motion.p>
-        </div>
-      </section>
+      {id === 'custom-software' ? (
+        <section className="pt-48 pb-40 lg:pt-56 lg:pb-48 relative overflow-hidden flex flex-col items-center justify-center min-h-[75vh] md:min-h-[85vh]">
+          <BackgroundScene beamCount={60} />
+          <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 text-white"
+            >
+              Custom Software <br className="hidden md:block" /> Development
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed mb-10"
+            >
+              {service.description}
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <Link 
+                to="/contact"
+                className="inline-block px-8 py-4 bg-primary text-black font-bold rounded-full hover:bg-primary/90 transition-transform hover:scale-105 shadow-[0_0_20px_rgba(92,230,92,0.4)]"
+              >
+                Get Consultation
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+      ) : (
+        <section className="pt-40 pb-20 relative overflow-hidden">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-primary/10 blur-[120px] pointer-events-none" />
+          
+          <div className="max-w-4xl mx-auto px-6 md:px-12 relative z-10 text-center">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-4xl md:text-6xl font-heading font-bold mb-6 text-gradient"
+            >
+              {service.title}
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-xl text-white/60 leading-relaxed"
+            >
+              {service.description}
+            </motion.p>
+          </div>
+        </section>
+      )}
 
       {/* Overview & Benefits */}
       <section className="py-20">

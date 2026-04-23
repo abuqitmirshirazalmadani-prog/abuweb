@@ -38,10 +38,20 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 		);
 		camera.position.set(0, 355, 1220);
 
-		const renderer = new THREE.WebGLRenderer({
-			alpha: true,
-			antialias: true,
-		});
+		let renderer: THREE.WebGLRenderer;
+		const originalConsoleError = console.error;
+		try {
+			console.error = () => {}; // Suppress Three.js WebGL errors
+			renderer = new THREE.WebGLRenderer({
+				alpha: true,
+				antialias: true,
+			});
+			console.error = originalConsoleError;
+		} catch (error) {
+			console.error = originalConsoleError;
+			// WebGL not supported, silently fall back to empty surface
+			return;
+		}
 		renderer.setPixelRatio(window.devicePixelRatio);
 		renderer.setSize(window.innerWidth, window.innerHeight);
 		renderer.setClearColor(scene.fog.color, 0);

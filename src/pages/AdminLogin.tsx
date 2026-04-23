@@ -36,6 +36,10 @@ export default function AdminLogin() {
       await signInWithPopup(auth, provider);
       navigate('/admin');
     } catch (err: any) {
+      // Ignore errors where the user intentionally closed the popup
+      if (err.code === 'auth/popup-closed-by-user' || err.code === 'auth/cancelled-popup-request') {
+        return;
+      }
       setError(err.message || 'Failed to login with Google');
     } finally {
       setLoading(false);

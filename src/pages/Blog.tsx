@@ -89,7 +89,7 @@ export default function Blog() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
                       <div className="aspect-video md:aspect-auto relative overflow-hidden">
                         {featuredPost.featuredImage ? (
-                          <img src={featuredPost.featuredImage} alt={featuredPost.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                          <img src={featuredPost.featuredImage} alt={featuredPost.title} referrerPolicy="no-referrer" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         ) : (
                           <div className="w-full h-full bg-gradient-to-br from-primary/20 to-black flex items-center justify-center">
                             <span className="text-primary/50 font-heading text-4xl font-bold">AQ</span>
@@ -154,7 +154,7 @@ export default function Blog() {
                       <Link to={`/blog/${post.slug}`} className={`group block bg-[#111] border border-white/10 rounded-2xl overflow-hidden hover:border-primary/50 transition-colors ${viewMode === 'list' ? 'flex flex-col sm:flex-row' : ''}`}>
                         <div className={`relative overflow-hidden ${viewMode === 'list' ? 'sm:w-1/3 aspect-video sm:aspect-auto' : 'aspect-video'}`}>
                           {post.featuredImage ? (
-                            <img src={post.featuredImage} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                            <img src={post.featuredImage} alt={post.title} referrerPolicy="no-referrer" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                           ) : (
                             <div className="w-full h-full bg-gradient-to-br from-primary/20 to-black flex items-center justify-center">
                               <span className="text-primary/50 font-heading text-2xl font-bold">AQ</span>

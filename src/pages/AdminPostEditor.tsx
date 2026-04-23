@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router';
 import { doc, getDoc, setDoc, addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db, auth } from '../firebase';
 import { BlogPost } from '../types/blog';
-import { ArrowLeft, Save } from 'lucide-react';
+import { ArrowLeft, Save, Sparkles } from 'lucide-react';
 
 export default function AdminPostEditor() {
   const { id } = useParams();
@@ -21,6 +21,7 @@ export default function AdminPostEditor() {
   const [initialStatus, setInitialStatus] = useState<'draft' | 'published'>('draft');
   const [loading, setLoading] = useState(!isNew);
   const [saving, setSaving] = useState(false);
+  const [isFormatting, setIsFormatting] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -62,6 +63,35 @@ export default function AdminPostEditor() {
     setTitle(e.target.value);
     if (isNew) {
       setSlug(generateSlug(e.target.value));
+    }
+  };
+
+  const handleAutoFormat = async () => {
+    if (!content.trim()) return;
+
+    setIsFormatting(true);
+    setError('');
+    try {
+      const response = await fetch('/api/format-post', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content })
+      });
+      
+      if (!response.ok) {
+        const errData = await response.json();
+        throw new Error(errData.error || 'Failed to format');
+      }
+      
+      const data = await response.json();
+      if (data.formattedContent) {
+        setContent(data.formattedContent);
+      }
+    } catch (err: any) {
+      console.error(err);
+      setError(err.message);
+    } finally {
+      setIsFormatting(false);
     }
   };
 
@@ -143,7 +173,18 @@ export default function AdminPostEditor() {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-white/70 mb-2">Content (Markdown)</label>
+              <div className="flex items-center justify-between mb-2">
+                <label className="block text-sm font-medium text-white/70">Content (Markdown)</label>
+                <button
+                  type="button"
+                  onClick={handleAutoFormat}
+                  disabled={isFormatting || !content.trim()}
+                  className="flex items-center gap-2 px-3 py-1.5 bg-primary/20 text-primary text-xs font-bold rounded-lg hover:bg-primary/30 transition-colors disabled:opacity-50"
+                >
+                  <Sparkles size={14} />
+                  {isFormatting ? 'Formatting...' : 'Auto-Format with AI'}
+                </button>
+              </div>
               <textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
@@ -211,7 +252,7 @@ export default function AdminPostEditor() {
                   placeholder="https://..."
                 />
                 {featuredImage && (
-                  <img src={featuredImage} alt="Preview" className="mt-4 w-full h-32 object-cover rounded-lg border border-white/10" />
+                  <img src={featuredImage} alt="Preview" referrerPolicy="no-referrer" className="mt-4 w-full h-32 object-cover rounded-lg border border-white/10" />
                 )}
               </div>
 

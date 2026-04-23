@@ -147,7 +147,7 @@ export default function BlogPost() {
 
           {post.featuredImage && (
             <div className="mb-12 rounded-3xl overflow-hidden aspect-video relative border border-white/10">
-              <img src={post.featuredImage} alt={post.title} className="w-full h-full object-cover" />
+              <img src={post.featuredImage} alt={post.title} referrerPolicy="no-referrer" className="w-full h-full object-cover" />
             </div>
           )}
 
@@ -211,7 +211,7 @@ export default function BlogPost() {
                   <Link key={related.id} to={`/blog/${related.slug}`} className="group block bg-[#111] border border-white/10 rounded-2xl overflow-hidden hover:border-primary/50 transition-colors">
                     <div className="aspect-video relative overflow-hidden">
                       {related.featuredImage ? (
-                        <img src={related.featuredImage} alt={related.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <img src={related.featuredImage} alt={related.title} referrerPolicy="no-referrer" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                       ) : (
                         <div className="w-full h-full bg-gradient-to-br from-primary/20 to-black flex items-center justify-center">
                           <span className="text-primary/50 font-heading text-xl font-bold">AQ</span>

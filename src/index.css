@@ -43,6 +43,60 @@
   --animate-accordion-up: accordion-up 0.2s ease-out;
 }
 
+@keyframes rise {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+}
+
+@keyframes fade {
+  0%,100% {
+    opacity: 0;
+  }
+  5%,80% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes floorGlow {
+  0%,100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes mainGlow {
+  from {
+    opacity: 0.6;
+    filter: blur(25px);
+  }
+  to {
+    opacity: 0.8;
+    filter: blur(15px);
+  }
+}
+
+@keyframes moveGrid {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -80px -40px;
+  }
+}
+
 @layer base {
   :root {
     --bg: #050505;
@@ -52,6 +106,11 @@
     --border: rgba(255, 255, 255, 0.08);
     --text: #FFFFFF;
     --text-muted: rgba(255, 255, 255, 0.6);
+
+    --bg-color: #000500;
+    --light-color: #00ff7f;
+    --glow-color-1: rgba(0, 255, 127, 0.8);
+    --glow-color-2: rgba(60, 255, 157, 0.6);
   }
 
   .light {
@@ -122,4 +181,35 @@
 }
 .light ::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.2);
+}
+
+@keyframes onloadopacity {
+  24% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes onloadbgt {
+  0% {
+    translate: 0 -70%;
+    opacity: 0;
+  }
+  100% {
+    translate: 0 -64%;
+    opacity: 0.8;
+  }
+}
+
+@keyframes onloadbgb {
+  0% {
+    translate: 0 70%;
+    opacity: 0;
+  }
+  100% {
+    translate: 0 64%;
+    opacity: 0.8;
+  }
 }

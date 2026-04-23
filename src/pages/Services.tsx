@@ -5,6 +5,8 @@ import { ArrowRight, Code, Smartphone, Palette, Brain, LineChart, PenTool, Globe
 import SEO from '../components/SEO';
 import { CardPattern, generateRandomString } from '../components/ui/evervault-card';
 
+import ShaderBackground from '../components/ui/shader-background';
+
 const services = [
   {
     id: "custom-software",
@@ -160,6 +162,7 @@ export default function Services() {
       />
 
       <section className="pt-40 pb-20 relative overflow-hidden">
+        <ShaderBackground />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-primary/10 blur-[120px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center">

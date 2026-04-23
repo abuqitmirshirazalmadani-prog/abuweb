@@ -3,11 +3,12 @@ import { collection, query, orderBy, onSnapshot, deleteDoc, doc } from 'firebase
 import { db } from '../firebase';
 import { BlogPost } from '../types/blog';
 import { useNavigate } from 'react-router';
-import { Plus, Edit, Trash2, Eye } from 'lucide-react';
+import { Plus, Edit, Trash2, Eye, X } from 'lucide-react';
 
 export default function AdminDashboard() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const [postToDelete, setPostToDelete] = useState<string | null>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,14 +28,14 @@ export default function AdminDashboard() {
     return () => unsubscribe();
   }, []);
 
-  const handleDelete = async (id: string) => {
-    if (window.confirm('Are you sure you want to delete this post?')) {
-      try {
-        await deleteDoc(doc(db, 'posts', id));
-      } catch (error) {
-        console.error("Error deleting post:", error);
-        alert("Failed to delete post.");
-      }
+  const confirmDelete = async () => {
+    if (!postToDelete) return;
+    try {
+      await deleteDoc(doc(db, 'posts', postToDelete));
+      setPostToDelete(null);
+    } catch (error) {
+      console.error("Error deleting post:", error);
+      alert("Failed to delete post.");
     }
   };
 
@@ -91,7 +92,7 @@ export default function AdminDashboard() {
                         <button onClick={() => navigate(`/admin/posts/${post.id}`)} className="p-2 text-white/50 hover:text-primary transition-colors" title="Edit">
                           <Edit size={18} />
                         </button>
-                        <button onClick={() => handleDelete(post.id)} className="p-2 text-white/50 hover:text-red-400 transition-colors" title="Delete">
+                        <button onClick={() => setPostToDelete(post.id)} className="p-2 text-white/50 hover:text-red-400 transition-colors" title="Delete">
                           <Trash2 size={18} />
                         </button>
                       </div>
@@ -101,6 +102,37 @@ export default function AdminDashboard() {
               )}
             </tbody>
           </table>
+        </div>
+      )}
+
+      {/* Delete Confirmation Modal */}
+      {postToDelete && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+          <div className="bg-[#111] border border-white/10 rounded-2xl p-6 max-w-md w-full shadow-2xl">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-xl font-heading font-bold text-white">Delete Post</h3>
+              <button onClick={() => setPostToDelete(null)} className="text-white/50 hover:text-white transition-colors">
+                <X size={20} />
+              </button>
+            </div>
+            <p className="text-white/70 mb-6">
+              Are you sure you want to delete this post? This action cannot be undone.
+            </p>
+            <div className="flex justify-end gap-3">
+              <button
+                onClick={() => setPostToDelete(null)}
+                className="px-4 py-2 rounded-lg font-medium text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmDelete}
+                className="px-4 py-2 bg-red-500/20 text-red-400 hover:bg-red-500/30 font-medium rounded-lg transition-colors"
+              >
+                Delete Post
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>
