@@ -26,7 +26,7 @@ export function CategoryList({ items }: CategoryListProps) {
   );
 }
 
-function CategoryListItem({ item, index }: { item: CategoryItem; index: number }) {
+function CategoryListItem({ item, index }: { item: CategoryItem; index: number; key?: string | number }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (

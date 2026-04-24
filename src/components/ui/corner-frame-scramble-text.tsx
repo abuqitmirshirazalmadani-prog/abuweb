@@ -1,13 +1,13 @@
 'use client'
 
-import type { HTMLAttributes } from 'react'
+import type { HTMLAttributes, ElementType } from 'react'
 import { TextScramble } from './text-scramble'
 import { cn } from '../../utils/cn'
 
 type CornerFrameScrambleTextProps = {
   value: string | number
   className?: string
-  as?: React.ElementType
+  as?: ElementType
 } & HTMLAttributes<HTMLDivElement>
 
 const CornerFrameScrambleText = ({

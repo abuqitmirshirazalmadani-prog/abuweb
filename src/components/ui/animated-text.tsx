@@ -11,6 +11,7 @@ interface AnimatedTextProps {
   maxWeight?: number
   animationDuration?: number
   delayMultiplier?: number
+  as?: React.ElementType
 }
 
 export function AnimatedText({
@@ -21,8 +22,9 @@ export function AnimatedText({
   maxWeight = 900,
   animationDuration = 1.5,
   delayMultiplier = 0.25,
+  as: Component = "p",
 }: AnimatedTextProps) {
-  const containerRef = useRef<HTMLParagraphElement>(null)
+  const containerRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     if (!containerRef.current) return
@@ -52,8 +54,8 @@ export function AnimatedText({
 
   return (
     <div className={cn("flex justify-center items-center w-full", className)}>
-      <p
-        ref={containerRef}
+      <Component
+        ref={containerRef as React.RefObject<any>}
         aria-label={text}
         className="font-sans m-0 text-center text-white"
         style={{
@@ -75,7 +77,7 @@ export function AnimatedText({
             }
           }
         `}</style>
-      </p>
+      </Component>
     </div>
   )
 }

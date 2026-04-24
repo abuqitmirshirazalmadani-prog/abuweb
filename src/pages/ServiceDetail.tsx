@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router';
-import { motion } from 'framer-motion';
-import { CheckCircle2, ArrowRight, MessageCircle, Briefcase, Cloud, Bot, Network, Settings, TrendingUp, Zap, Trophy } from 'lucide-react';
+import { motion, LayoutGroup } from 'framer-motion';
+import { CheckCircle2, ArrowRight, MessageCircle, Briefcase, Cloud, Bot, Network, Settings, TrendingUp, Zap, Trophy, Smartphone, Code, Link2, Database, ShieldCheck, Target, Search } from 'lucide-react';
 import SEO from '../components/SEO';
 import { AccordionCustomSoftware } from '../components/ui/accordion-custom-software';
 import { AccordionWebDevelopment } from '../components/ui/accordion-web-development';
@@ -16,6 +16,12 @@ import { AnimatedText } from '../components/ui/animated-text';
 import { GlitchText } from '../components/ui/animated-glitch-text';
 import { GooeyMarquee } from '../components/ui/gooey-marquee';
 import { MinimalistTextEffect } from '../components/ui/reveal-text';
+import { WebServicesScroll } from '../components/ui/web-services-scroll';
+import { Separator } from '../components/ui/separator';
+import { CardsParallax, type iCardItem } from '../components/ui/scroll-cards';
+import { TextGlitch } from '../components/ui/text-glitch-effect';
+import { WavyBlock, WavyBlockItem } from '../components/ui/wavy-text-block';
+import { TextRotate } from '../components/ui/text-rotate';
 
 const whyChooseAbuQitmirTech = [
   "Affordable pricing",
@@ -29,6 +35,12 @@ const customSoftwareTargets = [
   "Startups",
   "SMEs",
   "Enterprises"
+];
+
+const webDevTechStackRotations = [
+  "Frontend Technologies\n\nReact: The default framework used for generating web interfaces.\nAngular: Officially supported as an alternative framework for rapid application generation.\nNext.js: Supported for developers building more complex, server-side rendered applications.\nModern Web Tools: Includes support for styling and animation libraries like Framer Motion.",
+  "Backend & Infrastructure\n\nNode.js Runtime: Powers the server-side logic, allowing for secure API calls and database connections.\nFirebase Integration: Automatically handles backend essentials including:\n• Firebase Authentication: For secure user sign-in flows.\n• Firestore: A NoSQL cloud database for persistent data storage.\nCloud Run: Used as the primary deployment target for scalable, serverless application hosting.\nAntigravity Agent: A specialized coding agent that manages dependencies, installs npm packages, and verifies code execution.",
+  "AI & Core Capabilities\n\nGemini API: Provides large language model (LLM) capabilities for the generated apps.\nMulti-language Support: Supports coding languages including Python, JavaScript, Go, and TypeScript.\nSecrets Management: Built-in tools securely store and access API keys."
 ];
 
 const ourDevelopmentProcess = [
@@ -51,6 +63,34 @@ const ourDevelopmentProcess = [
     id: 4,
     title: "Testing & Deployment",
     description: ""
+  }
+];
+
+const developmentCardsData: iCardItem[] = [
+  {
+    title: "1. Strategy & Planning",
+    description: "We understand your business and target audience.",
+    src: "https://images.pexels.com/photos/7278606/pexels-photo-7278606.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  },
+  {
+    title: "2. UI/UX Design",
+    description: "We design modern, user-friendly interfaces.",
+    src: "https://images.pexels.com/photos/7964490/pexels-photo-7964490.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  },
+  {
+    title: "3. Development",
+    description: "We build fast and scalable websites.",
+    src: "https://images.pexels.com/photos/36706460/pexels-photo-36706460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  },
+  {
+    title: "4. Testing",
+    description: "We ensure performance and compatibility.",
+    src: "https://images.pexels.com/photos/7988218/pexels-photo-7988218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  },
+  {
+    title: "5. Launch",
+    description: "We deploy and optimize your website.",
+    src: "https://images.pexels.com/photos/7698746/pexels-photo-7698746.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   }
 ];
 
@@ -269,6 +309,47 @@ export default function ServiceDetail() {
             </motion.div>
           </div>
         </section>
+      ) : id === 'web-development' ? (
+        <section className="pt-48 pb-40 lg:pt-56 lg:pb-48 relative overflow-hidden flex flex-col items-center justify-center min-h-[75vh] md:min-h-[85vh]">
+          <BackgroundScene beamCount={60} />
+          <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-8 flex flex-col items-center justify-center gap-4"
+            >
+              <GlitchText 
+                text="Web Development" 
+                textClassName="text-[clamp(2.5rem,6vw,4.5rem)] font-heading font-bold text-center leading-tight"
+                className="min-h-0 p-0"
+              />
+              <span className="text-3xl md:text-5xl lg:text-6xl text-white/50 font-heading font-bold">Services in Pakistan</span>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-10 space-y-6"
+            >
+              <h2 className="text-xl md:text-2xl font-bold text-white mb-6">Fast, Modern, and SEO-Optimized Websites That Convert</h2>
+              <p>Your website is your digital storefront — and first impressions matter.</p>
+              <p>At Abuqitmir Tech, we offer professional web development services in Pakistan designed to help businesses build fast, responsive, and high-converting websites.</p>
+              <p>Whether you need a business website, SaaS platform, or e-commerce store, we create solutions that are built for performance, scalability, and SEO.</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <Link 
+                to="/contact"
+                className="inline-block px-8 py-4 bg-primary text-black font-bold rounded-full hover:bg-primary/90 transition-transform hover:scale-105 shadow-[0_0_20px_rgba(92,230,92,0.4)]"
+              >
+                Get Consultation
+              </Link>
+            </motion.div>
+          </div>
+        </section>
       ) : (
         <section className="pt-40 pb-20 relative overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-primary/10 blur-[120px] pointer-events-none" />
@@ -289,6 +370,256 @@ export default function ServiceDetail() {
             >
               {service.description}
             </motion.p>
+          </div>
+        </section>
+      )}
+
+      {id === 'web-development' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="mb-16">
+              <AnimatedText 
+                text="Our Web Development Services" 
+                fontSize="clamp(2rem, 5vw, 4.5rem)"
+                className="font-heading font-bold"
+                as="h3"
+              />
+            </div>
+
+            <WebServicesScroll />
+          </div>
+        </section>
+      )}
+
+      {id === 'web-development' && (
+        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+              
+              {/* Left Column */}
+              <div className="lg:w-1/3 flex flex-col items-start pt-4 lg:pt-8">
+                <span className="text-[#3cff9d] font-bold text-xs tracking-widest uppercase mb-6 drop-shadow-[0_0_8px_rgba(60,255,157,0.5)]">FEATURES</span>
+                <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6 leading-tight">
+                  SEO-Optimized Development
+                </h2>
+                <p className="text-white/60 text-lg leading-relaxed mb-10">
+                  We don’t just build websites — we build search engine-friendly platforms.
+                </p>
+                <Link 
+                  to="/contact"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-[#5ce65c] text-black font-bold rounded-2xl hover:bg-[#5ce65c]/90 transition-all hover:-translate-y-1 shadow-[0_0_20px_rgba(92,230,92,0.3)] hover:shadow-[0_0_30px_rgba(92,230,92,0.5)] group"
+                >
+                  Discuss Your Needs
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </Link>
+              </div>
+
+              {/* Right Column */}
+              <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
+                {[
+                  { title: "Fast Loading Speed", icon: Zap, desc: "Optimized for performance and core web vitals." },
+                  { title: "Mobile Responsive Design", icon: Smartphone, desc: "Flawless experience across all devices and screen sizes." },
+                  { title: "Clean Code Structure", icon: Code, desc: "W3C compliant, semantic HTML5 for better crawling." },
+                  { title: "SEO-Friendly URLs", icon: Link2, desc: "Clean, readable, and keyword-rich routing." },
+                  { title: "Schema Markup Integration", icon: Database, desc: "Rich snippets to enhance your search visibility." },
+                ].map((feature, idx) => (
+                  <motion.div 
+                    key={idx} 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="bg-[#0f0f0f] border border-white/5 rounded-3xl p-8 flex flex-col hover:border-white/10 transition-colors group relative overflow-hidden"
+                  >
+                    <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500">
+                      <feature.icon className="w-32 h-32 text-white" />
+                    </div>
+                    <div className="w-12 h-12 bg-[#1a1a1a] border border-white/5 rounded-xl flex items-center justify-center mb-6 group-hover:border-white/20 transition-colors relative z-10">
+                       <feature.icon className="w-6 h-6 text-[#5ce65c]" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2 relative z-10">{feature.title}</h3>
+                    <p className="text-white/50 text-sm leading-relaxed relative z-10">{feature.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {id === 'web-development' && (
+        <section className="py-24 relative z-10 overflow-hidden border-t border-white/5 bg-transparent">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 max-w-4xl h-64 bg-[#5ce65c]/10 blur-[120px] pointer-events-none" />
+          
+          <div className="max-w-4xl mx-auto relative z-10 px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-heading font-bold text-white">
+                Why a Professional Website Matters
+              </h2>
+            </div>
+            
+            <div className="flex flex-col w-full divide-y divide-white/10 border-y border-white/10">
+              {[
+                { title: "Build Trust & Credibility", desc: "A modern website increases customer confidence.", icon: ShieldCheck },
+                { title: "Generate Leads", desc: "Optimized websites convert visitors into customers.", icon: Target },
+                { title: "Improve Visibility", desc: "SEO-friendly structure helps you rank on Google.", icon: Search },
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="group relative flex items-center py-8 px-4 md:px-8 hover:bg-white/5 transition-colors overflow-hidden"
+                >
+                  <div className="flex items-center gap-6 md:gap-8 z-10 relative w-full">
+                    <div className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#1a1a1a] border border-white/5 text-[#5ce65c] group-hover:scale-110 group-hover:bg-[#5ce65c]/20 group-hover:border-[#5ce65c]/30 transition-all duration-300 shrink-0">
+                       <item.icon className="w-6 h-6 md:w-8 md:h-8" />
+                    </div>
+                    <div className="flex flex-col justify-center flex-grow">
+                      <h3 className="text-xl md:text-2xl font-heading font-semibold text-white group-hover:text-[#5ce65c] transition-colors mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-white/60 text-base md:text-lg">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+
+
+      {id === 'web-development' && (
+        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 min-h-[60vh] flex items-center justify-center">
+            {/* Dark background with random floating characters to match photo */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden font-mono text-[12px] md:text-xl text-white/10 flex flex-wrap justify-between content-between p-4 opacity-40 select-none">
+              {Array.from({ length: 150 }).map((_, i) => (
+                <span 
+                  key={i} 
+                  className="animate-pulse" 
+                  style={{ 
+                    animationDelay: `${Math.random() * 5}s`, 
+                    animationDuration: `${Math.random() * 3 + 2}s`,
+                    opacity: Math.random() * 0.5 + 0.1,
+                    marginLeft: `${Math.random() * 20}px`,
+                    marginTop: `${Math.random() * 20}px`
+                  }}
+                >
+                  {String.fromCharCode(33 + Math.floor(Math.random() * 90))}
+                </span>
+              ))}
+            </div>
+            
+            {/* Intense Central Glow behind text similar to photo */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-32 bg-[#ff7b00]/30 blur-[100px] pointer-events-none rounded-full mix-blend-screen" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[80px] bg-white/20 blur-[50px] pointer-events-none rounded-full mix-blend-screen" />
+
+          <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+             <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white mb-10 tracking-tight drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+               📈 Why Choose Abuqitmir Tech?
+             </h2>
+             <div className="flex flex-col items-center justify-center gap-4 text-base md:text-xl lg:text-2xl font-medium text-white/90">
+                {[
+                  "Affordable web development in Pakistan",
+                  "SEO-first approach",
+                  "High-performance websites",
+                  "Modern UI/UX design",
+                  "Ongoing support"
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-3 w-full justify-center">
+                    <span className="text-[#5ce65c] font-bold text-xl drop-shadow-[0_0_8px_rgba(92,230,92,0.5)]">✔</span>
+                    <span className="drop-shadow-md text-center">{item}</span>
+                  </div>
+                ))}
+             </div>
+          </div>
+        </section>
+      )}
+
+      {id === 'web-development' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
+          <div className="max-w-4xl mx-auto px-6 relative z-10 mb-16">
+            <h2 className="text-3xl md:text-5xl font-heading font-bold text-white text-center">
+              Our Development Process
+            </h2>
+          </div>
+          <CardsParallax items={developmentCardsData} />
+        </section>
+      )}
+
+      {id === 'web-development' && (
+        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 flex flex-col items-center justify-center min-h-[40vh]">
+          <div className="w-full overflow-hidden flex justify-center mb-16 px-4">
+             <TextGlitch 
+                text="WEB DEVELOPMENT" 
+                hoverText="FOR BUSINESSES IN PAKISTAN" 
+                delay={0}
+             />
+          </div>
+        </section>
+      )}
+
+      {id === 'web-development' && (
+        <section className="py-32 relative overflow-hidden bg-transparent border-t border-white/5 z-10 min-h-[60vh] flex flex-col items-center justify-center">
+          <div className="max-w-7xl w-full px-6 flex flex-col md:flex-row md:items-start gap-12 md:gap-24">
+            <div className="md:w-1/3 pt-10">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white mb-6 opacity-90">
+                We help:
+              </h2>
+            </div>
+            <div className="md:w-2/3 h-[50vh] min-h-[400px] relative overflow-hidden flex items-center">
+              <WavyBlock className="flex flex-col justify-center items-start gap-8 w-full">
+                {[
+                  'Local businesses',
+                  'Startups',
+                  'International clients'
+                ].map((title, index) => (
+                  <WavyBlockItem 
+                    key={title} 
+                    index={index}
+                    config={{
+                      baseOffsetFactor: 0.01,
+                      baseExtra: 0,
+                      baseAmplitude: 40,
+                      lengthEffect: 0.6,
+                      frequency: 35,
+                      progressScale: 4,
+                      phaseShiftDeg: -180,
+                      spring: { damping: 22, stiffness: 300 },
+                    }}
+                    className="max-w-[100vw] pr-4 md:pr-12"
+                  >
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5vw] xl:text-5xl font-bold leading-tight tracking-tighter uppercase whitespace-normal break-words flex flex-wrap text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">
+                      {title}
+                    </h3>
+                  </WavyBlockItem>
+                ))}
+              </WavyBlock>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {id === 'web-development' && (
+        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 flex flex-col items-center justify-center min-h-[50vh]">
+          <div className="max-w-5xl w-full px-6 flex justify-center">
+            <LayoutGroup>
+              <div className="text-white/80 font-mono text-lg md:text-xl md:leading-relaxed bg-white/5 p-8 md:p-12 rounded-2xl border border-white/10 w-full min-h-[400px] flex items-center">
+                <TextRotate
+                  texts={webDevTechStackRotations}
+                  staggerFrom={"first"}
+                  staggerDuration={0.01}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                  rotationInterval={8000}
+                  splitBy="words"
+                  mainClassName="w-full h-full"
+                />
+              </div>
+            </LayoutGroup>
           </div>
         </section>
       )}
@@ -488,26 +819,28 @@ export default function ServiceDetail() {
       {/* Process & Tech */}
       {id !== 'custom-software' && (
         <section className="py-20 bg-elevated border-y border-white/5">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-3xl font-heading font-bold mb-10 text-white">Our Process</h3>
-              <div className="space-y-8 relative before:absolute before:inset-0 before:ml-6 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
-                {service.process.map((step, i) => (
-                  <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                    <div className="flex items-center justify-center w-12 h-12 rounded-full border border-white/20 bg-card shadow-[0_0_0_8px_#050505] text-white/50 group-hover:text-primary group-hover:border-primary/50 transition-colors shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                      {i + 1}
+          <div className={`max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 gap-16 ${id === 'web-development' ? '' : 'lg:grid-cols-2'}`}>
+            {id !== 'web-development' && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-3xl font-heading font-bold mb-10 text-white">Our Process</h3>
+                <div className="space-y-8 relative before:absolute before:inset-0 before:ml-6 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
+                  {service.process.map((step, i) => (
+                    <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                      <div className="flex items-center justify-center w-12 h-12 rounded-full border border-white/20 bg-card shadow-[0_0_0_8px_#050505] text-white/50 group-hover:text-primary group-hover:border-primary/50 transition-colors shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        {i + 1}
+                      </div>
+                      <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 rounded-2xl glass-panel border border-white/5 group-hover:border-primary/20 transition-colors">
+                        <h4 className="text-lg font-heading font-semibold text-white">{step}</h4>
+                      </div>
                     </div>
-                    <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 rounded-2xl glass-panel border border-white/5 group-hover:border-primary/20 transition-colors">
-                      <h4 className="text-lg font-heading font-semibold text-white">{step}</h4>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}

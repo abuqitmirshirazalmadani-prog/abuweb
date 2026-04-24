@@ -54,7 +54,7 @@ export const ProcessTimeline = ({ title, items, className }: ProcessTimelineProp
   );
 };
 
-const TimelineNode = ({ item, index }: { item: TimelineItem; index: number }) => {
+const TimelineNode = ({ item, index }: { item: TimelineItem; index: number; key?: string | number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-50% 0px -50% 0px" });
   const isEven = index % 2 === 0;
@@ -63,8 +63,8 @@ const TimelineNode = ({ item, index }: { item: TimelineItem; index: number }) =>
     <div ref={ref} className="relative flex items-center justify-start md:justify-center">
       {/* Content wrapper */}
       <div className={cn(
-        "ml-20 md:ml-0 md:w-1/2 flex relative w-full", 
-        isEven ? "md:justify-end md:pr-12 md:text-right" : "md:justify-start md:pl-12 md:text-left"
+        "ml-[96px] md:ml-0 md:w-1/2 flex relative w-full", 
+        isEven ? "md:justify-end md:pr-16 md:text-right" : "md:justify-start md:pl-16 md:text-left"
       )}>
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

@@ -28,7 +28,7 @@ import {
   SpotlightCTAText,
   SpotlightCTAButton
 } from '../components/ui/spotlight-cta';
-import { BrainCircuit, Target, Code, ShieldCheck, Megaphone } from 'lucide-react';
+import { BrainCircuit, Target, ShieldCheck, Megaphone } from 'lucide-react';
 
 const recentProjects = [
   {
