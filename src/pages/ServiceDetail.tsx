@@ -21,7 +21,7 @@ import { Separator } from '../components/ui/separator';
 import { CardsParallax, type iCardItem } from '../components/ui/scroll-cards';
 import { TextGlitch } from '../components/ui/text-glitch-effect';
 import { WavyBlock, WavyBlockItem } from '../components/ui/wavy-text-block';
-import { TextRotate } from '../components/ui/text-rotate';
+import { MarkdownRotator } from '../components/ui/markdown-rotator';
 
 const whyChooseAbuQitmirTech = [
   "Affordable pricing",
@@ -38,9 +38,9 @@ const customSoftwareTargets = [
 ];
 
 const webDevTechStackRotations = [
-  "Frontend Technologies\n\nReact: The default framework used for generating web interfaces.\nAngular: Officially supported as an alternative framework for rapid application generation.\nNext.js: Supported for developers building more complex, server-side rendered applications.\nModern Web Tools: Includes support for styling and animation libraries like Framer Motion.",
-  "Backend & Infrastructure\n\nNode.js Runtime: Powers the server-side logic, allowing for secure API calls and database connections.\nFirebase Integration: Automatically handles backend essentials including:\n• Firebase Authentication: For secure user sign-in flows.\n• Firestore: A NoSQL cloud database for persistent data storage.\nCloud Run: Used as the primary deployment target for scalable, serverless application hosting.\nAntigravity Agent: A specialized coding agent that manages dependencies, installs npm packages, and verifies code execution.",
-  "AI & Core Capabilities\n\nGemini API: Provides large language model (LLM) capabilities for the generated apps.\nMulti-language Support: Supports coding languages including Python, JavaScript, Go, and TypeScript.\nSecrets Management: Built-in tools securely store and access API keys."
+  "### Frontend Technologies\n\n**React:** The default framework used for generating web interfaces.\n\n**Angular:** Officially supported as an alternative framework for rapid application generation.\n\n**Next.js:** Supported for developers building more complex, server-side rendered applications.\n\n**Modern Web Tools:** Includes support for styling and animation libraries like Framer Motion.",
+  "### Backend & Infrastructure\n\n**Node.js Runtime:** Powers the server-side logic, allowing for secure API calls and database connections.\n\n**Firebase Integration:** Automatically handles backend essentials including:\n* **Firebase Authentication:** For secure user sign-in flows.\n* **Firestore:** A NoSQL cloud database for persistent data storage.\n\n**Cloud Run:** Used as the primary deployment target for scalable, serverless application hosting.\n\n**Antigravity Agent:** A specialized coding agent that manages dependencies, installs npm packages, and verifies code execution.",
+  "### AI & Core Capabilities\n\n**Gemini API:** Provides large language model (LLM) capabilities for the generated apps.\n\n**Multi-language Support:** Supports coding languages including Python, JavaScript, Go, and TypeScript.\n\n**Secrets Management:** Built-in tools securely store and access API keys."
 ];
 
 const ourDevelopmentProcess = [
@@ -538,8 +538,8 @@ export default function ServiceDetail() {
       )}
 
       {id === 'web-development' && (
-        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
-          <div className="max-w-4xl mx-auto px-6 relative z-10 mb-16">
+        <section className="py-12 md:py-16 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
+          <div className="max-w-4xl mx-auto px-6 relative z-10 mb-8 md:mb-12">
             <h2 className="text-3xl md:text-5xl font-heading font-bold text-white text-center">
               Our Development Process
             </h2>
@@ -549,8 +549,8 @@ export default function ServiceDetail() {
       )}
 
       {id === 'web-development' && (
-        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 flex flex-col items-center justify-center min-h-[40vh]">
-          <div className="w-full overflow-hidden flex justify-center mb-16 px-4">
+        <section className="py-12 md:py-16 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 flex flex-col items-center justify-center min-h-[20vh]">
+          <div className="w-full overflow-hidden flex justify-center px-4">
              <TextGlitch 
                 text="WEB DEVELOPMENT" 
                 hoverText="FOR BUSINESSES IN PAKISTAN" 
@@ -561,7 +561,7 @@ export default function ServiceDetail() {
       )}
 
       {id === 'web-development' && (
-        <section className="py-32 relative overflow-hidden bg-transparent border-t border-white/5 z-10 min-h-[60vh] flex flex-col items-center justify-center">
+        <section className="py-12 md:py-20 relative overflow-hidden bg-transparent border-t border-white/5 z-10 min-h-[40vh] flex flex-col items-center justify-center">
           <div className="max-w-7xl w-full px-6 flex flex-col md:flex-row md:items-start gap-12 md:gap-24">
             <div className="md:w-1/3 pt-10">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white mb-6 opacity-90">
@@ -602,21 +602,13 @@ export default function ServiceDetail() {
       )}
 
       {id === 'web-development' && (
-        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 flex flex-col items-center justify-center min-h-[50vh]">
+        <section className="py-12 md:py-16 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 flex flex-col items-center justify-center">
           <div className="max-w-5xl w-full px-6 flex justify-center">
             <LayoutGroup>
-              <div className="text-white/80 font-mono text-lg md:text-xl md:leading-relaxed bg-white/5 p-8 md:p-12 rounded-2xl border border-white/10 w-full min-h-[400px] flex items-center">
-                <TextRotate
+              <div className="text-white/80 font-mono text-lg md:text-xl md:leading-relaxed bg-white/5 p-8 md:p-12 rounded-2xl border border-white/10 w-full min-h-[350px] flex items-center">
+                <MarkdownRotator
                   texts={webDevTechStackRotations}
-                  staggerFrom={"first"}
-                  staggerDuration={0.01}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ type: "spring", damping: 30, stiffness: 400 }}
                   rotationInterval={8000}
-                  splitBy="words"
-                  mainClassName="w-full h-full"
                 />
               </div>
             </LayoutGroup>
