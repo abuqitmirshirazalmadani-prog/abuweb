@@ -1,12 +1,14 @@
 import { useParams, Link } from 'react-router';
 import { motion, LayoutGroup } from 'framer-motion';
-import { CheckCircle2, ArrowRight, MessageCircle, Briefcase, Cloud, Bot, Network, Settings, TrendingUp, Zap, Trophy, Smartphone, Code, Link2, Database, ShieldCheck, Target, Search } from 'lucide-react';
+import { CheckCircle2, ArrowRight, MessageCircle, Briefcase, Cloud, Bot, Network, Settings, TrendingUp, Zap, Trophy, Smartphone, Code, Link2, Database, ShieldCheck, Target, Search, Globe, MapPin } from 'lucide-react';
 import SEO from '../components/SEO';
 import { AccordionCustomSoftware } from '../components/ui/accordion-custom-software';
 import { AccordionWebDevelopment } from '../components/ui/accordion-web-development';
 import { AccordionMobileApp } from '../components/ui/accordion-mobile-app';
 import { AccordionAiSolutions } from '../components/ui/accordion-ai-solutions';
+import { AccordionSeo } from '../components/ui/accordion-seo';
 import { AiSolutionsHero } from '../components/ui/ai-solutions-hero';
+import { SeoHero } from '../components/ui/seo-hero';
 import BackgroundScene from '../components/ui/aurora-section-hero';
 import { CategoryList } from '../components/ui/category-list';
 import { ProcessSection } from '../components/ui/how-we-do-it-process-overview';
@@ -167,6 +169,53 @@ const aiSolutionsStartups = [
   "Startup MVP AI solutions",
   "Cost-effective AI systems",
   "Scalable AI architecture"
+];
+
+const seoServicesData = [
+  {
+    title: "On-Page SEO",
+    description: "Keyword optimization • Meta tags • Content optimization • Internal linking",
+    icon: Search
+  },
+  {
+    title: "Technical SEO",
+    description: "Website speed optimization • Mobile responsiveness • Fixing errors • Sitemap & indexing",
+    icon: Settings
+  },
+  {
+    title: "Off-Page SEO",
+    description: "Backlink building • Guest posting • Authority building",
+    icon: Link2
+  },
+  {
+    title: "Local SEO",
+    description: "Google Business Profile optimization • Local citations • Map ranking strategies • Location-based keywords",
+    icon: MapPin
+  }
+];
+
+const seoImportanceData = [
+  "Increase Website Traffic",
+  "Generate Leads",
+  "Build Brand Authority",
+  "Long-Term Results"
+];
+
+const seoProcessSteps = [
+  { id: 1, title: "Website Audit", description: "Comprehensive analysis of your existing site to identify technical errors and opportunities." },
+  { id: 2, title: "Keyword Research", description: "Identifying high-intent search terms your potential customers are actively using." },
+  { id: 3, title: "Optimization", description: "Applying on-page and technical fixes to align with Google's best practices." },
+  { id: 4, title: "Content Creation", description: "Developing authoritative, SEO-rich content that engages visitors and builds trust." },
+  { id: 5, title: "Monitoring & Growth", description: "Continuous tracking, backlink building, and strategy refinement for sustained rankings." }
+];
+
+const seoTargetBusinesses = ["Local businesses", "Startups", "E-commerce stores"];
+
+const seoWhyChooseUs = [
+  "Affordable SEO services",
+  "Data-driven strategy",
+  "Long-term growth",
+  "Transparent reporting"
 ];
 
 const aiSolutionsWhyChoose = [
@@ -445,6 +494,8 @@ export default function ServiceDetail() {
         </section>
       ) : id === 'mobile-app' ? (
         <AetherFlowHero />
+      ) : id === 'seo' ? (
+        <SeoHero />
       ) : id === 'web-development' ? (
         <section className="pt-48 pb-40 lg:pt-56 lg:pb-48 relative overflow-hidden flex flex-col items-center justify-center min-h-[75vh] md:min-h-[85vh]">
           <BackgroundScene beamCount={60} />
@@ -486,7 +537,7 @@ export default function ServiceDetail() {
             </motion.div>
           </div>
         </section>
-      ) : id !== 'ai-solutions' ? (
+      ) : id !== 'ai-solutions' && id !== 'seo' ? (
         <section className="pt-40 pb-20 relative overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-primary/10 blur-[120px] pointer-events-none" />
           
@@ -913,7 +964,7 @@ export default function ServiceDetail() {
       )}
 
       {/* Overview & Benefits */}
-      {id !== 'ai-solutions' && (
+      {id !== 'ai-solutions' && id !== 'seo' && (
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">
           <motion.div
@@ -1167,8 +1218,8 @@ export default function ServiceDetail() {
           </div>
           
           <div className="w-full max-w-4xl mx-auto px-6 relative z-10">
-            <div className="relative h-[220vh] md:h-[200vh]">
-              <div className="sticky top-32 flex flex-col items-center">
+            <div className="relative h-auto">
+              <div className="flex flex-col items-center">
                 {aiSolutionsProcessSteps.map((step, idx) => (
                   <article 
                     key={idx}
@@ -1312,8 +1363,126 @@ export default function ServiceDetail() {
         </section>
       )}
 
+      {/* SEO Blocks */}
+      {id === 'seo' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
+          <CategoryList 
+            title="Our SEO Services"
+            categories={seoServicesData.map((item, idx) => ({
+              id: idx,
+              title: item.title,
+              subtitle: item.description,
+              icon: <item.icon className="w-8 h-8" />
+            }))}
+          />
+        </section>
+      )}
+
+      {id === 'seo' && (
+        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 flex flex-col items-center justify-center">
+          <div className="max-w-4xl mx-auto px-6 relative z-10 text-center mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white mb-6 tracking-tight">
+              Why SEO is Important
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto px-6">
+            {seoImportanceData.map((reason, idx) => (
+              <div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center gap-4 hover:bg-white/10 transition-colors">
+                <CheckCircle2 className="w-10 h-10 text-primary" />
+                <h3 className="text-xl font-bold text-white">{reason}</h3>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {id === 'seo' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
+          <div className="max-w-4xl mx-auto px-6 relative z-10 mb-16 text-center">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+              Our SEO Process
+            </h2>
+          </div>
+          <div className="w-full max-w-4xl mx-auto px-6 relative z-10">
+            <div className="relative h-auto">
+              <div className="flex flex-col items-center">
+                {seoProcessSteps.map((step, idx) => (
+                  <article 
+                    key={idx}
+                    className={`text-center bg-gradient-to-br from-white/10 to-white/5 w-full border-white/20 border rounded-2xl relative shadow-xl backdrop-blur-xl px-6 py-8 sm:px-10 sm:py-10 transition-all duration-300 hover:-translate-y-2 group ${idx > 0 ? 'mt-[-2rem]' : ''}`}
+                    style={{
+                      zIndex: 10 + idx,
+                      width: `calc(100% - ${idx * 4}%)`
+                    }}
+                  >
+                    <div className="absolute -top-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                    <div className="space-y-4">
+                      <h3 className="text-2xl sm:text-3xl font-semibold text-white leading-tight group-hover:text-primary transition-colors">{step.title}</h3>
+                      <p className="text-neutral-300/90 max-w-xl mx-auto text-base md:text-lg leading-relaxed">
+                        {step.description}
+                      </p>
+                      <span className="inline-flex items-center text-sm font-medium text-black bg-primary border-primary/20 border rounded-full px-4 py-1.5 shadow-[0_0_15px_rgba(60,255,157,0.3)]">
+                        Step {step.id}
+                      </span>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {id === 'seo' && (
+        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 flex flex-col items-center justify-center">
+          <CTAWithVerticalMarquee
+            title="SEO Services in Pakistan for All Businesses"
+            items={seoTargetBusinesses}
+          />
+        </section>
+      )}
+
+      {id === 'seo' && (
+        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 min-h-[50vh] flex items-center justify-center">
+          <div className="absolute inset-0 pointer-events-none overflow-hidden font-mono text-[12px] md:text-xl text-white/10 flex flex-wrap justify-between content-between p-4 opacity-40 select-none">
+            {Array.from({ length: 150 }).map((_, i) => (
+              <span 
+                key={i} 
+                className="animate-pulse" 
+                style={{ 
+                  animationDelay: `${Math.random() * 5}s`, 
+                  animationDuration: `${Math.random() * 3 + 2}s`,
+                  opacity: Math.random() * 0.5 + 0.1,
+                  marginLeft: `${Math.random() * 20}px`,
+                  marginTop: `${Math.random() * 20}px`
+                }}
+              >
+                {String.fromCharCode(33 + Math.floor(Math.random() * 90))}
+              </span>
+            ))}
+          </div>
+          
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-32 bg-primary/30 blur-[100px] pointer-events-none rounded-full mix-blend-screen" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[80px] bg-white/20 blur-[50px] pointer-events-none rounded-full mix-blend-screen" />
+          
+          <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white mb-10 tracking-tight drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+              Why Choose Abuqitmir Tech?
+            </h2>
+            <div className="flex flex-col items-center justify-center gap-4 text-base md:text-xl lg:text-2xl font-medium text-white/90">
+              {seoWhyChooseUs.map((reason, idx) => (
+                <div key={idx} className="flex items-center gap-3">
+                   <span className="text-primary">✔</span>
+                   <span>{reason}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Process & Tech */}
-      {id !== 'custom-software' && id !== 'mobile-app' && id !== 'ai-solutions' && (
+      {id !== 'custom-software' && id !== 'mobile-app' && id !== 'ai-solutions' && id !== 'seo' && (
         <section className="py-20 bg-elevated border-y border-white/5">
           <div className={`max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 gap-16 ${id === 'web-development' ? '' : 'lg:grid-cols-2'}`}>
             {id !== 'web-development' && (
@@ -1357,7 +1526,7 @@ export default function ServiceDetail() {
       )}
 
       {/* FAQ Section */}
-      {(id === 'custom-software' || id === 'web-development' || id === 'mobile-app' || id === 'ai-solutions') && (
+      {(id === 'custom-software' || id === 'web-development' || id === 'mobile-app' || id === 'ai-solutions' || id === 'seo') && (
         <section className="py-24 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
             <div className="text-center mb-16">
@@ -1369,6 +1538,8 @@ export default function ServiceDetail() {
                   ? "Everything you need to know about our web development process."
                   : id === 'ai-solutions'
                   ? "Everything you need to know about our AI development process."
+                  : id === 'seo'
+                  ? "Everything you need to know about our SEO and Local SEO services."
                   : "Everything you need to know about our mobile app development process."}
               </p>
             </div>
@@ -1376,6 +1547,7 @@ export default function ServiceDetail() {
             {id === 'web-development' && <AccordionWebDevelopment />}
             {id === 'mobile-app' && <AccordionMobileApp />}
             {id === 'ai-solutions' && <AccordionAiSolutions />}
+            {id === 'seo' && <AccordionSeo />}
           </div>
         </section>
       )}
@@ -1404,6 +1576,11 @@ export default function ServiceDetail() {
               <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">Ready to build intelligent systems that transform your business?</h2>
               <p className="text-xl text-white/60 mb-8">Contact Abuqitmir Tech today and bring your AI idea to life.</p>
             </>
+          ) : id === 'seo' ? (
+            <>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">Start Ranking Today</h2>
+              <p className="text-xl text-white/60 mb-8">Contact Abuqitmir Tech and grow your business with SEO.</p>
+            </>
           ) : (
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-8 text-white">Ready to start your {service.title.toLowerCase()} project?</h2>
           )}
@@ -1426,7 +1603,7 @@ export default function ServiceDetail() {
             </a>
           </div>
 
-          {(id === 'custom-software' || id === 'web-development' || id === 'mobile-app') && (
+          {(id === 'custom-software' || id === 'web-development' || id === 'mobile-app' || id === 'seo') && (
             <p className="text-sm text-white/40">
               Serving: Karachi, Lahore, Islamabad (Pakistan) | New York (USA) | London (UK) | Berlin (Germany) | Warsaw (Poland)
             </p>
