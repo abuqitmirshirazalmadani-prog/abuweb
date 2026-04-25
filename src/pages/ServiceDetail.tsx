@@ -5,6 +5,8 @@ import SEO from '../components/SEO';
 import { AccordionCustomSoftware } from '../components/ui/accordion-custom-software';
 import { AccordionWebDevelopment } from '../components/ui/accordion-web-development';
 import { AccordionMobileApp } from '../components/ui/accordion-mobile-app';
+import { AccordionAiSolutions } from '../components/ui/accordion-ai-solutions';
+import { AiSolutionsHero } from '../components/ui/ai-solutions-hero';
 import BackgroundScene from '../components/ui/aurora-section-hero';
 import { CategoryList } from '../components/ui/category-list';
 import { ProcessSection } from '../components/ui/how-we-do-it-process-overview';
@@ -97,6 +99,82 @@ const mobileAppProcessSteps = [
   { id: 3, title: "Development", description: "Ship fast, build robust architecture. Our engineers write clean, scalable code." },
   { id: 4, title: "Testing", description: "Stringent quality assurance testing across multiple devices to ensure a flawless experience." },
   { id: 5, title: "Launch & Support", description: "Deploy to app stores, provide continuous maintenance and iterate based on feedback." },
+];
+
+const aiSolutionsWhatWeOffer = [
+  {
+    title: "Custom AI Solutions",
+    description: "We design AI systems specifically for your business model.",
+    features: ["Machine learning models", "Natural language processing (NLP)", "Computer vision systems", "Recommendation engines"],
+    icon: Settings
+  },
+  {
+    title: "AI Chatbots & Virtual Assistants",
+    description: "Enhance customer engagement with intelligent automation.",
+    features: ["Website chatbots", "WhatsApp AI bots", "Customer support automation", "Lead generation bots"],
+    icon: MessageCircle
+  },
+  {
+    title: "AI Automation for Businesses",
+    description: "Reduce manual work and increase efficiency.",
+    features: ["Workflow automation", "Data processing automation", "AI-driven CRM integrations", "Smart reporting systems"],
+    icon: Zap
+  },
+  {
+    title: "AI Integration Services",
+    description: "Already have a system? We make it smarter.",
+    features: ["AI API integration", "Automation tools integration", "SaaS AI upgrades", "Custom dashboards"],
+    icon: Link2
+  }
+];
+
+const aiSolutionsWhyNeed = [
+  {
+    title: "Save Time & Reduce Costs",
+    description: "Automation eliminates repetitive tasks."
+  },
+  {
+    title: "Make Data-Driven Decisions",
+    description: "AI helps you predict trends and customer behavior."
+  },
+  {
+    title: "Improve Customer Experience",
+    description: "Personalization and faster responses increase satisfaction."
+  },
+  {
+    title: "Scale Faster",
+    description: "AI systems grow with your business."
+  }
+];
+
+const aiSolutionsProcessSteps = [
+  { id: 1, title: "Discovery & Strategy", description: "We understand your business goals and identify AI opportunities." },
+  { id: 2, title: "Data Analysis & Planning", description: "We analyze your data and define the right AI model." },
+  { id: 3, title: "Development & Training", description: "We build and train AI systems using modern frameworks." },
+  { id: 4, title: "Testing & Optimization", description: "We ensure accuracy, speed, and reliability." },
+  { id: 5, title: "Deployment & Scaling", description: "We launch and continuously improve your AI system." },
+];
+
+const aiSolutionsIndustries = [
+  "E-commerce (recommendation engines)",
+  "Healthcare (AI diagnostics support)",
+  "Finance (fraud detection & analytics)",
+  "Education (personalized learning systems)",
+  "Real estate (predictive pricing models)"
+];
+
+const aiSolutionsStartups = [
+  "Startup MVP AI solutions",
+  "Cost-effective AI systems",
+  "Scalable AI architecture"
+];
+
+const aiSolutionsWhyChoose = [
+  "Affordable AI development in Pakistan",
+  "Startup-focused approach",
+  "Fast delivery cycles",
+  "Scalable and secure systems",
+  "Long-term support"
 ];
 
 const ourDevelopmentProcess = [
@@ -408,7 +486,7 @@ export default function ServiceDetail() {
             </motion.div>
           </div>
         </section>
-      ) : (
+      ) : id !== 'ai-solutions' ? (
         <section className="pt-40 pb-20 relative overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-primary/10 blur-[120px] pointer-events-none" />
           
@@ -430,7 +508,7 @@ export default function ServiceDetail() {
             </motion.p>
           </div>
         </section>
-      )}
+      ) : null}
 
       {id === 'web-development' && (
         <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
@@ -835,6 +913,7 @@ export default function ServiceDetail() {
       )}
 
       {/* Overview & Benefits */}
+      {id !== 'ai-solutions' && (
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">
           <motion.div
@@ -872,6 +951,7 @@ export default function ServiceDetail() {
           </motion.div>
         </div>
       </section>
+      )}
 
       {id === 'mobile-app' && (
         <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
@@ -1018,8 +1098,222 @@ export default function ServiceDetail() {
         </section>
       )}
 
+      {/* AI Solutions Specific Blocks */}
+      {id === 'ai-solutions' && <AiSolutionsHero />}
+
+      {id === 'ai-solutions' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
+          <CategoryList 
+            title="What We Offer in AI Development"
+            categories={aiSolutionsWhatWeOffer.map((item, idx) => ({
+              id: idx,
+              title: item.title,
+              subtitle: item.description + ' ' + item.features.join(' • '),
+              icon: <item.icon className="w-8 h-8" />
+            }))}
+          />
+        </section>
+      )}
+
+      {id === 'ai-solutions' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10 w-full flex items-center justify-center px-4">
+          <div className="flex flex-col h-fit w-full max-w-[1400px] mx-auto lg:px-12 selection:bg-primary selection:text-black overflow-hidden transition-all duration-500 group bg-gray-950/60 z-20 border-white/10 border rounded-3xl ring-white/5 ring-1 relative shadow-2xl backdrop-blur-xl py-12 px-6 sm:px-12 justify-between">
+            <div className="absolute inset-0 pointer-events-none z-0">
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,black_40%,transparent_100%)] opacity-50"></div>
+              <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[80%] h-[600px] bg-primary/10 blur-[120px] rounded-[100%] mix-blend-screen opacity-60"></div>
+              <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/10 blur-[100px] rounded-[100%] mix-blend-screen opacity-40"></div>
+            </div>
+
+            <div className="flex w-full justify-start relative z-10 mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-lg shadow-black/20 hover:border-primary/30 transition-colors cursor-default">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_var(--color-primary)] animate-pulse"></div>
+                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 font-sans">Business Value</span>
+              </div>
+            </div>
+
+            <div className="relative z-10 mb-12">
+              <h2 className="leading-[1.1] select-none transition-all duration-700 text-4xl font-medium tracking-tighter md:text-5xl lg:text-6xl xl:text-[4.5rem]">
+                <span className="font-semibold text-white drop-shadow-lg">Why Your Business Needs AI</span>
+              </h2>
+              <p className="text-xl text-white/70 mt-6 max-w-2xl">Businesses that adopt AI early gain a massive advantage.</p>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10">
+              {aiSolutionsWhyNeed.map((reason, idx) => (
+                <div key={idx} className="group relative overflow-hidden bg-white/5 border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-primary/50 hover:bg-white/10">
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <div className="flex flex-col gap-2 relative z-10">
+                    <div className="flex items-center gap-3">
+                      <div className="flex items-center justify-center w-8 h-8 rounded-full border border-white/10 group-hover:border-primary/30 text-white/50 group-hover:text-primary transition-all duration-300 shrink-0">
+                        <CheckCircle2 className="w-4 h-4" />
+                      </div>
+                      <span className="text-xl font-semibold text-white/90 group-hover:text-white transition-colors">{reason.title}</span>
+                    </div>
+                    <p className="mt-2 pl-11 text-white/60">{reason.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {id === 'ai-solutions' && (
+        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10">
+          <div className="max-w-4xl mx-auto px-6 relative z-10 mb-16 text-center">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+              Our AI Development Process
+            </h2>
+          </div>
+          
+          <div className="w-full max-w-4xl mx-auto px-6 relative z-10">
+            <div className="relative h-[220vh] md:h-[200vh]">
+              <div className="sticky top-32 flex flex-col items-center">
+                {aiSolutionsProcessSteps.map((step, idx) => (
+                  <article 
+                    key={idx}
+                    className={`text-center bg-gradient-to-br from-white/10 to-white/5 w-full border-white/20 border rounded-2xl relative shadow-xl backdrop-blur-xl px-6 py-8 sm:px-10 sm:py-10 transition-all duration-300 hover:-translate-y-2 group ${idx > 0 ? 'mt-[-2rem]' : ''}`}
+                    style={{
+                      zIndex: 10 + idx,
+                      width: `calc(100% - ${idx * 4}%)`
+                    }}
+                  >
+                    <div className="absolute -top-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                    <div className="space-y-4">
+                      <h3 className="text-2xl sm:text-3xl font-semibold text-white leading-tight group-hover:text-primary transition-colors">{step.title}</h3>
+                      <p className="text-neutral-300/90 max-w-xl mx-auto text-base md:text-lg leading-relaxed">
+                        {step.description}
+                      </p>
+                      <span className="inline-flex items-center text-sm font-medium text-black bg-primary border-primary/20 border rounded-full px-4 py-1.5 shadow-[0_0_15px_rgba(60,255,157,0.3)]">
+                        Step {step.id}
+                      </span>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {id === 'ai-solutions' && (
+        <section className="relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 py-24 md:py-32 font-sans">
+          {/* External Dependencies inline style simulation */}
+          <style>{`
+            .ai-startups-title { font-family: 'Rajdhani', sans-serif; }
+            .ai-startups-code { font-family: 'JetBrains Mono', monospace; }
+          `}</style>
+          
+          {/* Technical Background Layers */}
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <div className="absolute inset-0 opacity-40 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:3rem_3rem]">
+            </div>
+            <div className="absolute inset-0 opacity-30 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:12rem_12rem]">
+            </div>
+            <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at center, transparent 10%, #050505 100%)' }}>
+            </div>
+          </div>
+
+          <div className="relative z-10 max-w-7xl mx-auto px-6">
+            {/* Header Section */}
+            <div className="mb-16 md:mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
+              <div className="overflow-hidden max-w-2xl">
+                <h2 className="text-4xl md:text-5xl lg:text-7xl uppercase tracking-tighter text-white leading-none font-bold">
+                  AI Development for Startups
+                </h2>
+              </div>
+              <p className="text-white/50 text-sm max-w-xs leading-relaxed ai-startups-code">
+                // Pakistan is rapidly growing in the AI space, and startups have a unique opportunity to leverage AI early. We specialize in:
+              </p>
+            </div>
+
+            {/* Interactive Grid Container */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-none relative">
+
+              {aiSolutionsStartups.map((title, idx) => (
+                <div key={idx} className="bg-[#050505] p-8 md:p-12 flex flex-col gap-10 hover:bg-white/[0.03] transition-all duration-500 group">
+                  <div className="flex items-center justify-between">
+                    <div className="text-primary text-xs font-bold tracking-[0.2em] ai-startups-code">
+                      [{String(idx + 1).padStart(2, '0')}]
+                    </div>
+                    {/* Placeholder for iconify since we use lucide */}
+                    <Settings className="w-8 h-8 text-white/20 group-hover:text-primary group-hover:rotate-12 transition-all duration-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl md:text-3xl tracking-tight uppercase mb-4 text-white font-bold">
+                      {title}
+                    </h3>
+                  </div>
+                </div>
+              ))}
+
+              {/* Corner Registration Marks */}
+              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-white/20 -translate-x-[1px] -translate-y-[1px] pointer-events-none"></div>
+              <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-white/20 translate-x-[1px] -translate-y-[1px] pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-white/20 -translate-x-[1px] translate-y-[1px] pointer-events-none"></div>
+              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-white/20 translate-x-[1px] translate-y-[1px] pointer-events-none"></div>
+            </div>
+
+            {/* Footer Status Line */}
+            <div className="mt-12 flex items-center gap-4 opacity-20">
+              <div className="h-px flex-1 bg-white"></div>
+              <span className="text-[10px] tracking-[0.4em] uppercase whitespace-nowrap text-white ai-startups-code">System Nominal // Build 2.0.4</span>
+              <div className="h-px w-12 bg-white"></div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {id === 'ai-solutions' && (
+        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 flex flex-col items-center justify-center">
+          <CTAWithVerticalMarquee
+            title="Industries We Serve"
+            items={aiSolutionsIndustries}
+          />
+        </section>
+      )}
+
+      {id === 'ai-solutions' && (
+        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 min-h-[50vh] flex items-center justify-center">
+           <div className="absolute inset-0 pointer-events-none overflow-hidden font-mono text-[12px] md:text-xl text-white/10 flex flex-wrap justify-between content-between p-4 opacity-40 select-none">
+              {Array.from({ length: 150 }).map((_, i) => (
+                <span 
+                  key={i} 
+                  className="animate-pulse" 
+                  style={{ 
+                    animationDelay: `${Math.random() * 5}s`, 
+                    animationDuration: `${Math.random() * 3 + 2}s`,
+                    opacity: Math.random() * 0.5 + 0.1,
+                    marginLeft: `${Math.random() * 20}px`,
+                    marginTop: `${Math.random() * 20}px`
+                  }}
+                >
+                  {String.fromCharCode(33 + Math.floor(Math.random() * 90))}
+                </span>
+              ))}
+            </div>
+            
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-32 bg-primary/30 blur-[100px] pointer-events-none rounded-full mix-blend-screen" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[80px] bg-white/20 blur-[50px] pointer-events-none rounded-full mix-blend-screen" />
+            
+            <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+             <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white mb-10 tracking-tight drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+               Why Choose Abuqitmir Tech?
+             </h2>
+             <div className="flex flex-col items-center justify-center gap-4 text-base md:text-xl lg:text-2xl font-medium text-white/90">
+                {aiSolutionsWhyChoose.map((reason, idx) => (
+                  <div key={idx} className="flex items-center gap-3">
+                     <span className="text-primary">✔</span>
+                     <span>{reason}</span>
+                  </div>
+                ))}
+             </div>
+          </div>
+        </section>
+      )}
+
       {/* Process & Tech */}
-      {id !== 'custom-software' && id !== 'mobile-app' && (
+      {id !== 'custom-software' && id !== 'mobile-app' && id !== 'ai-solutions' && (
         <section className="py-20 bg-elevated border-y border-white/5">
           <div className={`max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 gap-16 ${id === 'web-development' ? '' : 'lg:grid-cols-2'}`}>
             {id !== 'web-development' && (
@@ -1063,7 +1357,7 @@ export default function ServiceDetail() {
       )}
 
       {/* FAQ Section */}
-      {(id === 'custom-software' || id === 'web-development' || id === 'mobile-app') && (
+      {(id === 'custom-software' || id === 'web-development' || id === 'mobile-app' || id === 'ai-solutions') && (
         <section className="py-24 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
             <div className="text-center mb-16">
@@ -1073,12 +1367,15 @@ export default function ServiceDetail() {
                   ? "Everything you need to know about our custom software development process."
                   : id === 'web-development'
                   ? "Everything you need to know about our web development process."
+                  : id === 'ai-solutions'
+                  ? "Everything you need to know about our AI development process."
                   : "Everything you need to know about our mobile app development process."}
               </p>
             </div>
             {id === 'custom-software' && <AccordionCustomSoftware />}
             {id === 'web-development' && <AccordionWebDevelopment />}
             {id === 'mobile-app' && <AccordionMobileApp />}
+            {id === 'ai-solutions' && <AccordionAiSolutions />}
           </div>
         </section>
       )}
@@ -1101,6 +1398,11 @@ export default function ServiceDetail() {
             <>
               <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">Start Your App Today</h2>
               <p className="text-xl text-white/60 mb-8">Contact Abuqitmir Tech and turn your idea into a powerful mobile app.</p>
+            </>
+          ) : id === 'ai-solutions' ? (
+            <>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">Ready to build intelligent systems that transform your business?</h2>
+              <p className="text-xl text-white/60 mb-8">Contact Abuqitmir Tech today and bring your AI idea to life.</p>
             </>
           ) : (
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-8 text-white">Ready to start your {service.title.toLowerCase()} project?</h2>
