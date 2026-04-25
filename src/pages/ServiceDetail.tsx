@@ -22,6 +22,8 @@ import { CardsParallax, type iCardItem } from '../components/ui/scroll-cards';
 import { TextGlitch } from '../components/ui/text-glitch-effect';
 import { WavyBlock, WavyBlockItem } from '../components/ui/wavy-text-block';
 import { MarkdownRotator } from '../components/ui/markdown-rotator';
+import { AetherFlowHero } from '../components/ui/aether-flow-hero';
+import { CTAWithVerticalMarquee } from '../components/ui/cta-with-text-marquee';
 
 const whyChooseAbuQitmirTech = [
   "Affordable pricing",
@@ -41,6 +43,60 @@ const webDevTechStackRotations = [
   "### Frontend Technologies\n\n**React:** The default framework used for generating web interfaces.\n\n**Angular:** Officially supported as an alternative framework for rapid application generation.\n\n**Next.js:** Supported for developers building more complex, server-side rendered applications.\n\n**Modern Web Tools:** Includes support for styling and animation libraries like Framer Motion.",
   "### Backend & Infrastructure\n\n**Node.js Runtime:** Powers the server-side logic, allowing for secure API calls and database connections.\n\n**Firebase Integration:** Automatically handles backend essentials including:\n* **Firebase Authentication:** For secure user sign-in flows.\n* **Firestore:** A NoSQL cloud database for persistent data storage.\n\n**Cloud Run:** Used as the primary deployment target for scalable, serverless application hosting.\n\n**Antigravity Agent:** A specialized coding agent that manages dependencies, installs npm packages, and verifies code execution.",
   "### AI & Core Capabilities\n\n**Gemini API:** Provides large language model (LLM) capabilities for the generated apps.\n\n**Multi-language Support:** Supports coding languages including Python, JavaScript, Go, and TypeScript.\n\n**Secrets Management:** Built-in tools securely store and access API keys."
+];
+
+const mobileAppServicesData = [
+  {
+    title: "Android App Development",
+    features: ["Native Android apps", "Business apps", "Startup MVP apps"],
+    icon: Smartphone
+  },
+  {
+    title: "iOS App Development",
+    features: ["High-performance iOS apps", "Secure architecture", "Premium UI/UX"],
+    icon: Smartphone
+  },
+  {
+    title: "Cross-Platform Development",
+    features: ["Flutter apps", "Cost-effective solutions", "Faster deployment"],
+    icon: Code
+  }
+];
+
+const mobileAppFeatures = [
+  "User authentication",
+  "Real-time chat",
+  "Payment integration",
+  "Push notifications",
+  "Offline support"
+];
+
+const mobileAppWhyNeed = [
+  "Direct Customer Engagement",
+  "Brand Visibility",
+  "Increased Revenue",
+  "Better User Experience"
+];
+
+const mobileAppStartupReasons = [
+  "Build MVP apps",
+  "Launch quickly",
+  "Scale efficiently"
+];
+
+const mobileAppWhyChoose = [
+  "Affordable app development",
+  "Startup-focused solutions",
+  "Scalable architecture",
+  "Fast delivery"
+];
+
+const mobileAppProcessSteps = [
+  { id: 1, title: "Idea Validation", description: "Deep dive into user needs, business goals, and market opportunities. Define the problem before solutions." },
+  { id: 2, title: "UI/UX Design", description: "Create high-fidelity designs and interactive prototypes. Test early and often to validate assumptions." },
+  { id: 3, title: "Development", description: "Ship fast, build robust architecture. Our engineers write clean, scalable code." },
+  { id: 4, title: "Testing", description: "Stringent quality assurance testing across multiple devices to ensure a flawless experience." },
+  { id: 5, title: "Launch & Support", description: "Deploy to app stores, provide continuous maintenance and iterate based on feedback." },
 ];
 
 const ourDevelopmentProcess = [
@@ -309,6 +365,8 @@ export default function ServiceDetail() {
             </motion.div>
           </div>
         </section>
+      ) : id === 'mobile-app' ? (
+        <AetherFlowHero />
       ) : id === 'web-development' ? (
         <section className="pt-48 pb-40 lg:pt-56 lg:pb-48 relative overflow-hidden flex flex-col items-center justify-center min-h-[75vh] md:min-h-[85vh]">
           <BackgroundScene beamCount={60} />
@@ -656,7 +714,14 @@ export default function ServiceDetail() {
               </p>
             </div>
             
-            <CategoryList items={customSoftwareSolutions} />
+            <CategoryList 
+              categories={customSoftwareSolutions.map(item => ({
+                id: item.id,
+                title: item.title,
+                subtitle: item.description,
+                icon: item.icon
+              }))} 
+            />
           </div>
         </section>
       )}
@@ -808,8 +873,153 @@ export default function ServiceDetail() {
         </div>
       </section>
 
+      {id === 'mobile-app' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
+          <CategoryList 
+            title="Our App Development Services"
+            categories={mobileAppServicesData.map((item, idx) => ({
+              id: idx,
+              title: item.title,
+              subtitle: item.features.join(' • '),
+              icon: <item.icon className="w-8 h-8" />
+            }))}
+          />
+        </section>
+      )}
+
+      {id === 'mobile-app' && (
+        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 flex flex-col items-center justify-center">
+          <CTAWithVerticalMarquee
+            title="💡 Features We Build"
+            items={mobileAppFeatures}
+          />
+        </section>
+      )}
+
+      {id === 'mobile-app' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10 w-full flex items-center justify-center px-4">
+          <div className="flex flex-col h-fit w-full max-w-[1400px] mx-auto lg:px-12 selection:bg-primary selection:text-black overflow-hidden transition-all duration-500 group bg-gray-950/60 z-20 border-white/10 border rounded-3xl ring-white/5 ring-1 relative shadow-2xl backdrop-blur-xl py-12 px-6 sm:px-12 justify-between">
+            
+            {/* Ambient Backgrounds */}
+            <div className="absolute inset-0 pointer-events-none z-0">
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,black_40%,transparent_100%)] opacity-50"></div>
+              <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[80%] h-[600px] bg-primary/10 blur-[120px] rounded-[100%] mix-blend-screen opacity-60"></div>
+              <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/10 blur-[100px] rounded-[100%] mix-blend-screen opacity-40"></div>
+            </div>
+
+            {/* Pilled Label */}
+            <div className="flex w-full justify-start relative z-10 mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-lg shadow-black/20 hover:border-primary/30 transition-colors cursor-default">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_var(--color-primary)] animate-pulse"></div>
+                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 font-sans">Business Value</span>
+              </div>
+            </div>
+
+            <div className="relative z-10 mb-12">
+              <h2 className="leading-[1.1] select-none transition-all duration-700 text-4xl font-medium tracking-tighter md:text-5xl lg:text-6xl xl:text-[4.5rem]">
+                <span className="font-semibold text-white drop-shadow-lg">Why Your Business Needs a Mobile App</span>
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10">
+              {mobileAppWhyNeed.map((reason, idx) => (
+                <div key={idx} className="group relative overflow-hidden bg-white/5 border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-primary/50 hover:bg-white/10">
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <div className="flex items-center gap-4 relative z-10">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 group-hover:border-primary/30 text-white/50 group-hover:text-primary transition-all duration-300 shrink-0">
+                      <CheckCircle2 className="w-5 h-5" />
+                    </div>
+                    <span className="text-xl font-semibold text-white/90 group-hover:text-white transition-colors">{reason}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+      )}
+
+
+
+      {id === 'mobile-app' && (
+        <section className="py-12 md:py-20 relative overflow-hidden bg-transparent border-t border-white/5 z-10 min-h-[40vh] flex flex-col items-center justify-center">
+          <div className="max-w-7xl w-full px-6 flex flex-col md:flex-row md:items-start gap-12 md:gap-24">
+            <div className="md:w-1/3 pt-10">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white mb-6 opacity-90">
+                🌍 App Development for Startups
+              </h2>
+              <p className="text-xl text-white/70">We help startups: </p>
+            </div>
+            <div className="md:w-2/3 h-[50vh] min-h-[400px] relative overflow-hidden flex items-center">
+              <WavyBlock className="flex flex-col justify-center items-start gap-8 w-full">
+                {mobileAppStartupReasons.map((title, index) => (
+                  <WavyBlockItem 
+                    key={title} 
+                    index={index}
+                    config={{
+                      baseOffsetFactor: 0.01,
+                      baseExtra: 0,
+                      baseAmplitude: 40,
+                      lengthEffect: 0.6,
+                      frequency: 35,
+                      progressScale: 4,
+                      phaseShiftDeg: -180,
+                      spring: { damping: 22, stiffness: 300 },
+                    }}
+                    className="max-w-[100vw] pr-4 md:pr-12"
+                  >
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5vw] xl:text-5xl font-bold leading-tight tracking-tighter uppercase whitespace-normal break-words flex flex-wrap text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">
+                       {title}
+                    </h3>
+                  </WavyBlockItem>
+                ))}
+              </WavyBlock>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {id === 'mobile-app' && (
+        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 min-h-[50vh] flex items-center justify-center">
+           <div className="absolute inset-0 pointer-events-none overflow-hidden font-mono text-[12px] md:text-xl text-white/10 flex flex-wrap justify-between content-between p-4 opacity-40 select-none">
+              {Array.from({ length: 150 }).map((_, i) => (
+                <span 
+                  key={i} 
+                  className="animate-pulse" 
+                  style={{ 
+                    animationDelay: `${Math.random() * 5}s`, 
+                    animationDuration: `${Math.random() * 3 + 2}s`,
+                    opacity: Math.random() * 0.5 + 0.1,
+                    marginLeft: `${Math.random() * 20}px`,
+                    marginTop: `${Math.random() * 20}px`
+                  }}
+                >
+                  {String.fromCharCode(33 + Math.floor(Math.random() * 90))}
+                </span>
+              ))}
+            </div>
+            
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-32 bg-[#ff7b00]/30 blur-[100px] pointer-events-none rounded-full mix-blend-screen" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[80px] bg-white/20 blur-[50px] pointer-events-none rounded-full mix-blend-screen" />
+            
+            <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+             <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white mb-10 tracking-tight drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+               📈 Why Choose Abuqitmir Tech?
+             </h2>
+             <div className="flex flex-col items-center justify-center gap-4 text-base md:text-xl lg:text-2xl font-medium text-white/90">
+                {mobileAppWhyChoose.map((reason, idx) => (
+                  <div key={idx} className="flex items-center gap-3">
+                     <span className="text-[#ff7b00]">✔</span>
+                     <span>{reason}</span>
+                  </div>
+                ))}
+             </div>
+          </div>
+        </section>
+      )}
+
       {/* Process & Tech */}
-      {id !== 'custom-software' && (
+      {id !== 'custom-software' && id !== 'mobile-app' && (
         <section className="py-20 bg-elevated border-y border-white/5">
           <div className={`max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 gap-16 ${id === 'web-development' ? '' : 'lg:grid-cols-2'}`}>
             {id !== 'web-development' && (
@@ -888,7 +1098,10 @@ export default function ServiceDetail() {
               <p className="text-xl text-white/60 mb-8">Contact Qitmir Tech Solutions for a free consultation.</p>
             </>
           ) : id === 'mobile-app' ? (
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-12 text-white">Ready to start your mobile app development project?</h2>
+            <>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">Start Your App Today</h2>
+              <p className="text-xl text-white/60 mb-8">Contact Abuqitmir Tech and turn your idea into a powerful mobile app.</p>
+            </>
           ) : (
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-8 text-white">Ready to start your {service.title.toLowerCase()} project?</h2>
           )}
