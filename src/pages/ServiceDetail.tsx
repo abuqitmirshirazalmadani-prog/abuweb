@@ -1,15 +1,22 @@
 import { useParams, Link } from 'react-router';
 import { motion, LayoutGroup } from 'framer-motion';
-import { CheckCircle2, ArrowRight, MessageCircle, Briefcase, Cloud, Bot, Network, Settings, TrendingUp, Zap, Trophy, Smartphone, Code, Link2, Database, ShieldCheck, Target, Search, Globe, MapPin } from 'lucide-react';
+import { CheckCircle2, ArrowRight, MessageCircle, Briefcase, Cloud, Bot, Network, Settings, TrendingUp, Zap, Trophy, Smartphone, Code, Link2, Database, ShieldCheck, Target, Search, Globe, MapPin, Laptop, Eye, Box, Share2, MousePointerClick, Mail, FileText, PenTool, MessageSquare, MonitorSmartphone, LayoutDashboard } from 'lucide-react';
 import SEO from '../components/SEO';
 import { AccordionCustomSoftware } from '../components/ui/accordion-custom-software';
 import { AccordionWebDevelopment } from '../components/ui/accordion-web-development';
 import { AccordionMobileApp } from '../components/ui/accordion-mobile-app';
 import { AccordionAiSolutions } from '../components/ui/accordion-ai-solutions';
 import { AccordionSeo } from '../components/ui/accordion-seo';
+import { AccordionUiUx } from '../components/ui/accordion-ui-ux';
+import { AccordionDigitalMarketing } from '../components/ui/accordion-digital-marketing';
+import { AccordionContentWriting } from '../components/ui/accordion-content-writing';
+import { AccordionGraphicsDesign } from '../components/ui/accordion-graphics-design';
 import { AiSolutionsHero } from '../components/ui/ai-solutions-hero';
 import { SeoHero } from '../components/ui/seo-hero';
-import BackgroundScene from '../components/ui/aurora-section-hero';
+import { UiUxHero } from '../components/ui/ui-ux-hero';
+import { DigitalMarketingHero } from '../components/ui/digital-marketing-hero';
+import { ContentWritingHero } from '../components/ui/content-writing-hero';
+import { GraphicsDesignHero } from '../components/ui/graphics-design-hero';
 import { CategoryList } from '../components/ui/category-list';
 import { ProcessSection } from '../components/ui/how-we-do-it-process-overview';
 import { ProcessTimeline } from '../components/ui/process-timeline';
@@ -215,6 +222,101 @@ const seoWhyChooseUs = [
   "Affordable SEO services",
   "Data-driven strategy",
   "Long-term growth",
+  "Transparent reporting"
+];
+
+// UI/UX Constants
+const uiUxServicesData = [
+  { title: "UI Design", description: "Modern interface design • Mobile & web app UI • Design systems • Interactive layouts", icon: Laptop },
+  { title: "UX Design", description: "User research • Wireframing & prototyping • User journey mapping • Usability testing", icon: Eye },
+  { title: "Product Design", description: "SaaS product design • Dashboard design • MVP design for startups", icon: Box }
+];
+
+const uiUxImportanceData = [
+  "Improves user experience",
+  "Increases conversions",
+  "Builds brand trust",
+  "Reduces bounce rate"
+];
+
+const uiUxProcessSteps = [
+  { id: 1, title: "Research & Analysis", description: "Understanding the users, market, and business goals." },
+  { id: 2, title: "Wireframing", description: "Structuring the layout and user flow." },
+  { id: 3, title: "UI Design", description: "Adding visual elements, colors, and typography." },
+  { id: 4, title: "Testing & Feedback", description: "Ensuring usability and solving potential issues." },
+  { id: 5, title: "Final Delivery", description: "Providing complete, developer-ready design files." }
+];
+
+const uiUxTargetBusinesses = ["Startups", "SaaS products", "Mobile apps", "Business websites"];
+
+const uiUxWhyChooseUs = [
+  "User-focused design approach",
+  "Modern and clean UI",
+  "Conversion-driven designs",
+  "Fast delivery"
+];
+
+// Content Writing Constants
+const cwServicesData = [
+  { title: "SEO Content Writing", description: "Blog posts • Website content • Keyword optimization", icon: FileText },
+  { title: "Copywriting", description: "Sales pages • Ad copy • Email copy", icon: PenTool },
+  { title: "Business Content", description: "Company profiles • Product descriptions • Landing pages", icon: Briefcase },
+  { title: "Social Media Content", description: "Captions • Post content • Content strategy", icon: MessageSquare }
+];
+
+const cwImportanceData = [
+  "Improves SEO rankings",
+  "Builds trust",
+  "Engages audience",
+  "Drives conversions"
+];
+
+const cwProcessSteps = [
+  { id: 1, title: "Research", description: "Understanding the topic, industry, and target audience." },
+  { id: 2, title: "Keyword Optimization", description: "Integrating SEO-friendly keywords naturally." },
+  { id: 3, title: "Writing", description: "Creating compelling and valuable content." },
+  { id: 4, title: "Editing", description: "Reviewing for flow, grammar, and brand voice." },
+  { id: 5, title: "Delivery", description: "Providing finalized, high-quality content." }
+];
+
+const cwTargetBusinesses = ["Startups", "Blogs", "Agencies", "E-commerce"];
+
+const cwWhyChooseUs = [
+  "SEO-focused writing",
+  "Engaging content",
+  "Fast delivery",
+  "Affordable pricing"
+];
+
+// Digital Marketing Constants
+const dmServicesData = [
+  { title: "Social Media Marketing", description: "Facebook & Instagram marketing • Content strategy • Audience targeting • Campaign management", icon: Share2 },
+  { title: "Paid Advertising (PPC)", description: "Google Ads • Facebook Ads • Conversion optimization • Retargeting campaigns", icon: MousePointerClick },
+  { title: "Search Engine Marketing", description: "Keyword targeting • Paid search campaigns • Landing page optimization", icon: Search },
+  { title: "Email Marketing", description: "Email campaigns • Automation • Lead nurturing", icon: Mail }
+];
+
+const dmImportanceData = [
+  "Reach targeted audience",
+  "Increase brand awareness",
+  "Generate quality leads",
+  "Boost sales"
+];
+
+const dmProcessSteps = [
+  { id: 1, title: "Market Research", description: "Identifying your target audience and competitors." },
+  { id: 2, title: "Strategy Planning", description: "Developing a comprehensive marketing plan." },
+  { id: 3, title: "Campaign Execution", description: "Launching multi-channel marketing campaigns." },
+  { id: 4, title: "Optimization", description: "A/B testing and refining strategies for better ROI." },
+  { id: 5, title: "Reporting", description: "Providing detailed analytics and performance reports." }
+];
+
+const dmTargetBusinesses = ["Startups", "E-commerce brands", "Local businesses"];
+
+const dmWhyChooseUs = [
+  "Data-driven campaigns",
+  "High ROI strategies",
+  "Affordable solutions",
   "Transparent reporting"
 ];
 
@@ -451,7 +553,6 @@ export default function ServiceDetail() {
       {/* Hero */}
       {id === 'custom-software' ? (
         <section className="pt-48 pb-40 lg:pt-56 lg:pb-48 relative overflow-hidden flex flex-col items-center justify-center min-h-[75vh] md:min-h-[85vh]">
-          <BackgroundScene beamCount={60} />
           <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -496,9 +597,16 @@ export default function ServiceDetail() {
         <AetherFlowHero />
       ) : id === 'seo' ? (
         <SeoHero />
+      ) : id === 'ui-ux' ? (
+        <UiUxHero />
+      ) : id === 'digital-marketing' ? (
+        <DigitalMarketingHero />
+      ) : id === 'content-writing' ? (
+        <ContentWritingHero />
+      ) : id === 'graphics-design' ? (
+        <GraphicsDesignHero />
       ) : id === 'web-development' ? (
         <section className="pt-48 pb-40 lg:pt-56 lg:pb-48 relative overflow-hidden flex flex-col items-center justify-center min-h-[75vh] md:min-h-[85vh]">
-          <BackgroundScene beamCount={60} />
           <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -537,7 +645,7 @@ export default function ServiceDetail() {
             </motion.div>
           </div>
         </section>
-      ) : id !== 'ai-solutions' && id !== 'seo' ? (
+      ) : id !== 'ai-solutions' && id !== 'seo' && id !== 'ui-ux' && id !== 'digital-marketing' && id !== 'content-writing' && id !== 'graphics-design' ? (
         <section className="pt-40 pb-20 relative overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-primary/10 blur-[120px] pointer-events-none" />
           
@@ -579,7 +687,7 @@ export default function ServiceDetail() {
       )}
 
       {id === 'web-development' && (
-        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10">
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
               
@@ -678,7 +786,7 @@ export default function ServiceDetail() {
 
 
       {id === 'web-development' && (
-        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 min-h-[60vh] flex items-center justify-center">
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10 min-h-[60vh] flex items-center justify-center">
             {/* Dark background with random floating characters to match photo */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden font-mono text-[12px] md:text-xl text-white/10 flex flex-wrap justify-between content-between p-4 opacity-40 select-none">
               {Array.from({ length: 150 }).map((_, i) => (
@@ -736,7 +844,7 @@ export default function ServiceDetail() {
       )}
 
       {id === 'web-development' && (
-        <section className="py-12 md:py-16 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 flex flex-col items-center justify-center min-h-[20vh]">
+        <section className="py-12 md:py-16 relative overflow-hidden bg-transparent border-t border-white/5 z-10 flex flex-col items-center justify-center min-h-[20vh]">
           <div className="w-full overflow-hidden flex justify-center px-4">
              <TextGlitch 
                 text="WEB DEVELOPMENT" 
@@ -789,7 +897,7 @@ export default function ServiceDetail() {
       )}
 
       {id === 'web-development' && (
-        <section className="py-12 md:py-16 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 flex flex-col items-center justify-center">
+        <section className="py-12 md:py-16 relative overflow-hidden bg-transparent border-t border-white/5 z-10 flex flex-col items-center justify-center">
           <div className="max-w-5xl w-full px-6 flex justify-center">
             <LayoutGroup>
               <div className="text-white/80 font-mono text-lg md:text-xl md:leading-relaxed bg-white/5 p-8 md:p-12 rounded-2xl border border-white/10 w-full min-h-[350px] flex items-center">
@@ -880,7 +988,7 @@ export default function ServiceDetail() {
       )}
 
       {id === 'custom-software' && (
-        <section className="py-24 relative z-10 border-t border-white/5 bg-black/40">
+        <section className="py-24 relative z-10 border-t border-white/5 bg-transparent">
           <div className="max-w-4xl mx-auto px-6 text-center">
             <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-10">
               Custom Software for Businesses in Pakistan
@@ -908,7 +1016,7 @@ export default function ServiceDetail() {
       )}
 
       {id === 'custom-software' && (
-        <section className="py-24 relative overflow-hidden bg-black border-t border-white/5">
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5">
           <div className="absolute inset-0 pointer-events-none opacity-20">
              <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/20 blur-[100px]" />
              <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-primary/10 blur-[120px]" />
@@ -964,7 +1072,7 @@ export default function ServiceDetail() {
       )}
 
       {/* Overview & Benefits */}
-      {id !== 'ai-solutions' && id !== 'seo' && (
+      {id !== 'ai-solutions' && id !== 'seo' && id !== 'ui-ux' && id !== 'digital-marketing' && id !== 'content-writing' && id !== 'graphics-design' && (
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">
           <motion.div
@@ -1019,7 +1127,7 @@ export default function ServiceDetail() {
       )}
 
       {id === 'mobile-app' && (
-        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 flex flex-col items-center justify-center">
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10 flex flex-col items-center justify-center">
           <CTAWithVerticalMarquee
             title="💡 Features We Build"
             items={mobileAppFeatures}
@@ -1111,7 +1219,7 @@ export default function ServiceDetail() {
       )}
 
       {id === 'mobile-app' && (
-        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 min-h-[50vh] flex items-center justify-center">
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10 min-h-[50vh] flex items-center justify-center">
            <div className="absolute inset-0 pointer-events-none overflow-hidden font-mono text-[12px] md:text-xl text-white/10 flex flex-wrap justify-between content-between p-4 opacity-40 select-none">
               {Array.from({ length: 150 }).map((_, i) => (
                 <span 
@@ -1210,7 +1318,7 @@ export default function ServiceDetail() {
       )}
 
       {id === 'ai-solutions' && (
-        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10">
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
           <div className="max-w-4xl mx-auto px-6 relative z-10 mb-16 text-center">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
               Our AI Development Process
@@ -1248,7 +1356,7 @@ export default function ServiceDetail() {
       )}
 
       {id === 'ai-solutions' && (
-        <section className="relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 py-24 md:py-32 font-sans">
+        <section className="relative overflow-hidden bg-transparent border-t border-white/5 z-10 py-24 md:py-32 font-sans">
           {/* External Dependencies inline style simulation */}
           <style>{`
             .ai-startups-title { font-family: 'Rajdhani', sans-serif; }
@@ -1282,7 +1390,7 @@ export default function ServiceDetail() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-none relative">
 
               {aiSolutionsStartups.map((title, idx) => (
-                <div key={idx} className="bg-[#050505] p-8 md:p-12 flex flex-col gap-10 hover:bg-white/[0.03] transition-all duration-500 group">
+                <div key={idx} className="bg-transparent p-8 md:p-12 flex flex-col gap-10 hover:bg-white/[0.03] transition-all duration-500 group">
                   <div className="flex items-center justify-between">
                     <div className="text-primary text-xs font-bold tracking-[0.2em] ai-startups-code">
                       [{String(idx + 1).padStart(2, '0')}]
@@ -1316,7 +1424,7 @@ export default function ServiceDetail() {
       )}
 
       {id === 'ai-solutions' && (
-        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 flex flex-col items-center justify-center">
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10 flex flex-col items-center justify-center">
           <CTAWithVerticalMarquee
             title="Industries We Serve"
             items={aiSolutionsIndustries}
@@ -1325,7 +1433,7 @@ export default function ServiceDetail() {
       )}
 
       {id === 'ai-solutions' && (
-        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 min-h-[50vh] flex items-center justify-center">
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10 min-h-[50vh] flex items-center justify-center">
            <div className="absolute inset-0 pointer-events-none overflow-hidden font-mono text-[12px] md:text-xl text-white/10 flex flex-wrap justify-between content-between p-4 opacity-40 select-none">
               {Array.from({ length: 150 }).map((_, i) => (
                 <span 
@@ -1379,19 +1487,33 @@ export default function ServiceDetail() {
       )}
 
       {id === 'seo' && (
-        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 flex flex-col items-center justify-center">
-          <div className="max-w-4xl mx-auto px-6 relative z-10 text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white mb-6 tracking-tight">
-              Why SEO is Important
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto px-6">
-            {seoImportanceData.map((reason, idx) => (
-              <div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center gap-4 hover:bg-white/10 transition-colors">
-                <CheckCircle2 className="w-10 h-10 text-primary" />
-                <h3 className="text-xl font-bold text-white">{reason}</h3>
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
+          <div className="max-w-5xl mx-auto px-6 relative z-10">
+            <div className="rounded-[2.5rem] bg-gradient-to-br from-[#0c1310] via-[#050908] to-[#030605] border border-white/10 p-8 md:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
+              {/* Background ambient glow */}
+              <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
+              
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-8 backdrop-blur-md">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(92,230,92,0.8)]" />
+                <span className="text-[11px] font-semibold tracking-[0.2em] text-neutral-300 uppercase">Business Value</span>
               </div>
-            ))}
+
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white tracking-tight mb-12">
+                Why SEO is Important
+              </h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+                {seoImportanceData.map((reason, idx) => (
+                  <div key={idx} className="bg-gradient-to-br from-[#121c18] to-[#0c120f] border border-white/5 rounded-2xl p-6 lg:p-8 flex items-center gap-5 sm:gap-6 hover:border-primary/20 transition-colors shadow-lg">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/30 bg-primary/5 flex items-center justify-center shrink-0 shadow-[inset_0_0_10px_rgba(92,230,92,0.1)]">
+                      <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                    </div>
+                    <span className="text-lg sm:text-xl lg:text-2xl font-bold text-white tracking-tight leading-tight">{reason}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       )}
@@ -1434,7 +1556,7 @@ export default function ServiceDetail() {
       )}
 
       {id === 'seo' && (
-        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 flex flex-col items-center justify-center">
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10 flex flex-col items-center justify-center">
           <CTAWithVerticalMarquee
             title="SEO Services in Pakistan for All Businesses"
             items={seoTargetBusinesses}
@@ -1443,7 +1565,7 @@ export default function ServiceDetail() {
       )}
 
       {id === 'seo' && (
-        <section className="py-24 relative overflow-hidden bg-[#050505] border-t border-white/5 z-10 min-h-[50vh] flex items-center justify-center">
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10 min-h-[50vh] flex items-center justify-center">
           <div className="absolute inset-0 pointer-events-none overflow-hidden font-mono text-[12px] md:text-xl text-white/10 flex flex-wrap justify-between content-between p-4 opacity-40 select-none">
             {Array.from({ length: 150 }).map((_, i) => (
               <span 
@@ -1481,9 +1603,390 @@ export default function ServiceDetail() {
         </section>
       )}
 
+      {/* UI/UX Blocks */}
+      {id === 'ui-ux' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
+          <CategoryList 
+            title="Our UI/UX Design Services"
+            categories={uiUxServicesData.map((item, idx) => ({
+              id: idx,
+              title: item.title,
+              subtitle: item.description,
+              icon: <item.icon className="w-8 h-8" />
+            }))}
+          />
+        </section>
+      )}
+
+      {id === 'ui-ux' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
+          <div className="max-w-5xl mx-auto px-6 relative z-10">
+            <div className="rounded-[2.5rem] bg-gradient-to-br from-[#0c1310] via-[#050908] to-[#030605] border border-white/10 p-8 md:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
+              <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-8 backdrop-blur-md">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(92,230,92,0.8)]" />
+                <span className="text-[11px] font-semibold tracking-[0.2em] text-neutral-300 uppercase">Business Value</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white tracking-tight mb-12">
+                Why UI/UX Matters
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+                {uiUxImportanceData.map((reason, idx) => (
+                  <div key={idx} className="bg-gradient-to-br from-[#121c18] to-[#0c120f] border border-white/5 rounded-2xl p-6 lg:p-8 flex items-center gap-5 sm:gap-6 hover:border-primary/20 transition-colors shadow-lg">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/30 bg-primary/5 flex items-center justify-center shrink-0 shadow-[inset_0_0_10px_rgba(92,230,92,0.1)]">
+                      <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                    </div>
+                    <span className="text-lg sm:text-xl lg:text-2xl font-bold text-white tracking-tight leading-tight">{reason}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {id === 'ui-ux' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
+          <div className="max-w-4xl mx-auto px-6 relative z-10 mb-16 text-center">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+              Our Design Process
+            </h2>
+          </div>
+          <div className="w-full max-w-4xl mx-auto px-6 relative z-10">
+            <div className="relative h-auto">
+              <div className="flex flex-col items-center">
+                {uiUxProcessSteps.map((step, idx) => (
+                  <article 
+                    key={idx}
+                    className={`text-center bg-gradient-to-br from-white/10 to-white/5 w-full border-white/20 border rounded-2xl relative shadow-xl backdrop-blur-xl px-6 py-8 sm:px-10 sm:py-10 transition-all duration-300 hover:-translate-y-2 group ${idx > 0 ? 'mt-[-2rem]' : ''}`}
+                    style={{
+                      zIndex: 10 + idx,
+                      width: `calc(100% - ${idx * 4}%)`
+                    }}
+                  >
+                    <div className="absolute -top-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                    <div className="space-y-4">
+                      <h3 className="text-2xl sm:text-3xl font-semibold text-white leading-tight group-hover:text-primary transition-colors">{step.title}</h3>
+                      <p className="text-neutral-300/90 max-w-xl mx-auto text-base md:text-lg leading-relaxed">
+                        {step.description}
+                      </p>
+                      <span className="inline-flex items-center text-sm font-medium text-black bg-primary border-primary/20 border rounded-full px-4 py-1.5 shadow-[0_0_15px_rgba(60,255,157,0.3)]">
+                        Step {step.id}
+                      </span>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {id === 'ui-ux' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10 flex flex-col items-center justify-center">
+          <CTAWithVerticalMarquee
+            title="UI/UX Design for All Businesses"
+            items={uiUxTargetBusinesses}
+          />
+        </section>
+      )}
+
+      {id === 'ui-ux' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10 min-h-[50vh] flex items-center justify-center">
+          <div className="absolute inset-0 pointer-events-none overflow-hidden font-mono text-[12px] md:text-xl text-white/10 flex flex-wrap justify-between content-between p-4 opacity-40 select-none">
+            {Array.from({ length: 150 }).map((_, i) => (
+              <span 
+                key={i} 
+                className="animate-pulse" 
+                style={{ 
+                  animationDelay: `${Math.random() * 5}s`, 
+                  animationDuration: `${Math.random() * 3 + 2}s`,
+                  opacity: Math.random() * 0.5 + 0.1,
+                  marginLeft: `${Math.random() * 20}px`,
+                  marginTop: `${Math.random() * 20}px`
+                }}
+              >
+                {String.fromCharCode(33 + Math.floor(Math.random() * 90))}
+              </span>
+            ))}
+          </div>
+          
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-32 bg-primary/30 blur-[100px] pointer-events-none rounded-full mix-blend-screen" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[80px] bg-white/20 blur-[50px] pointer-events-none rounded-full mix-blend-screen" />
+          
+          <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white mb-10 tracking-tight drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+              Why Choose Abuqitmir Tech?
+            </h2>
+            <div className="flex flex-col items-center justify-center gap-4 text-base md:text-xl lg:text-2xl font-medium text-white/90">
+              {uiUxWhyChooseUs.map((reason, idx) => (
+                <div key={idx} className="flex items-center gap-3">
+                   <span className="text-primary">✔</span>
+                   <span>{reason}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Content Writing Blocks */}
+      {id === 'content-writing' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
+          <CategoryList 
+            title="Our Content Writing Services"
+            categories={cwServicesData.map((item, idx) => ({
+              id: idx,
+              title: item.title,
+              subtitle: item.description,
+              icon: <item.icon className="w-8 h-8" />
+            }))}
+          />
+        </section>
+      )}
+
+      {id === 'content-writing' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
+          <div className="max-w-5xl mx-auto px-6 relative z-10">
+            <div className="rounded-[2.5rem] bg-gradient-to-br from-[#0c1310] via-[#050908] to-[#030605] border border-white/10 p-8 md:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
+              <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-8 backdrop-blur-md">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(92,230,92,0.8)]" />
+                <span className="text-[11px] font-semibold tracking-[0.2em] text-neutral-300 uppercase">Business Value</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white tracking-tight mb-12">
+                Why Content Writing is Important
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+                {cwImportanceData.map((reason, idx) => (
+                  <div key={idx} className="bg-gradient-to-br from-[#121c18] to-[#0c120f] border border-white/5 rounded-2xl p-6 lg:p-8 flex items-center gap-5 sm:gap-6 hover:border-primary/20 transition-colors shadow-lg">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/30 bg-primary/5 flex items-center justify-center shrink-0 shadow-[inset_0_0_10px_rgba(92,230,92,0.1)]">
+                      <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                    </div>
+                    <span className="text-lg sm:text-xl lg:text-2xl font-bold text-white tracking-tight leading-tight">{reason}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {id === 'content-writing' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
+          <div className="max-w-4xl mx-auto px-6 relative z-10 mb-16 text-center">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+              Our Content Process
+            </h2>
+          </div>
+          <div className="w-full max-w-4xl mx-auto px-6 relative z-10">
+            <div className="relative h-auto">
+              <div className="flex flex-col items-center">
+                {cwProcessSteps.map((step, idx) => (
+                  <article 
+                    key={idx}
+                    className={`text-center bg-gradient-to-br from-white/10 to-white/5 w-full border-white/20 border rounded-2xl relative shadow-xl backdrop-blur-xl px-6 py-8 sm:px-10 sm:py-10 transition-all duration-300 hover:-translate-y-2 group ${idx > 0 ? 'mt-[-2rem]' : ''}`}
+                    style={{
+                      zIndex: 10 + idx,
+                      width: `calc(100% - ${idx * 4}%)`
+                    }}
+                  >
+                    <div className="absolute -top-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                    <div className="space-y-4">
+                      <h3 className="text-2xl sm:text-3xl font-semibold text-white leading-tight group-hover:text-primary transition-colors">{step.title}</h3>
+                      <p className="text-neutral-300/90 max-w-xl mx-auto text-base md:text-lg leading-relaxed">
+                        {step.description}
+                      </p>
+                      <span className="inline-flex items-center text-sm font-medium text-black bg-primary border-primary/20 border rounded-full px-4 py-1.5 shadow-[0_0_15px_rgba(60,255,157,0.3)]">
+                        Step {step.id}
+                      </span>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {id === 'content-writing' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10 flex flex-col items-center justify-center">
+          <CTAWithVerticalMarquee
+            title="Content Writing for All Businesses"
+            items={cwTargetBusinesses}
+          />
+        </section>
+      )}
+
+      {id === 'content-writing' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10 min-h-[50vh] flex items-center justify-center">
+          <div className="absolute inset-0 pointer-events-none overflow-hidden font-mono text-[12px] md:text-xl text-white/10 flex flex-wrap justify-between content-between p-4 opacity-40 select-none">
+            {Array.from({ length: 150 }).map((_, i) => (
+              <span 
+                key={i} 
+                className="animate-pulse" 
+                style={{ 
+                  animationDelay: `${Math.random() * 5}s`, 
+                  animationDuration: `${Math.random() * 3 + 2}s`,
+                  opacity: Math.random() * 0.5 + 0.1,
+                  marginLeft: `${Math.random() * 20}px`,
+                  marginTop: `${Math.random() * 20}px`
+                }}
+              >
+                {String.fromCharCode(33 + Math.floor(Math.random() * 90))}
+              </span>
+            ))}
+          </div>
+          
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-32 bg-primary/30 blur-[100px] pointer-events-none rounded-full mix-blend-screen" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[80px] bg-white/20 blur-[50px] pointer-events-none rounded-full mix-blend-screen" />
+          
+          <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white mb-10 tracking-tight drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+              Why Choose Abuqitmir Tech?
+            </h2>
+            <div className="flex flex-col items-center justify-center gap-4 text-base md:text-xl lg:text-2xl font-medium text-white/90">
+              {cwWhyChooseUs.map((reason, idx) => (
+                <div key={idx} className="flex items-center gap-3">
+                   <span className="text-primary">✔</span>
+                   <span>{reason}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Digital Marketing Blocks */}
+      {id === 'digital-marketing' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
+          <CategoryList 
+            title="Our Digital Marketing Services"
+            categories={dmServicesData.map((item, idx) => ({
+              id: idx,
+              title: item.title,
+              subtitle: item.description,
+              icon: <item.icon className="w-8 h-8" />
+            }))}
+          />
+        </section>
+      )}
+
+      {id === 'digital-marketing' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
+          <div className="max-w-5xl mx-auto px-6 relative z-10">
+            <div className="rounded-[2.5rem] bg-gradient-to-br from-[#0c1310] via-[#050908] to-[#030605] border border-white/10 p-8 md:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
+              <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-8 backdrop-blur-md">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(92,230,92,0.8)]" />
+                <span className="text-[11px] font-semibold tracking-[0.2em] text-neutral-300 uppercase">Business Value</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white tracking-tight mb-12">
+                Why Digital Marketing is Important
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+                {dmImportanceData.map((reason, idx) => (
+                  <div key={idx} className="bg-gradient-to-br from-[#121c18] to-[#0c120f] border border-white/5 rounded-2xl p-6 lg:p-8 flex items-center gap-5 sm:gap-6 hover:border-primary/20 transition-colors shadow-lg">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/30 bg-primary/5 flex items-center justify-center shrink-0 shadow-[inset_0_0_10px_rgba(92,230,92,0.1)]">
+                      <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                    </div>
+                    <span className="text-lg sm:text-xl lg:text-2xl font-bold text-white tracking-tight leading-tight">{reason}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {id === 'digital-marketing' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
+          <div className="max-w-4xl mx-auto px-6 relative z-10 mb-16 text-center">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+              Our Marketing Process
+            </h2>
+          </div>
+          <div className="w-full max-w-4xl mx-auto px-6 relative z-10">
+            <div className="relative h-auto">
+              <div className="flex flex-col items-center">
+                {dmProcessSteps.map((step, idx) => (
+                  <article 
+                    key={idx}
+                    className={`text-center bg-gradient-to-br from-white/10 to-white/5 w-full border-white/20 border rounded-2xl relative shadow-xl backdrop-blur-xl px-6 py-8 sm:px-10 sm:py-10 transition-all duration-300 hover:-translate-y-2 group ${idx > 0 ? 'mt-[-2rem]' : ''}`}
+                    style={{
+                      zIndex: 10 + idx,
+                      width: `calc(100% - ${idx * 4}%)`
+                    }}
+                  >
+                    <div className="absolute -top-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                    <div className="space-y-4">
+                      <h3 className="text-2xl sm:text-3xl font-semibold text-white leading-tight group-hover:text-primary transition-colors">{step.title}</h3>
+                      <p className="text-neutral-300/90 max-w-xl mx-auto text-base md:text-lg leading-relaxed">
+                        {step.description}
+                      </p>
+                      <span className="inline-flex items-center text-sm font-medium text-black bg-primary border-primary/20 border rounded-full px-4 py-1.5 shadow-[0_0_15px_rgba(60,255,157,0.3)]">
+                        Step {step.id}
+                      </span>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {id === 'digital-marketing' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10 flex flex-col items-center justify-center">
+          <CTAWithVerticalMarquee
+            title="Digital Marketing for All Businesses"
+            items={dmTargetBusinesses}
+          />
+        </section>
+      )}
+
+      {id === 'digital-marketing' && (
+        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10 min-h-[50vh] flex items-center justify-center">
+          <div className="absolute inset-0 pointer-events-none overflow-hidden font-mono text-[12px] md:text-xl text-white/10 flex flex-wrap justify-between content-between p-4 opacity-40 select-none">
+            {Array.from({ length: 150 }).map((_, i) => (
+              <span 
+                key={i} 
+                className="animate-pulse" 
+                style={{ 
+                  animationDelay: `${Math.random() * 5}s`, 
+                  animationDuration: `${Math.random() * 3 + 2}s`,
+                  opacity: Math.random() * 0.5 + 0.1,
+                  marginLeft: `${Math.random() * 20}px`,
+                  marginTop: `${Math.random() * 20}px`
+                }}
+              >
+                {String.fromCharCode(33 + Math.floor(Math.random() * 90))}
+              </span>
+            ))}
+          </div>
+          
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-32 bg-primary/30 blur-[100px] pointer-events-none rounded-full mix-blend-screen" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[80px] bg-white/20 blur-[50px] pointer-events-none rounded-full mix-blend-screen" />
+          
+          <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white mb-10 tracking-tight drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+              Why Choose Abuqitmir Tech?
+            </h2>
+            <div className="flex flex-col items-center justify-center gap-4 text-base md:text-xl lg:text-2xl font-medium text-white/90">
+              {dmWhyChooseUs.map((reason, idx) => (
+                <div key={idx} className="flex items-center gap-3">
+                   <span className="text-primary">✔</span>
+                   <span>{reason}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Process & Tech */}
-      {id !== 'custom-software' && id !== 'mobile-app' && id !== 'ai-solutions' && id !== 'seo' && (
-        <section className="py-20 bg-elevated border-y border-white/5">
+      {id !== 'custom-software' && id !== 'mobile-app' && id !== 'ai-solutions' && id !== 'seo' && id !== 'ui-ux' && id !== 'digital-marketing' && id !== 'content-writing' && id !== 'graphics-design' && (
+        <section className="py-20 bg-transparent border-y border-white/5">
           <div className={`max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 gap-16 ${id === 'web-development' ? '' : 'lg:grid-cols-2'}`}>
             {id !== 'web-development' && (
               <motion.div
@@ -1495,7 +1998,7 @@ export default function ServiceDetail() {
                 <div className="space-y-8 relative before:absolute before:inset-0 before:ml-6 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
                   {service.process.map((step, i) => (
                     <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                      <div className="flex items-center justify-center w-12 h-12 rounded-full border border-white/20 bg-card shadow-[0_0_0_8px_#050505] text-white/50 group-hover:text-primary group-hover:border-primary/50 transition-colors shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                      <div className="flex items-center justify-center w-12 h-12 rounded-full border border-white/20 bg-transparent shadow-[0_0_0_8px_#050505] text-white/50 group-hover:text-primary group-hover:border-primary/50 transition-colors shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
                         {i + 1}
                       </div>
                       <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 rounded-2xl glass-panel border border-white/5 group-hover:border-primary/20 transition-colors">
@@ -1526,7 +2029,7 @@ export default function ServiceDetail() {
       )}
 
       {/* FAQ Section */}
-      {(id === 'custom-software' || id === 'web-development' || id === 'mobile-app' || id === 'ai-solutions' || id === 'seo') && (
+      {(id === 'custom-software' || id === 'web-development' || id === 'mobile-app' || id === 'ai-solutions' || id === 'seo' || id === 'ui-ux' || id === 'digital-marketing' || id === 'content-writing' || id === 'graphics-design') && (
         <section className="py-24 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
             <div className="text-center mb-16">
@@ -1540,6 +2043,14 @@ export default function ServiceDetail() {
                   ? "Everything you need to know about our AI development process."
                   : id === 'seo'
                   ? "Everything you need to know about our SEO and Local SEO services."
+                  : id === 'ui-ux'
+                  ? "Everything you need to know about our UI/UX design services."
+                  : id === 'digital-marketing'
+                  ? "Everything you need to know about our digital marketing services."
+                  : id === 'content-writing'
+                  ? "Everything you need to know about our content writing services."
+                  : id === 'graphics-design'
+                  ? "Everything you need to know about our graphics design services."
                   : "Everything you need to know about our mobile app development process."}
               </p>
             </div>
@@ -1548,6 +2059,10 @@ export default function ServiceDetail() {
             {id === 'mobile-app' && <AccordionMobileApp />}
             {id === 'ai-solutions' && <AccordionAiSolutions />}
             {id === 'seo' && <AccordionSeo />}
+            {id === 'ui-ux' && <AccordionUiUx />}
+            {id === 'digital-marketing' && <AccordionDigitalMarketing />}
+            {id === 'content-writing' && <AccordionContentWriting />}
+            {id === 'graphics-design' && <AccordionGraphicsDesign />}
           </div>
         </section>
       )}
@@ -1581,6 +2096,26 @@ export default function ServiceDetail() {
               <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">Start Ranking Today</h2>
               <p className="text-xl text-white/60 mb-8">Contact Abuqitmir Tech and grow your business with SEO.</p>
             </>
+          ) : id === 'ui-ux' ? (
+            <>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">Start Designing Today</h2>
+              <p className="text-xl text-white/60 mb-8">Contact Abuqitmir Tech and create stunning digital experiences.</p>
+            </>
+          ) : id === 'digital-marketing' ? (
+            <>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">Grow Your Business Today</h2>
+              <p className="text-xl text-white/60 mb-8">Contact Abuqitmir Tech and scale your business online.</p>
+            </>
+          ) : id === 'content-writing' ? (
+            <>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">Get High-Quality Content Today</h2>
+              <p className="text-xl text-white/60 mb-8">Contact Abuqitmir Tech and boost your content strategy.</p>
+            </>
+          ) : id === 'graphics-design' ? (
+            <>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">Let's Design Your Brand Today</h2>
+              <p className="text-xl text-white/60 mb-8">Contact Abuqitmir Tech and elevate your visual identity.</p>
+            </>
           ) : (
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-8 text-white">Ready to start your {service.title.toLowerCase()} project?</h2>
           )}
@@ -1603,7 +2138,7 @@ export default function ServiceDetail() {
             </a>
           </div>
 
-          {(id === 'custom-software' || id === 'web-development' || id === 'mobile-app' || id === 'seo') && (
+          {(id === 'custom-software' || id === 'web-development' || id === 'mobile-app' || id === 'seo' || id === 'ui-ux' || id === 'digital-marketing' || id === 'content-writing' || id === 'graphics-design') && (
             <p className="text-sm text-white/40">
               Serving: Karachi, Lahore, Islamabad (Pakistan) | New York (USA) | London (UK) | Berlin (Germany) | Warsaw (Poland)
             </p>

@@ -205,7 +205,7 @@ function ServiceCard({ service, index }: { service: any; index: number; key?: Re
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       onMouseMove={onMouseMove}
-      className="group/card relative p-8 rounded-2xl bg-card border border-white/5 hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col h-full"
+      className="group/card relative p-8 rounded-2xl bg-transparent border border-white/5 hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col h-full"
     >
       <CardPattern
         mouseX={mouseX}
@@ -413,9 +413,6 @@ export default function Home() {
         schema={[organizationSchema, localBusinessSchema, faqSchema, breadcrumbSchema, professionalServiceSchema, productSchema, personSchema, websiteSchema, itemListSchema]}
       />
       <div className="relative min-h-screen">
-        <div className="fixed inset-0 z-0 pointer-events-none">
-          <RainingLetters className="w-full h-full bg-black overflow-hidden" />
-        </div>
         {/* Hero Section */}
         <section className="relative z-10 min-h-[100dvh] flex flex-col items-center justify-start overflow-hidden pt-32 pb-32">
         

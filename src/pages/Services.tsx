@@ -5,8 +5,6 @@ import { ArrowRight, Code, Smartphone, Palette, Brain, LineChart, PenTool, Globe
 import SEO from '../components/SEO';
 import { CardPattern, generateRandomString } from '../components/ui/evervault-card';
 
-import ShaderBackground from '../components/ui/shader-background';
-
 const services = [
   {
     id: "custom-software",
@@ -93,7 +91,7 @@ function ServiceCard({ service, index }: { service: any; index: number; key?: Re
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       onMouseMove={onMouseMove}
-      className="group/card p-10 rounded-3xl bg-card border border-white/5 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden flex flex-col h-full"
+      className="group/card p-10 rounded-3xl bg-transparent border border-white/5 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden flex flex-col h-full"
     >
       <CardPattern
         mouseX={mouseX}
@@ -162,7 +160,6 @@ export default function Services() {
       />
 
       <section className="pt-40 pb-20 relative overflow-hidden">
-        <ShaderBackground />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-primary/10 blur-[120px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center">
