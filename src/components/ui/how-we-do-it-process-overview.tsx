@@ -2,6 +2,7 @@ import React from 'react';
 import { cn } from '../../utils/cn';
 import { Button } from './button';
 import { ArrowUpRight } from 'lucide-react';
+import { HolographicCard } from './holographic-card';
 
 // Interface for individual process card props
 export interface ProcessCardProps {
@@ -13,7 +14,7 @@ export interface ProcessCardProps {
 
 // Reusable Process Card Component
 const ProcessCard: React.FC<ProcessCardProps> = ({ icon: Icon, title, description, className }) => (
-  <div className={cn("group relative w-full rounded-2xl border border-white/10 bg-white/5 p-6 transition-all cursor-pointer duration-300 hover:border-primary/60 hover:bg-white/10 overflow-hidden", className)}>
+  <HolographicCard className={cn("group relative w-full rounded-2xl border border-white/10 bg-white/5 p-6 transition-all cursor-pointer duration-300 hover:border-primary/60 hover:bg-white/10 overflow-hidden", className)}>
     {/* Decorative Line - Visible on larger screens */}
     <div className="absolute -left-[1px] top-1/2 hidden h-1/2 w-px -translate-y-1/2 bg-white/10 transition-colors group-hover:bg-primary/60 md:block" />
     <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-white/10 transition-colors group-hover:bg-primary/60 md:hidden" />
@@ -29,7 +30,7 @@ const ProcessCard: React.FC<ProcessCardProps> = ({ icon: Icon, title, descriptio
       <h3 className="mb-2 text-xl font-heading font-semibold text-white group-hover:text-primary transition-colors">{title}</h3>
       <p className="text-sm text-white/60 leading-relaxed">{description}</p>
     </div>
-  </div>
+  </HolographicCard>
 );
 
 // Interface for the main section props

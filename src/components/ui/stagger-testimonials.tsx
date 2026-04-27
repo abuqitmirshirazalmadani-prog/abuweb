@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '../../utils/cn';
+import { HolographicCard } from './holographic-card';
 
 const SQRT_5000 = Math.sqrt(5000);
 
@@ -76,10 +77,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
     <div
       onClick={() => handleMove(position)}
       className={cn(
-        "absolute left-1/2 top-1/2 flex flex-col cursor-pointer border p-6 sm:p-8 transition-all duration-500 ease-in-out rounded-2xl",
+        "absolute left-1/2 top-1/2 flex flex-col cursor-pointer transition-all duration-500 ease-in-out rounded-2xl",
         isCenter 
-          ? "z-10 bg-primary text-black border-primary" 
-          : "z-0 bg-card text-white border-white/10 hover:border-primary/50"
+          ? "z-10 text-black border-primary" 
+          : "z-0 text-white border-white/10 hover:border-primary/50"
       )}
       style={{
         width: cardSize,
@@ -94,38 +95,43 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         boxShadow: isCenter ? "0px 8px 0px 4px rgba(255,255,255,0.05)" : "0px 0px 0px 0px transparent"
       }}
     >
-      <span
-        className={cn(
-          "absolute block origin-top-right rotate-45",
-          isCenter ? "bg-primary" : "bg-white/10"
-        )}
-        style={{
-          right: -2,
-          top: 48,
-          width: SQRT_5000,
-          height: 2
-        }}
-      />
-      <img
-        src={testimonial.imgSrc}
-        alt={`${testimonial.by.split(',')[0]}`}
-        className="mb-4 sm:mb-6 w-[100px] sm:w-[140px] h-[100px] sm:h-[160px] bg-white/5 object-cover object-top rounded-lg shrink-0"
-        style={{
-          boxShadow: "4px 4px 0px rgba(0,0,0,0.5)"
-        }}
-      />
-      <h3 className={cn(
-        "text-sm sm:text-lg font-heading font-medium leading-snug line-clamp-4",
-        isCenter ? "text-black" : "text-white"
+      <HolographicCard className={cn(
+        "w-full h-full border flex flex-col p-6 sm:p-8 rounded-[inherit]",
+        isCenter ? "bg-primary" : "bg-card"
       )}>
-        "{testimonial.testimonial}"
-      </h3>
-      <p className={cn(
-        "mt-auto pt-4 text-xs sm:text-sm font-medium",
-        isCenter ? "text-black/70" : "text-white/50"
-      )}>
-        - {testimonial.by}
-      </p>
+        <span
+          className={cn(
+            "absolute block origin-top-right rotate-45",
+            isCenter ? "bg-primary" : "bg-white/10"
+          )}
+          style={{
+            right: -2,
+            top: 48,
+            width: SQRT_5000,
+            height: 2
+          }}
+        />
+        <img
+          src={testimonial.imgSrc}
+          alt={`${testimonial.by.split(',')[0]}`}
+          className="mb-4 sm:mb-6 w-[100px] sm:w-[140px] h-[100px] sm:h-[160px] bg-white/5 object-cover object-top rounded-lg shrink-0"
+          style={{
+            boxShadow: "4px 4px 0px rgba(0,0,0,0.5)"
+          }}
+        />
+        <h3 className={cn(
+          "text-sm sm:text-lg font-heading font-medium leading-snug line-clamp-4",
+          isCenter ? "text-black" : "text-white"
+        )}>
+          "{testimonial.testimonial}"
+        </h3>
+        <p className={cn(
+          "mt-auto pt-4 text-xs sm:text-sm font-medium",
+          isCenter ? "text-black/70" : "text-white/50"
+        )}>
+          - {testimonial.by}
+        </p>
+      </HolographicCard>
     </div>
   );
 };

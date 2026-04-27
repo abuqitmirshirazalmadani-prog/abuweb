@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FileText, TrendingUp, PenTool } from 'lucide-react';
+import { HolographicCard } from './holographic-card';
 
 export function ContentWritingHero() {
   return (
@@ -67,7 +68,7 @@ export function ContentWritingHero() {
             className="mt-20 lg:mt-32 w-full grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10"
           >
             {/* Card 1 */}
-            <div className="seo-glow bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 transition-transform duration-500 hover:-translate-y-2">
+            <HolographicCard className="seo-glow bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 transition-transform duration-500 hover:-translate-y-2">
               <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 border border-primary/20">
                 <FileText className="w-7 h-7 text-primary" />
               </div>
@@ -75,10 +76,10 @@ export function ContentWritingHero() {
               <p className="text-neutral-400 text-lg leading-relaxed">
                 Content writing involves creating valuable, relevant, and engaging content for websites, blogs, and marketing, often used alongside web development services to improve performance.
               </p>
-            </div>
+            </HolographicCard>
 
             {/* Card 2 */}
-            <div className="seo-glow bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 transition-transform duration-500 hover:-translate-y-2">
+            <HolographicCard className="seo-glow bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 transition-transform duration-500 hover:-translate-y-2">
               <div className="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/20">
                 <PenTool className="w-7 h-7 text-blue-400" />
               </div>
@@ -94,7 +95,7 @@ export function ContentWritingHero() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </HolographicCard>
           </motion.div>
         </div>
       </section>

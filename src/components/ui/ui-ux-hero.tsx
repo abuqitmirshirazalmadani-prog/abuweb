@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { TrendingUp, MonitorSmartphone, Laptop } from 'lucide-react';
+import { HolographicCard } from './holographic-card';
 
 export function UiUxHero() {
   return (
@@ -68,7 +69,7 @@ export function UiUxHero() {
             className="mt-20 lg:mt-32 w-full grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10"
           >
             {/* Card 1 */}
-            <div className="seo-glow bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 transition-transform duration-500 hover:-translate-y-2">
+            <HolographicCard className="seo-glow bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 transition-transform duration-500 hover:-translate-y-2">
               <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 border border-primary/20">
                 <Laptop className="w-7 h-7 text-primary" />
               </div>
@@ -76,10 +77,10 @@ export function UiUxHero() {
               <p className="text-neutral-400 text-lg leading-relaxed">
                 UI (User Interface) focuses on visual design — crafting the look, feel, and interactivity of your product. A well-designed interface improves engagement and ensures your brand stands out.
               </p>
-            </div>
+            </HolographicCard>
 
             {/* Card 2 */}
-            <div className="seo-glow bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 transition-transform duration-500 hover:-translate-y-2">
+            <HolographicCard className="seo-glow bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 transition-transform duration-500 hover:-translate-y-2">
               <div className="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/20">
                 <MonitorSmartphone className="w-7 h-7 text-blue-400" />
               </div>
@@ -95,7 +96,7 @@ export function UiUxHero() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </HolographicCard>
           </motion.div>
         </div>
       </section>

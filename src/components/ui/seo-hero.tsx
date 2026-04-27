@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Search, MapPin, BarChart3, TrendingUp } from 'lucide-react';
+import { HolographicCard } from './holographic-card';
 
 export function SeoHero() {
   return (
@@ -39,7 +40,7 @@ export function SeoHero() {
             blink-caret .75s step-end infinite;
         }
       `}</style>
-      <section className="pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden relative text-white min-h-[90vh] flex items-center justify-center font-sans tracking-tight">
+      <section className="pt-32 pb-10 lg:pt-48 lg:pb-12 overflow-hidden relative text-white min-h-[70vh] flex items-center justify-center font-sans tracking-tight">
         {/* Abstract Background Elements */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <div className="absolute inset-0 opacity-40 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
@@ -115,7 +116,7 @@ export function SeoHero() {
             className="mt-20 lg:mt-32 w-full grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10"
           >
             {/* Card 1 */}
-            <div className="seo-glow bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 transition-transform duration-500 hover:-translate-y-2">
+            <HolographicCard className="seo-glow bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 transition-transform duration-500 hover:-translate-y-2">
               <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 border border-primary/20">
                 <Search className="w-7 h-7 text-primary" />
               </div>
@@ -123,10 +124,10 @@ export function SeoHero() {
               <p className="text-neutral-400 text-lg leading-relaxed">
                 Search Engine Optimization (SEO) is the strategic process of improving your website's visibility on Google and other search engines to drive organic, high-intent traffic.
               </p>
-            </div>
+            </HolographicCard>
 
             {/* Card 2 */}
-            <div className="seo-glow bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 transition-transform duration-500 hover:-translate-y-2">
+            <HolographicCard className="seo-glow bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 transition-transform duration-500 hover:-translate-y-2">
               <div className="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/20">
                 <MapPin className="w-7 h-7 text-blue-400" />
               </div>
@@ -142,7 +143,7 @@ export function SeoHero() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </HolographicCard>
           </motion.div>
         </div>
       </section>

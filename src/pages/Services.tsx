@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, Code, Smartphone, Palette, Brain, LineChart, PenTool, Globe, Briefcase } from 'lucide-react';
 import SEO from '../components/SEO';
 import { CardPattern, generateRandomString } from '../components/ui/evervault-card';
+import { ServiceMarqueeSection } from '../components/ui/perspective-marquee';
 
 const services = [
   {
@@ -180,6 +181,8 @@ export default function Services() {
           </motion.p>
         </div>
       </section>
+
+      <ServiceMarqueeSection />
 
       <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-6 md:px-12">

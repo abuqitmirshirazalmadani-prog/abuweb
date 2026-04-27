@@ -17,9 +17,11 @@ import { UiUxHero } from '../components/ui/ui-ux-hero';
 import { DigitalMarketingHero } from '../components/ui/digital-marketing-hero';
 import { ContentWritingHero } from '../components/ui/content-writing-hero';
 import { GraphicsDesignHero } from '../components/ui/graphics-design-hero';
+import WebDevHero from '../components/ui/vercel-hero-1';
 import { CategoryList } from '../components/ui/category-list';
 import { ProcessSection } from '../components/ui/how-we-do-it-process-overview';
 import { ProcessTimeline } from '../components/ui/process-timeline';
+import { ServiceMarqueeSection } from '../components/ui/perspective-marquee';
 import { TextRoll } from '../components/ui/text-roll';
 import { ParallaxText } from '../components/ui/parallax-text-scroll';
 import CornerFrameScrambleText from '../components/ui/corner-frame-scramble-text';
@@ -33,7 +35,7 @@ import { CardsParallax, type iCardItem } from '../components/ui/scroll-cards';
 import { TextGlitch } from '../components/ui/text-glitch-effect';
 import { WavyBlock, WavyBlockItem } from '../components/ui/wavy-text-block';
 import { MarkdownRotator } from '../components/ui/markdown-rotator';
-import { AetherFlowHero } from '../components/ui/aether-flow-hero';
+import AetherFlowHero from '../components/ui/aether-flow-hero';
 import { CTAWithVerticalMarquee } from '../components/ui/cta-with-text-marquee';
 
 const whyChooseAbuQitmirTech = [
@@ -594,7 +596,40 @@ export default function ServiceDetail() {
           </div>
         </section>
       ) : id === 'mobile-app' ? (
-        <AetherFlowHero />
+        <section className="pt-48 pb-40 lg:pt-56 lg:pb-48 relative overflow-hidden flex flex-col items-center justify-center min-h-[75vh] md:min-h-[85vh]">
+          <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-8 flex flex-col items-center justify-center gap-4"
+            >
+              <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-heading font-bold text-center leading-tight text-white mb-2">
+                Mobile App Development
+              </h1>
+              <span className="text-2xl md:text-4xl lg:text-5xl text-white/50 font-heading font-bold">Services</span>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-10 space-y-4"
+            >
+              <p>We build powerful, scalable, and intuitive mobile applications for iOS and Android.</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <Link 
+                to="/contact"
+                className="inline-block px-8 py-4 bg-primary text-black font-bold rounded-full hover:bg-primary/90 transition-transform hover:scale-105 shadow-[0_0_20px_rgba(92,230,92,0.4)]"
+              >
+                Get a Free Proposal
+              </Link>
+            </motion.div>
+          </div>
+        </section>
       ) : id === 'seo' ? (
         <SeoHero />
       ) : id === 'ui-ux' ? (
@@ -606,47 +641,11 @@ export default function ServiceDetail() {
       ) : id === 'graphics-design' ? (
         <GraphicsDesignHero />
       ) : id === 'web-development' ? (
-        <section className="pt-48 pb-40 lg:pt-56 lg:pb-48 relative overflow-hidden flex flex-col items-center justify-center min-h-[75vh] md:min-h-[85vh]">
-          <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mb-8 flex flex-col items-center justify-center gap-4"
-            >
-              <GlitchText 
-                text="Web Development" 
-                textClassName="text-[clamp(2.5rem,6vw,4.5rem)] font-heading font-bold text-center leading-tight"
-                className="min-h-0 p-0"
-              />
-              <span className="text-3xl md:text-5xl lg:text-6xl text-white/50 font-heading font-bold">Services in Pakistan</span>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-10 space-y-6"
-            >
-              <h2 className="text-xl md:text-2xl font-bold text-white mb-6">Fast, Modern, and SEO-Optimized Websites That Convert</h2>
-              <p>Your website is your digital storefront — and first impressions matter.</p>
-              <p>At Abuqitmir Tech, we offer professional web development services in Pakistan designed to help businesses build fast, responsive, and high-converting websites.</p>
-              <p>Whether you need a business website, SaaS platform, or e-commerce store, we create solutions that are built for performance, scalability, and SEO.</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              <Link 
-                to="/contact"
-                className="inline-block px-8 py-4 bg-primary text-black font-bold rounded-full hover:bg-primary/90 transition-transform hover:scale-105 shadow-[0_0_20px_rgba(92,230,92,0.4)]"
-              >
-                Get Consultation
-              </Link>
-            </motion.div>
-          </div>
-        </section>
+        <WebDevHero />
+      ) : id === 'ai-solutions' ? (
+        <AetherFlowHero />
       ) : id !== 'ai-solutions' && id !== 'seo' && id !== 'ui-ux' && id !== 'digital-marketing' && id !== 'content-writing' && id !== 'graphics-design' ? (
-        <section className="pt-40 pb-20 relative overflow-hidden">
+        <section className="pt-40 pb-10 relative overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-primary/10 blur-[120px] pointer-events-none" />
           
           <div className="max-w-4xl mx-auto px-6 md:px-12 relative z-10 text-center">
@@ -669,10 +668,12 @@ export default function ServiceDetail() {
         </section>
       ) : null}
 
+      <ServiceMarqueeSection />
+
       {id === 'web-development' && (
-        <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
+        <section className="py-12 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="mb-16">
+            <div className="mb-10">
               <AnimatedText 
                 text="Our Web Development Services" 
                 fontSize="clamp(2rem, 5vw, 4.5rem)"
@@ -1258,8 +1259,6 @@ export default function ServiceDetail() {
       )}
 
       {/* AI Solutions Specific Blocks */}
-      {id === 'ai-solutions' && <AiSolutionsHero />}
-
       {id === 'ai-solutions' && (
         <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
           <CategoryList 
@@ -1489,7 +1488,7 @@ export default function ServiceDetail() {
       {id === 'seo' && (
         <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
           <div className="max-w-5xl mx-auto px-6 relative z-10">
-            <div className="rounded-[2.5rem] bg-gradient-to-br from-[#0c1310] via-[#050908] to-[#030605] border border-white/10 p-8 md:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
+            <div className="rounded-[2.5rem] bg-white/5 backdrop-blur-sm border border-white/10 p-8 md:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
               {/* Background ambient glow */}
               <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
               
@@ -1505,7 +1504,7 @@ export default function ServiceDetail() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                 {seoImportanceData.map((reason, idx) => (
-                  <div key={idx} className="bg-gradient-to-br from-[#121c18] to-[#0c120f] border border-white/5 rounded-2xl p-6 lg:p-8 flex items-center gap-5 sm:gap-6 hover:border-primary/20 transition-colors shadow-lg">
+                  <div key={idx} className="bg-white/5 backdrop-blur-md hover:bg-white/10 border border-white/5 rounded-2xl p-6 lg:p-8 flex items-center gap-5 sm:gap-6 hover:border-primary/20 transition-colors shadow-lg">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/30 bg-primary/5 flex items-center justify-center shrink-0 shadow-[inset_0_0_10px_rgba(92,230,92,0.1)]">
                       <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                     </div>
@@ -1621,7 +1620,7 @@ export default function ServiceDetail() {
       {id === 'ui-ux' && (
         <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
           <div className="max-w-5xl mx-auto px-6 relative z-10">
-            <div className="rounded-[2.5rem] bg-gradient-to-br from-[#0c1310] via-[#050908] to-[#030605] border border-white/10 p-8 md:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
+            <div className="rounded-[2.5rem] bg-white/5 backdrop-blur-sm border border-white/10 p-8 md:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
               <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-8 backdrop-blur-md">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(92,230,92,0.8)]" />
@@ -1632,7 +1631,7 @@ export default function ServiceDetail() {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                 {uiUxImportanceData.map((reason, idx) => (
-                  <div key={idx} className="bg-gradient-to-br from-[#121c18] to-[#0c120f] border border-white/5 rounded-2xl p-6 lg:p-8 flex items-center gap-5 sm:gap-6 hover:border-primary/20 transition-colors shadow-lg">
+                  <div key={idx} className="bg-white/5 backdrop-blur-md hover:bg-white/10 border border-white/5 rounded-2xl p-6 lg:p-8 flex items-center gap-5 sm:gap-6 hover:border-primary/20 transition-colors shadow-lg">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/30 bg-primary/5 flex items-center justify-center shrink-0 shadow-[inset_0_0_10px_rgba(92,230,92,0.1)]">
                       <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                     </div>
@@ -1748,7 +1747,7 @@ export default function ServiceDetail() {
       {id === 'content-writing' && (
         <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
           <div className="max-w-5xl mx-auto px-6 relative z-10">
-            <div className="rounded-[2.5rem] bg-gradient-to-br from-[#0c1310] via-[#050908] to-[#030605] border border-white/10 p-8 md:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
+            <div className="rounded-[2.5rem] bg-white/5 backdrop-blur-sm border border-white/10 p-8 md:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
               <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-8 backdrop-blur-md">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(92,230,92,0.8)]" />
@@ -1759,7 +1758,7 @@ export default function ServiceDetail() {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                 {cwImportanceData.map((reason, idx) => (
-                  <div key={idx} className="bg-gradient-to-br from-[#121c18] to-[#0c120f] border border-white/5 rounded-2xl p-6 lg:p-8 flex items-center gap-5 sm:gap-6 hover:border-primary/20 transition-colors shadow-lg">
+                  <div key={idx} className="bg-white/5 backdrop-blur-md hover:bg-white/10 border border-white/5 rounded-2xl p-6 lg:p-8 flex items-center gap-5 sm:gap-6 hover:border-primary/20 transition-colors shadow-lg">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/30 bg-primary/5 flex items-center justify-center shrink-0 shadow-[inset_0_0_10px_rgba(92,230,92,0.1)]">
                       <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                     </div>
@@ -1875,7 +1874,7 @@ export default function ServiceDetail() {
       {id === 'digital-marketing' && (
         <section className="py-24 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
           <div className="max-w-5xl mx-auto px-6 relative z-10">
-            <div className="rounded-[2.5rem] bg-gradient-to-br from-[#0c1310] via-[#050908] to-[#030605] border border-white/10 p-8 md:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
+            <div className="rounded-[2.5rem] bg-white/5 backdrop-blur-sm border border-white/10 p-8 md:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
               <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-8 backdrop-blur-md">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(92,230,92,0.8)]" />
@@ -1886,7 +1885,7 @@ export default function ServiceDetail() {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                 {dmImportanceData.map((reason, idx) => (
-                  <div key={idx} className="bg-gradient-to-br from-[#121c18] to-[#0c120f] border border-white/5 rounded-2xl p-6 lg:p-8 flex items-center gap-5 sm:gap-6 hover:border-primary/20 transition-colors shadow-lg">
+                  <div key={idx} className="bg-white/5 backdrop-blur-md hover:bg-white/10 border border-white/5 rounded-2xl p-6 lg:p-8 flex items-center gap-5 sm:gap-6 hover:border-primary/20 transition-colors shadow-lg">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/30 bg-primary/5 flex items-center justify-center shrink-0 shadow-[inset_0_0_10px_rgba(92,230,92,0.1)]">
                       <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                     </div>

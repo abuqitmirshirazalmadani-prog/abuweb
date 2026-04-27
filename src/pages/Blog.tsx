@@ -5,6 +5,7 @@ import { BlogPost } from '../types/blog';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
+import { ServiceMarqueeSection } from '../components/ui/perspective-marquee';
 import { Calendar, Clock, ArrowRight, LayoutGrid, List as ListIcon } from 'lucide-react';
 
 export default function Blog() {
@@ -70,6 +71,8 @@ export default function Blog() {
               Insights, tutorials, and thoughts on software engineering, design, and building digital products.
             </motion.p>
           </div>
+
+          <ServiceMarqueeSection />
 
           {loading ? (
             <div className="flex justify-center items-center h-64">

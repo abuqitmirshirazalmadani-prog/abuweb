@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { HolographicCard } from "./holographic-card";
 
 // Types
 export interface iCardItem {
@@ -27,12 +28,13 @@ const Card: FC<iCardProps> = ({
 }) => {
   return (
     <div className="h-screen flex items-center justify-center sticky top-0 md:p-0 px-4 pt-16 md:pt-0 pb-16 md:pb-0 z-10 w-full">
-      <div
+      <HolographicCard
         className="relative flex flex-col h-[60vh] md:h-[600px] w-full max-w-[900px] py-12 px-6 md:px-16
         rotate-0 items-center justify-center mx-auto 
         shadow-2xl rounded-[40px] overflow-hidden group border border-white/10 mx-4"
-        style={{ backgroundColor: color || '#0f0f0f' }}
       >
+        {/* Make background black to match original setup, we'll implement color via overlay if needed or within card */}
+        <div className="absolute inset-0 z-0 bg-[#0f0f0f]" style={{ backgroundColor: color || '#0f0f0f' }} />
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
@@ -56,7 +58,7 @@ const Card: FC<iCardProps> = ({
             {description}
           </p>
         </div>
-      </div>
+      </HolographicCard>
     </div>
   );
 };

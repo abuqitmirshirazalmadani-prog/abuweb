@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone, MessageCircle } from 'lucide-react';
 import SEO from '../components/SEO';
 import AwwwardsButton from '../components/AwwwardsButton';
+import { ServiceMarqueeSection } from '../components/ui/perspective-marquee';
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -99,6 +100,8 @@ export default function Contact() {
           </motion.p>
         </div>
       </section>
+
+      <ServiceMarqueeSection />
 
       <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">

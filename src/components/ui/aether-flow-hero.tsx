@@ -2,34 +2,27 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Smartphone } from 'lucide-react';
-import { cn } from '../../lib/utils';
-import { Link } from 'react-router';
+import { ArrowRight, Zap } from 'lucide-react';
+
+// A utility function for class names
+const cn = (...classes) => classes.filter(Boolean).join(' ');
 
 // The main hero component
-export const AetherFlowHero = () => {
-    const canvasRef = React.useRef<HTMLCanvasElement>(null);
+const AetherFlowHero = () => {
+    const canvasRef = React.useRef(null);
 
     React.useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
         
         const ctx = canvas.getContext('2d');
-        if (!ctx) return;
-        
-        let animationFrameId: number;
-        let particles: Particle[] = [];
-        const mouse = { x: null as number | null, y: null as number | null, radius: 200 };
+        let animationFrameId;
+        let particles = [];
+        const mouse = { x: null, y: null, radius: 200 };
 
+        // Moved Particle class definition here to avoid initialization errors
         class Particle {
-            x: number;
-            y: number;
-            directionX: number;
-            directionY: number;
-            size: number;
-            color: string;
-
-            constructor(x: number, y: number, directionX: number, directionY: number, size: number, color: string) {
+            constructor(x, y, directionX, directionY, size, color) {
                 this.x = x;
                 this.y = y;
                 this.directionX = directionX;
@@ -39,7 +32,6 @@ export const AetherFlowHero = () => {
             }
 
             draw() {
-                if (!ctx) return;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
                 ctx.fillStyle = this.color;
@@ -47,7 +39,6 @@ export const AetherFlowHero = () => {
             }
 
             update() {
-                if (!canvas) return;
                 if (this.x > canvas.width || this.x < 0) {
                     this.directionX = -this.directionX;
                 }
@@ -77,7 +68,6 @@ export const AetherFlowHero = () => {
 
         function init() {
             particles = [];
-            if (!canvas) return;
             let numberOfParticles = (canvas.height * canvas.width) / 9000;
             for (let i = 0; i < numberOfParticles; i++) {
                 let size = (Math.random() * 2) + 1;
@@ -91,7 +81,6 @@ export const AetherFlowHero = () => {
         };
 
         const resizeCanvas = () => {
-            if (!canvas) return;
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             init(); 
@@ -101,7 +90,6 @@ export const AetherFlowHero = () => {
 
         const connect = () => {
             let opacityValue = 1;
-            if (!canvas || !ctx) return;
             for (let a = 0; a < particles.length; a++) {
                 for (let b = a; b < particles.length; b++) {
                     let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x))
@@ -110,11 +98,11 @@ export const AetherFlowHero = () => {
                     if (distance < (canvas.width / 7) * (canvas.height / 7)) {
                         opacityValue = 1 - (distance / 20000);
                         
-                        let dx_mouse_a = mouse.x !== null ? particles[a].x - mouse.x : 0;
-                        let dy_mouse_a = mouse.y !== null ? particles[a].y - mouse.y : 0;
+                        let dx_mouse_a = particles[a].x - mouse.x;
+                        let dy_mouse_a = particles[a].y - mouse.y;
                         let distance_mouse_a = Math.sqrt(dx_mouse_a*dx_mouse_a + dy_mouse_a*dy_mouse_a);
 
-                        if (mouse.x !== null && distance_mouse_a < mouse.radius) {
+                        if (mouse.x && distance_mouse_a < mouse.radius) {
                              ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue})`;
                         } else {
                              ctx.strokeStyle = `rgba(200, 150, 255, ${opacityValue})`;
@@ -132,7 +120,6 @@ export const AetherFlowHero = () => {
 
         const animate = () => {
             animationFrameId = requestAnimationFrame(animate);
-            if (!ctx || !canvas) return;
             // Set the background color inside the canvas draw loop
             ctx.fillStyle = 'black';
             ctx.fillRect(0, 0, innerWidth, innerHeight);
@@ -143,7 +130,7 @@ export const AetherFlowHero = () => {
             connect();
         };
         
-        const handleMouseMove = (event: MouseEvent) => {
+        const handleMouseMove = (event) => {
             mouse.x = event.clientX;
             mouse.y = event.clientY;
         };
@@ -169,11 +156,11 @@ export const AetherFlowHero = () => {
 
     const fadeUpVariants = {
         hidden: { opacity: 0, y: 20 },
-        visible: (i: number) => ({
+        visible: (i) => ({
             opacity: 1,
             y: 0,
             transition: {
-                delay: i * 0.2 + 0.1,
+                delay: i * 0.2 + 0.5,
                 duration: 0.8,
                 ease: "easeInOut",
             },
@@ -181,12 +168,13 @@ export const AetherFlowHero = () => {
     };
 
     return (
-        <div className="relative min-h-[75vh] md:min-h-[85vh] w-full flex flex-col items-center justify-center overflow-hidden pt-32 pb-20">
+        // Removed bg-black from this container
+        <div className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden">
             {/* The canvas is now the primary background */}
             <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full"></canvas>
             
             {/* Overlay HTML Content */}
-            <div className="relative z-10 text-center px-6 max-w-4xl mx-auto flex flex-col items-center">
+            <div className="relative z-10 text-center p-6 mt-20">
                 <motion.div
                     custom={0}
                     variants={fadeUpVariants}
@@ -194,9 +182,9 @@ export const AetherFlowHero = () => {
                     animate="visible"
                     className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-6 backdrop-blur-sm"
                 >
-                    <Smartphone className="h-4 w-4 text-primary" />
-                    <span className="text-sm font-medium text-white/90 font-mono tracking-wider uppercase">
-                        Android & iOS Apps
+                    <Zap className="h-4 w-4 text-primary" />
+                    <span className="text-sm font-medium text-gray-200">
+                        Intelligent Automation
                     </span>
                 </motion.div>
 
@@ -205,47 +193,35 @@ export const AetherFlowHero = () => {
                     variants={fadeUpVariants}
                     initial="hidden"
                     animate="visible"
-                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-bold tracking-tight mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70"
+                    className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400"
                 >
-                    Mobile App Development Services in Pakistan
+                    AI Development Services<br/>
+                    <span className="text-primary">in Pakistan</span>
                 </motion.h1>
 
-                <motion.p
+                <motion.div
                     custom={2}
                     variants={fadeUpVariants}
                     initial="hidden"
                     animate="visible"
-                    className="max-w-2xl mx-auto text-lg md:text-xl text-white/80 mb-6 font-medium"
+                    className="max-w-3xl mx-auto text-lg md:text-xl text-gray-400 mb-10 flex flex-col gap-4"
                 >
-                    Build High-Performance Apps for Android & iOS
-                </motion.p>
-                
-                <motion.p
+                    <strong className="text-white font-semibold">Build Intelligent Systems That Automate, Predict, and Scale Your Business</strong>
+                    <p>Artificial Intelligence is no longer the future — it’s the present. At Abuqitmir Tech, we provide advanced AI development services in Pakistan designed to help startups and businesses automate processes, reduce costs, and unlock new growth opportunities.</p>
+                </motion.div>
+
+                <motion.div
                     custom={3}
                     variants={fadeUpVariants}
                     initial="hidden"
                     animate="visible"
-                    className="max-w-3xl mx-auto text-base md:text-lg text-white/60 mb-10 leading-relaxed space-y-4"
                 >
-                    <b>Mobile apps are essential for modern businesses.</b><br/>
-                    At Abuqitmir Tech, we provide expert mobile app development services in Pakistan to help startups and businesses build powerful, scalable, and user-friendly apps.
-                </motion.p>
-
-                <motion.div
-                    custom={4}
-                    variants={fadeUpVariants}
-                    initial="hidden"
-                    animate="visible"
-                >
-                    <Link to="/contact" className="px-8 py-4 bg-primary text-black font-bold rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 flex items-center gap-2 mx-auto disabled:opacity-50 glow-primary inline-flex">
-                        Start Your App Today
+                    <a href="/contact" className="px-8 py-4 bg-primary text-black font-semibold rounded-lg shadow-[0_0_20px_rgba(92,230,92,0.3)] hover:scale-105 transition-all duration-300 flex items-center gap-2 mx-auto w-fit">
+                        Start Your AI Project Today
                         <ArrowRight className="h-5 w-5" />
-                    </Link>
+                    </a>
                 </motion.div>
             </div>
-            
-            {/* Gradient overlay at bottom to blend with next section */}
-            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#050505] to-transparent pointer-events-none" />
         </div>
     );
 };

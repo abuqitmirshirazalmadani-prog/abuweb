@@ -3,8 +3,7 @@ import React from 'react';
 export const Logo = ({ className = "" }: { className?: string }) => {
   return (
     <div className={`relative flex items-center ${className}`}>
-      <div className="flex items-center bg-[#0B0F19] px-3 py-1.5 rounded-lg border border-white/5 shadow-lg">
-        <span className="flex items-center text-xl sm:text-2xl">
+      <span className="flex items-center text-xl sm:text-2xl">
           {/* Opening Bracket */}
           <span 
             className="text-[#5CE65C] font-mono font-medium" 
@@ -32,7 +31,6 @@ export const Logo = ({ className = "" }: { className?: string }) => {
             style={{ boxShadow: '0 0 8px rgba(92, 230, 92, 0.6)' }}
           />
         </span>
-      </div>
     </div>
   );
 };

@@ -16,6 +16,7 @@ import { DottedSurface } from '../components/ui/dotted-surface';
 import { AnimatedText } from '../components/ui/animated-underline-text-one';
 import { GradientMeshBackground } from '../components/ui/gradient-mesh-background';
 import { StaggerTestimonials } from '../components/ui/stagger-testimonials';
+import { ServiceMarqueeSection } from '../components/ui/perspective-marquee';
 import { VideoThumbnailPlayer } from '../components/ui/video-thumbnail-player';
 
 import { CategoryList } from '../components/ui/category-list';
@@ -689,6 +690,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <ServiceMarqueeSection />
 
       {/* Recent Projects */}
       <section className="py-32 relative z-10 overflow-hidden border-t border-white/5">
