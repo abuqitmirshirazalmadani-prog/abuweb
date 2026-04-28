@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
-import { ServiceMarqueeSection } from '../components/ui/perspective-marquee';
 
 export default function About() {
   return (
@@ -32,8 +31,6 @@ export default function About() {
           </motion.p>
         </div>
       </section>
-
-      <ServiceMarqueeSection />
     </>
   );
 }

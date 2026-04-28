@@ -15,8 +15,7 @@ import { Boxes } from '../components/ui/background-boxes';
 import { DottedSurface } from '../components/ui/dotted-surface';
 import { AnimatedText } from '../components/ui/animated-underline-text-one';
 import { GradientMeshBackground } from '../components/ui/gradient-mesh-background';
-import { StaggerTestimonials } from '../components/ui/stagger-testimonials';
-import { ServiceMarqueeSection } from '../components/ui/perspective-marquee';
+import { Testimonials } from '../components/ui/testimonials-columns-1';
 import { VideoThumbnailPlayer } from '../components/ui/video-thumbnail-player';
 
 import { CategoryList } from '../components/ui/category-list';
@@ -227,6 +226,8 @@ function ServiceCard({ service, index }: { service: any; index: number; key?: Re
     </motion.div>
   );
 }
+
+import { BlurTextAnimation } from '../components/ui/blur-text-animation';
 
 export default function Home() {
   const organizationSchema = {
@@ -691,8 +692,6 @@ export default function Home() {
         </div>
       </section>
 
-      <ServiceMarqueeSection />
-
       {/* Recent Projects */}
       <section className="py-32 relative z-10 overflow-hidden border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -746,44 +745,55 @@ export default function Home() {
             </p>
           </div>
           <CategoryList 
-            items={[
+            categories={[
               {
                 id: "affordable-solutions",
                 title: "Affordable solutions for startups",
-                description: "Budget-friendly solutions built for fast-growing startups",
-                icon: <LineChart size={32} />,
-                href: "/contact"
+                subtitle: "Budget-friendly solutions built for fast-growing startups",
+                icon: <LineChart size={32} />
               },
               {
                 id: "ai-first",
                 title: "AI-first development approach",
-                description: "Smart AI-driven development for future-ready products",
-                icon: <Brain size={32} />,
-                href: "/services/ai-solutions"
+                subtitle: "Smart AI-driven development for future-ready products",
+                icon: <Brain size={32} />
               },
               {
                 id: "scalable-fast",
                 title: "Fast delivery & scalable architecture",
-                description: "Quick delivery with systems built to scale effortlessly",
-                icon: <Code size={32} />,
-                href: "/services/custom-software"
+                subtitle: "Quick delivery with systems built to scale effortlessly",
+                icon: <Code size={32} />
               },
               {
                 id: "seo-optimized",
                 title: "SEO-optimized builds from day one",
-                description: "SEO-focused development designed to rank from the start",
-                icon: <Search size={32} />,
-                href: "/services/seo"
+                subtitle: "SEO-focused development designed to rank from the start",
+                icon: <Search size={32} />
               },
               {
                 id: "dedicated-support",
                 title: "Dedicated support & long-term partnership",
-                description: "Reliable support with a focus on long-term growth",
-                icon: <Briefcase size={32} />,
-                href: "/contact"
+                subtitle: "Reliable support with a focus on long-term growth",
+                icon: <Briefcase size={32} />
               }
             ]} 
           />
+          
+          <div className="mt-20">
+            <BlurTextAnimation 
+              text="✔ Affordable solutions for startups
+✔ AI-first development approach
+✔ Fast delivery & scalable architecture
+✔ SEO-optimized builds from day one
+✔ Dedicated support & long-term partnership
+
+We don’t just build apps — we build growth systems."
+              fontSize="text-xl md:text-2xl lg:text-3xl"
+              className="py-12 bg-transparent"
+              textColor="text-white/80"
+              animationDelay={5000}
+            />
+          </div>
         </div>
       </section>
 
@@ -879,8 +889,8 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-32 relative z-10 overflow-hidden border-t border-white/5">
-        <StaggerTestimonials />
+      <section className="py-20 relative z-10 overflow-hidden border-t border-white/5">
+        <Testimonials />
       </section>
 
       {/* AI-Optimized FAQ */}

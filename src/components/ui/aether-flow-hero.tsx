@@ -22,7 +22,14 @@ const AetherFlowHero = () => {
 
         // Moved Particle class definition here to avoid initialization errors
         class Particle {
-            constructor(x, y, directionX, directionY, size, color) {
+            x: number;
+            y: number;
+            directionX: number;
+            directionY: number;
+            size: number;
+            color: string;
+
+            constructor(x: number, y: number, directionX: number, directionY: number, size: number, color: string) {
                 this.x = x;
                 this.y = y;
                 this.directionX = directionX;

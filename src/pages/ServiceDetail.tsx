@@ -21,7 +21,6 @@ import WebDevHero from '../components/ui/vercel-hero-1';
 import { CategoryList } from '../components/ui/category-list';
 import { ProcessSection } from '../components/ui/how-we-do-it-process-overview';
 import { ProcessTimeline } from '../components/ui/process-timeline';
-import { ServiceMarqueeSection } from '../components/ui/perspective-marquee';
 import { TextRoll } from '../components/ui/text-roll';
 import { ParallaxText } from '../components/ui/parallax-text-scroll';
 import CornerFrameScrambleText from '../components/ui/corner-frame-scramble-text';
@@ -667,8 +666,6 @@ export default function ServiceDetail() {
           </div>
         </section>
       ) : null}
-
-      <ServiceMarqueeSection />
 
       {id === 'web-development' && (
         <section className="py-12 relative overflow-hidden bg-transparent border-t border-white/5 z-10">
