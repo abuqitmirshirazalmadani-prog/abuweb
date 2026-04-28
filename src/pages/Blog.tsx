@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
 import { Calendar, Clock, ArrowRight, LayoutGrid, List as ListIcon } from 'lucide-react';
+import { Hero3DWrapper } from '../components/ui/hero-3d-wrapper';
 
 export default function Blog() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -50,14 +51,13 @@ export default function Blog() {
         canonical="https://abuqitmir.tech/blog"
       />
       
-      <div className="pt-32 pb-20 min-h-screen">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          
-          <div className="text-center mb-16">
+      <div className="min-h-screen">
+        <Hero3DWrapper className="pt-48 pb-40 lg:pt-56 lg:pb-48 min-h-[75vh]">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 text-center flex flex-col items-center justify-center gap-6 relative z-10">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-6xl font-heading font-bold mb-6"
+              className="text-4xl md:text-6xl font-heading font-bold mb-6 text-white drop-shadow-2xl"
             >
               Our <span className="text-primary">Blog</span>
             </motion.h1>
@@ -65,12 +65,14 @@ export default function Blog() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-lg text-white/70 max-w-2xl mx-auto"
+              className="text-lg text-white/80 max-w-2xl mx-auto drop-shadow-md"
             >
               Insights, tutorials, and thoughts on software engineering, design, and building digital products.
             </motion.p>
           </div>
+        </Hero3DWrapper>
 
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-16">
           {loading ? (
             <div className="flex justify-center items-center h-64">
               <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>

@@ -18,6 +18,8 @@ import { DigitalMarketingHero } from '../components/ui/digital-marketing-hero';
 import { ContentWritingHero } from '../components/ui/content-writing-hero';
 import { GraphicsDesignHero } from '../components/ui/graphics-design-hero';
 import WebDevHero from '../components/ui/vercel-hero-1';
+import { MobileAppHero } from '../components/ui/mobile-app-hero';
+import { Hero3DWrapper } from '../components/ui/hero-3d-wrapper';
 import { CategoryList } from '../components/ui/category-list';
 import { ProcessSection } from '../components/ui/how-we-do-it-process-overview';
 import { ProcessTimeline } from '../components/ui/process-timeline';
@@ -553,37 +555,35 @@ export default function ServiceDetail() {
 
       {/* Hero */}
       {id === 'custom-software' ? (
-        <section className="pt-48 pb-40 lg:pt-56 lg:pb-48 relative overflow-hidden flex flex-col items-center justify-center min-h-[75vh] md:min-h-[85vh]">
-          <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+        <Hero3DWrapper className="pt-48 pb-40 lg:pt-56 lg:pb-48 min-h-[75vh] md:min-h-[85vh]">
+          <div className="max-w-4xl mx-auto px-6 relative z-10 text-center flex flex-col items-center justify-center gap-6">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mb-6 flex flex-col items-center justify-center gap-4"
+              className="flex flex-col items-center justify-center gap-4"
             >
-              <GlitchText 
-                text="Custom Software Development" 
-                textClassName="text-[clamp(2.5rem,6vw,4.5rem)] font-heading font-bold text-center leading-tight"
-                className="min-h-0 p-0"
-              />
-              <span className="text-3xl md:text-5xl lg:text-6xl text-gradient font-heading font-bold">Services in Pakistan</span>
+              <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-heading font-bold text-center leading-tight text-white mb-2 tracking-tight drop-shadow-2xl">
+                Custom Software Development
+              </h1>
+              <span className="text-3xl md:text-5xl lg:text-6xl text-gradient font-heading font-bold drop-shadow-xl">Services in Pakistan</span>
             </motion.div>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-10 space-y-6"
+              className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-4 space-y-6 drop-shadow-md"
             >
-              <p className="font-semibold text-white text-xl md:text-2xl">
+              <p className="font-semibold text-white/90 text-xl md:text-2xl drop-shadow-md">
                 Build Scalable, Tailored Software Solutions for Your Business
               </p>
-              <p>Off-the-shelf software can only take you so far.</p>
-              <p>If your business needs flexibility, scalability, and a competitive edge, custom software development is the solution.</p>
+              <p>Off-the-shelf software can only take you so far. If your business needs flexibility, scalability, and a competitive edge, custom software development is the solution.</p>
               <p>At Abuqitmir Tech, we provide professional custom software development services in Pakistan to help businesses streamline operations, automate processes, and build powerful digital systems tailored to their exact needs.</p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
+              className="mt-4"
             >
               <Link 
                 to="/contact"
@@ -593,42 +593,9 @@ export default function ServiceDetail() {
               </Link>
             </motion.div>
           </div>
-        </section>
+        </Hero3DWrapper>
       ) : id === 'mobile-app' ? (
-        <section className="pt-48 pb-40 lg:pt-56 lg:pb-48 relative overflow-hidden flex flex-col items-center justify-center min-h-[75vh] md:min-h-[85vh]">
-          <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mb-8 flex flex-col items-center justify-center gap-4"
-            >
-              <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-heading font-bold text-center leading-tight text-white mb-2">
-                Mobile App Development
-              </h1>
-              <span className="text-2xl md:text-4xl lg:text-5xl text-white/50 font-heading font-bold">Services</span>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-10 space-y-4"
-            >
-              <p>We build powerful, scalable, and intuitive mobile applications for iOS and Android.</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              <Link 
-                to="/contact"
-                className="inline-block px-8 py-4 bg-primary text-black font-bold rounded-full hover:bg-primary/90 transition-transform hover:scale-105 shadow-[0_0_20px_rgba(92,230,92,0.4)]"
-              >
-                Get a Free Proposal
-              </Link>
-            </motion.div>
-          </div>
-        </section>
+        <MobileAppHero />
       ) : id === 'seo' ? (
         <SeoHero />
       ) : id === 'ui-ux' ? (

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone, MessageCircle } from 'lucide-react';
 import SEO from '../components/SEO';
 import AwwwardsButton from '../components/AwwwardsButton';
+import { Hero3DWrapper } from '../components/ui/hero-3d-wrapper';
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -78,14 +79,13 @@ export default function Contact() {
         schema={breadcrumbSchema}
       />
 
-      <section className="pt-40 pb-20 relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-primary/10 blur-[120px] pointer-events-none" />
+      <Hero3DWrapper className="pt-48 pb-40 lg:pt-56 lg:pb-48 min-h-[75vh]">
         
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center flex flex-col items-center justify-center gap-6">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-heading font-bold mb-6 text-gradient"
+            className="text-5xl md:text-7xl font-heading font-bold mb-6 text-white drop-shadow-2xl"
           >
             Get In Touch
           </motion.h1>
@@ -93,12 +93,12 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed"
+            className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed drop-shadow-md"
           >
             Ready to scale your business? Contact us today for a free consultation and project estimate.
           </motion.p>
         </div>
-      </section>
+      </Hero3DWrapper>
 
       <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">

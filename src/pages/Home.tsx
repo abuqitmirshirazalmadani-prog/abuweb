@@ -228,6 +228,7 @@ function ServiceCard({ service, index }: { service: any; index: number; key?: Re
 }
 
 import { BlurTextAnimation } from '../components/ui/blur-text-animation';
+import { Hero3DWrapper } from '../components/ui/hero-3d-wrapper';
 
 export default function Home() {
   const organizationSchema = {
@@ -416,9 +417,13 @@ export default function Home() {
       />
       <div className="relative min-h-screen">
         {/* Hero Section */}
-        <section className="relative z-10 min-h-[100dvh] flex flex-col items-center justify-start overflow-hidden pt-32 pb-32">
+        <Hero3DWrapper 
+          className="min-h-[100dvh] pt-32 pb-32 !justify-start" 
+          contentClassName="w-full flex flex-col items-center mt-12 md:mt-16"
+          bottomContent={<TrustStrip />}
+        >
         
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 text-center flex flex-col items-center w-full">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 text-center flex flex-col items-center w-full">
           
           {/* Trust Bar */}
           <motion.div 
@@ -509,10 +514,7 @@ export default function Home() {
             <CTAButtons />
           </motion.div>
         </div>
-
-        {/* Trust Strip */}
-        <TrustStrip />
-      </section>
+        </Hero3DWrapper>
       </div>
 
       {/* Technology Stack Marquee */}
