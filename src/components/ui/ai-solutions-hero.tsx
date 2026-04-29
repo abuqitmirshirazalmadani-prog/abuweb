@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Sparkles, TrendingUp } from 'lucide-react';
+import { Hero3DWrapper } from './hero-3d-wrapper';
 
 export function AiSolutionsHero() {
   const chartRef = useRef<HTMLCanvasElement>(null);
@@ -136,10 +137,12 @@ export function AiSolutionsHero() {
           .grid-corners-bottom::before, .grid-corners-bottom::after { width: 40px; height: 40px; }
         }
       `}</style>
-      <section className="pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden grid-corners relative text-white min-h-[90vh] flex items-center justify-center font-sans tracking-tight">
+      <Hero3DWrapper 
+        className="pt-32 pb-20 lg:pt-48 lg:pb-32 grid-corners text-white min-h-[90vh] font-sans tracking-tight"
+        contentClassName="sm:px-6 lg:px-8 max-w-7xl mx-auto w-full flex flex-col items-center"
+      >
         <div className="grid-corners-bottom"></div>
-        <div className="sm:px-6 lg:px-8 max-w-7xl mx-auto w-full relative z-10">
-          <div className="text-center flex flex-col items-center">
+        <div className="text-center flex flex-col items-center">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -294,8 +297,7 @@ export function AiSolutionsHero() {
               </div>
             </div>
           </motion.div>
-        </div>
-      </section>
+      </Hero3DWrapper>
     </>
   );
 }

@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 // A utility function for class names
 const cn = (...classes) => classes.filter(Boolean).join(' ');
@@ -223,10 +224,10 @@ const AetherFlowHero = () => {
                     initial="hidden"
                     animate="visible"
                 >
-                    <a href="/contact" className="px-8 py-4 bg-primary text-black font-semibold rounded-lg shadow-[0_0_20px_rgba(92,230,92,0.3)] hover:scale-105 transition-all duration-300 flex items-center gap-2 mx-auto w-fit">
-                        Start Your AI Project Today
-                        <ArrowRight className="h-5 w-5" />
-                    </a>
+            <Link to="/contact" className="px-8 py-4 bg-primary text-black font-semibold rounded-lg shadow-[0_0_20px_rgba(92,230,92,0.3)] hover:scale-105 transition-all duration-300 flex items-center gap-2 mx-auto w-fit">
+                Start Your AI Project Today
+                <ArrowRight className="h-5 w-5" />
+            </Link>
                 </motion.div>
             </div>
         </div>

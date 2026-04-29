@@ -609,11 +609,9 @@ export default function ServiceDetail() {
       ) : id === 'web-development' ? (
         <WebDevHero />
       ) : id === 'ai-solutions' ? (
-        <AetherFlowHero />
+        <AiSolutionsHero />
       ) : id !== 'ai-solutions' && id !== 'seo' && id !== 'ui-ux' && id !== 'digital-marketing' && id !== 'content-writing' && id !== 'graphics-design' ? (
-        <section className="pt-40 pb-10 relative overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-primary/10 blur-[120px] pointer-events-none" />
-          
+        <Hero3DWrapper className="pt-40 pb-10 min-h-[75vh]">
           <div className="max-w-4xl mx-auto px-6 md:px-12 relative z-10 text-center">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
@@ -631,7 +629,7 @@ export default function ServiceDetail() {
               {service.description}
             </motion.p>
           </div>
-        </section>
+        </Hero3DWrapper>
       ) : null}
 
       {id === 'web-development' && (

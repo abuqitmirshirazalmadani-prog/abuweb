@@ -6,8 +6,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 import RainingLetters from './ui/modern-animated-hero-section';
 
+import { ServingGlobalClients } from './ServingGlobalClients';
+
 export default function Layout() {
   const location = useLocation();
+  const showGlobalClients = location.pathname !== '/' && !location.pathname.startsWith('/admin');
 
   return (
     <div className="min-h-screen flex flex-col bg-transparent text-text font-sans selection:bg-primary/30 selection:text-white relative">
@@ -24,9 +27,14 @@ export default function Layout() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="flex-grow relative z-10"
+          className="flex-grow relative z-10 flex flex-col"
         >
           <Outlet />
+          {showGlobalClients && (
+            <div className="mt-auto">
+              <ServingGlobalClients />
+            </div>
+          )}
         </motion.main>
       </AnimatePresence>
 

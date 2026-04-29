@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FileText, TrendingUp, PenTool } from 'lucide-react';
 import { HolographicCard } from './holographic-card';
+import { Hero3DWrapper } from './hero-3d-wrapper';
 
 export function ContentWritingHero() {
   return (
@@ -12,7 +13,10 @@ export function ContentWritingHero() {
           box-shadow: 0 0 40px rgba(92, 230, 92, 0.15), inset 0 0 20px rgba(92, 230, 92, 0.1);
         }
       `}</style>
-      <section className="pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden relative text-white min-h-[90vh] flex items-center justify-center font-sans tracking-tight">
+      <Hero3DWrapper 
+        className="pt-32 pb-20 lg:pt-48 lg:pb-32 text-white min-h-[90vh] font-sans tracking-tight"
+        contentClassName="sm:px-6 lg:px-8 max-w-7xl mx-auto w-full flex flex-col items-center"
+      >
         <div className="absolute inset-0 z-0 pointer-events-none">
           <div className="absolute text-white/5 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[25vw] font-bold opacity-10 blur-sm mix-blend-overlay pointer-events-none select-none">WORDS</div>
           <div className="absolute inset-0 opacity-40 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
@@ -20,8 +24,7 @@ export function ContentWritingHero() {
           <div className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-emerald-500/10 rounded-full blur-[120px] mix-blend-screen overflow-hidden"></div>
         </div>
 
-        <div className="sm:px-6 lg:px-8 max-w-7xl mx-auto w-full relative z-10">
-          <div className="text-center flex flex-col items-center">
+        <div className="text-center flex flex-col items-center">
             
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
@@ -97,8 +100,7 @@ export function ContentWritingHero() {
               </ul>
             </HolographicCard>
           </motion.div>
-        </div>
-      </section>
+      </Hero3DWrapper>
     </>
   );
 }
