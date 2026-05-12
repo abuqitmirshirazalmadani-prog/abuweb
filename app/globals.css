@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+:root {
+  --background: #020617;
+  --foreground: #f8fafc;
+}
+
+@layer base {
+  body {
+    @apply bg-[#020617] text-slate-200 overflow-x-hidden;
+  }
+}
+
+.brutalist-border {
+  @apply border border-white/10 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.05)];
+}
+
+.brutalist-button {
+  @apply bg-cyan-400 text-black font-bold uppercase tracking-widest px-6 py-3 border-2 border-black shadow-[4px_4px_0px_0px_rgba(34,211,238,1)] transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none hover:bg-white hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)];
+}
