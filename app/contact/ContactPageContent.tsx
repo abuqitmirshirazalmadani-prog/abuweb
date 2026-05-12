@@ -45,11 +45,11 @@ export default function ContactPageContent() {
                  <div className="space-y-4">
                     <div className="flex items-center gap-6 group">
                        <Mail className="w-6 h-6 text-cyan-400" />
-                       <span className="text-xl md:text-2xl text-white font-bold tracking-tight group-hover:text-cyan-400 transition-colors">HELLO@ABUQITMIR.TECH</span>
+                       <span className="text-xl md:text-2xl text-white font-bold tracking-tight group-hover:text-cyan-400 transition-colors uppercase">abuqitmirshirazalmadani@gmail.com</span>
                     </div>
                     <div className="flex items-center gap-6 group">
                        <Phone className="w-6 h-6 text-cyan-400" />
-                       <span className="text-xl md:text-2xl text-white font-bold tracking-tight group-hover:text-cyan-400 transition-colors">+1 [XXX] XXX-XXXX</span>
+                       <span className="text-xl md:text-2xl text-white font-bold tracking-tight group-hover:text-cyan-400 transition-colors">+923233260859</span>
                     </div>
                  </div>
               </div>

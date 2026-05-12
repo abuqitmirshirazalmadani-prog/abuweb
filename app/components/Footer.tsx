@@ -14,6 +14,10 @@ export default function Footer({ suffix = "" }: { suffix?: string }) {
       <div className="font-mono text-[10px] tracking-[0.5em] text-slate-600 uppercase">
         © {year || "...."} ABUQITMIR.TECH // {suffix || "ALL RIGHTS RESERVED"}
       </div>
+      <div className="mt-4 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 font-mono text-[9px] text-slate-500 uppercase tracking-widest">
+        <a href="mailto:abuqitmirshirazalmadani@gmail.com" className="hover:text-cyan-400 transition-colors">abuqitmirshirazalmadani@gmail.com</a>
+        <a href="tel:+923233260859" className="hover:text-cyan-400 transition-colors">+923233260859</a>
+      </div>
       <div className="mt-8">
         <a 
           href="https://github.com/abuqitmirshirazalmadani-prog/abuweb" 
