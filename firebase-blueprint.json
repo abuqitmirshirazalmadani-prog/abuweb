@@ -1,0 +1,22 @@
+{
+  "entities": {
+    "submission": {
+      "title": "Contact Submission",
+      "description": "Store messages sent through the contact form",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Full name of the sender" },
+        "email": { "type": "string", "format": "email", "description": "Email of the sender" },
+        "message": { "type": "string", "description": "The actual message content" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Timestamp of submission" }
+      },
+      "required": ["name", "email", "message", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/submissions/{submissionId}": {
+      "schema": "submission",
+      "description": "Collection of contact form submissions"
+    }
+  }
+}

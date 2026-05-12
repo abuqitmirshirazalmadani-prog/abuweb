@@ -72,16 +72,16 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex gap-12 font-mono text-xs uppercase tracking-widest text-slate-500">
-              <div className="hidden lg:block">
-                <p className="text-white brightness-75 mb-1">LATENCY</p>
-                <p className="text-cyan-400">12ms_OPTIMAL</p>
-              </div>
-              <div className="hidden lg:block">
-                <p className="text-white brightness-75 mb-1">NODE_ID</p>
-                <p className="text-cyan-400">AQ_5521_X</p>
+            <motion.div variants={itemVariants} className="flex flex-wrap md:flex-nowrap gap-8 md:gap-12 font-mono text-[10px] uppercase tracking-widest text-slate-500">
+              <div>
+                <p className="text-white brightness-75 mb-1">CONNECT</p>
+                <a href="mailto:abuqitmirshirazalmadani@gmail.com" className="text-cyan-400 hover:text-white transition-colors">abuqitmirshirazalmadani@gmail.com</a>
               </div>
               <div>
+                <p className="text-white brightness-75 mb-1">MOBILE</p>
+                <a href="tel:+923233260859" className="text-cyan-400 hover:text-white transition-colors tracking-tighter">+923233260859</a>
+              </div>
+              <div className="hidden lg:block">
                 <p className="text-white brightness-75 mb-1">UPTIME</p>
                 <p className="text-cyan-400">99.9997%</p>
               </div>
