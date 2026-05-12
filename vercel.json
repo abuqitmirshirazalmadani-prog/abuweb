@@ -4,12 +4,8 @@
       "source": "/(.*)",
       "headers": [
         {
-          "key": "X-Frame-Options",
-          "value": "ALLOWALL"
-        },
-        {
           "key": "Content-Security-Policy",
-          "value": "frame-ancestors 'self' https://*.google.com https://*.aistudio.google.com https://*.vercel.app;"
+          "value": "frame-ancestors 'self' https://*.google.com https://*.aistudio.google.com https://ais-*.run.app https://*.vercel.app;"
         }
       ]
     }

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import Footer from "../../components/Footer";
 import { BlogPost } from "../../../lib/blog-data";

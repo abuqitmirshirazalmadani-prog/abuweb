@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Terminal, Shield, Lock, Activity, Server, Database } from "lucide-react";
 import { useState, useEffect } from "react";
 

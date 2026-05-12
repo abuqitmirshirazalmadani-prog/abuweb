@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { ArrowRight, Zap, Target, Crosshair } from "lucide-react";
 import Link from "next/link";
 import Footer from "../components/Footer";
